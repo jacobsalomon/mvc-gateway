@@ -36,15 +36,23 @@ export default function Home() {
 
         {/* CTA buttons */}
         <div className="animate-fade-in-delay-2 mt-4 flex flex-col sm:flex-row gap-4">
-          {/* Demo CTA — primary action */}
+          {/* Glasses demo CTA — primary action */}
           <Link
             href="/aerovision-demo/glasses-demo"
             className="flex h-14 items-center justify-center rounded-full bg-white px-8 text-lg font-semibold text-blue-600 shadow-lg transition-all hover:bg-blue-50 hover:shadow-xl hover:scale-105"
           >
-            See the Demo
+            Glasses Experience
           </Link>
 
-          {/* Pitch CTA — secondary action */}
+          {/* Dashboard CTA */}
+          <Link
+            href="/aerovision-demo/dashboard"
+            className="flex h-14 items-center justify-center rounded-full bg-white/20 px-8 text-lg font-semibold text-white shadow-lg backdrop-blur-sm transition-all hover:bg-white/30 hover:shadow-xl hover:scale-105"
+          >
+            Dashboard
+          </Link>
+
+          {/* Pitch CTA */}
           <Link
             href="/pitch"
             className="flex h-14 items-center justify-center rounded-full border-2 border-white/60 px-8 text-lg font-semibold text-white transition-all hover:bg-white/10 hover:border-white hover:scale-105"
