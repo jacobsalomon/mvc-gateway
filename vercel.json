@@ -1,14 +1,4 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "nextjs",
-  "rewrites": [
-    {
-      "source": "/aerovision-demo/:path*",
-      "destination": "https://aerovision-mvp.vercel.app/aerovision-demo/:path*"
-    },
-    {
-      "source": "/pitch/:path*",
-      "destination": "https://aerovision-seed-deck.vercel.app/pitch/:path*"
-    }
-  ]
+  "framework": "nextjs"
 }
