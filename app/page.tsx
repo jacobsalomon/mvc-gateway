@@ -152,7 +152,7 @@ export default function Home() {
           ======================== */}
       <section id="why-now" className="relative px-6 py-24 md:py-32 bg-dark-950 overflow-hidden">
         {/* Atmospheric Unsplash image — very low opacity for texture
-            Photo: Industrial/aerial scene by Unsplash */}
+            Photo: Industrial worker (https://unsplash.com/photos/UZUzvJEvKnI) */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-[0.08]"
           style={{ backgroundImage: "url('/why-now-bg.jpg')" }}
