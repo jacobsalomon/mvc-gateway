@@ -220,14 +220,14 @@ export default function Home() {
               </div>
               <div className="p-6 rounded-sm bg-white/[0.05] border border-white/[0.08]">
                 <div className="font-display text-5xl font-bold text-white tracking-tight">
-                  <CountUp end={17.6} suffix="%" decimals={1} />
+                  <CountUp end={26} suffix="%" />
                 </div>
                 <p className="mt-2 text-white/60 text-base">
-                  growth in trade school enrollment — a new generation is
-                  answering the call
+                  of the manufacturing workforce is approaching retirement
+                  — and their expertise leaves with them
                 </p>
                 <p className="mt-1 text-sm text-white/40">
-                  National Student Clearinghouse
+                  Deloitte
                 </p>
               </div>
             </div>
