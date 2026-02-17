@@ -16,7 +16,7 @@ export default function Home() {
           ======================== */}
       <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-dark-950 to-dark-900">
         {/* Atmospheric Unsplash image — very low opacity for texture
-            Photo by Unsplash (https://unsplash.com/photos/1565008447742) */}
+            Photo: Jetliner on tarmac (https://unsplash.com/photos/rLoa6JfULPw) */}
         <div
           className="absolute inset-0 parallax-bg opacity-[0.12]"
           style={{ backgroundImage: "url('/hero-bg.jpg')" }}
