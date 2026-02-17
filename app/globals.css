@@ -30,6 +30,7 @@
 
   /* Typography */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
@@ -81,6 +82,26 @@ html {
   }
 }
 
+/* Animated dot-grid pulse — subtle breathing effect */
+@keyframes grid-pulse {
+  0%, 100% {
+    opacity: 0.04;
+  }
+  50% {
+    opacity: 0.08;
+  }
+}
+
+/* Slower, offset pulse for depth */
+@keyframes grid-pulse-slow {
+  0%, 100% {
+    opacity: 0.03;
+  }
+  50% {
+    opacity: 0.06;
+  }
+}
+
 /* Subtle bounce for scroll indicator chevron */
 @keyframes bounce-slow {
   0%, 100% {
@@ -95,29 +116,29 @@ html {
    ANIMATION UTILITY CLASSES
    ======================== */
 
-/* Hero staggered entrance animations */
+/* Hero staggered entrance animations — refined expo-out easing */
 .animate-fade-in {
-  animation: fade-in-up 0.6s ease-out forwards;
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-fade-in-delay-1 {
   opacity: 0;
-  animation: fade-in-up 0.6s ease-out 0.2s forwards;
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
 }
 
 .animate-fade-in-delay-2 {
   opacity: 0;
-  animation: fade-in-up 0.6s ease-out 0.4s forwards;
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
 }
 
 .animate-fade-in-delay-3 {
   opacity: 0;
-  animation: fade-in-up 0.6s ease-out 0.6s forwards;
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
 }
 
 .animate-fade-in-delay-4 {
   opacity: 0;
-  animation: fade-in-up 0.6s ease-out 0.8s forwards;
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
 }
 
 /* Scroll-triggered animation classes (applied by ScrollReveal) */
@@ -126,26 +147,57 @@ html {
 }
 
 .scroll-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
+  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .scroll-fade-in-left {
-  animation: fade-in-left 0.6s ease-out forwards;
+  animation: fade-in-left 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .scroll-fade-in-right {
-  animation: fade-in-right 0.6s ease-out forwards;
+  animation: fade-in-right 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Stagger delays for scroll-triggered groups */
-.scroll-delay-1 { animation-delay: 0.1s; }
-.scroll-delay-2 { animation-delay: 0.2s; }
-.scroll-delay-3 { animation-delay: 0.3s; }
-.scroll-delay-4 { animation-delay: 0.4s; }
+/* Stagger delays for scroll-triggered groups — wider spacing for drama */
+.scroll-delay-1 { animation-delay: 0.15s; }
+.scroll-delay-2 { animation-delay: 0.3s; }
+.scroll-delay-3 { animation-delay: 0.45s; }
+.scroll-delay-4 { animation-delay: 0.65s; }
+
+/* Animated grid pulse classes */
+.animate-grid-pulse {
+  animation: grid-pulse 4s ease-in-out infinite;
+}
+
+.animate-grid-pulse-slow {
+  animation: grid-pulse-slow 7s ease-in-out infinite;
+}
 
 /* Bounce animation for scroll-down chevron */
 .animate-bounce-slow {
   animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* Parallax background — image scrolls slower than content */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Disable parallax on mobile (background-attachment: fixed is buggy on iOS) */
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-attachment: scroll;
+  }
+}
+
+/* CTA button glow on hover */
+.cta-glow {
+  transition: all 0.3s ease;
+}
+.cta-glow:hover {
+  box-shadow: 0 0 30px rgba(230, 227, 224, 0.25), 0 0 60px rgba(230, 227, 224, 0.1);
 }
 
 /* Respect user preference for reduced motion */
@@ -158,7 +210,9 @@ html {
   .scroll-fade-in-up,
   .scroll-fade-in-left,
   .scroll-fade-in-right,
-  .animate-bounce-slow {
+  .animate-bounce-slow,
+  .animate-grid-pulse,
+  .animate-grid-pulse-slow {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
@@ -166,6 +220,10 @@ html {
 
   .scroll-hidden {
     opacity: 1;
+  }
+
+  .parallax-bg {
+    background-attachment: scroll !important;
   }
 
   html {

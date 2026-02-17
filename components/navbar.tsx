@@ -12,8 +12,8 @@ const NAV_LINKS = [
 ];
 
 // Sticky navigation bar.
-// Starts transparent over the dark hero, transitions to solid white
-// with shadow once the user scrolls past 50px.
+// Starts transparent over the dark hero, transitions to dark solid
+// with subtle bottom border once the user scrolls past 50px.
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -31,7 +31,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white shadow-md"
+          ? "bg-dark-950/95 backdrop-blur-sm border-b border-white/10"
           : "bg-transparent"
       }`}
     >
@@ -39,9 +39,7 @@ export default function Navbar() {
         {/* Company name / wordmark */}
         <Link
           href="/"
-          className={`text-lg font-bold tracking-tight transition-colors duration-300 ${
-            scrolled ? "text-gray-900" : "text-white"
-          }`}
+          className="text-lg font-bold tracking-tight text-white transition-colors duration-300"
         >
           MVC
         </Link>
@@ -52,8 +50,8 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors duration-300 hover:opacity-80 ${
-                scrolled ? "text-gray-600" : "text-white/80"
+              className={`text-sm font-medium transition-colors duration-300 hover:text-white ${
+                scrolled ? "text-white/70" : "text-white/80"
               }`}
             >
               {link.label}
@@ -65,21 +63,15 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Link
             href="/aerovision-demo/glasses-demo"
-            className={`hidden sm:inline-flex items-center rounded-sm px-5 py-2 text-sm font-medium transition-all duration-300 ${
-              scrolled
-                ? "bg-gray-900 text-white hover:bg-dark-700"
-                : "bg-cream-200 text-dark-950 hover:bg-cream-300"
-            }`}
+            className="hidden sm:inline-flex items-center rounded-sm bg-cream-200 px-5 py-2 text-sm font-medium text-dark-950 transition-all duration-300 hover:bg-cream-300"
           >
-            See AeroVision
+            See It in Action
           </Link>
 
           {/* Mobile hamburger toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`md:hidden transition-colors duration-300 ${
-              scrolled ? "text-gray-900" : "text-white"
-            }`}
+            className="md:hidden text-white transition-colors duration-300"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -87,16 +79,16 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile slide-down menu */}
+      {/* Mobile slide-down menu — dark to match the page */}
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
+        <div className="md:hidden bg-dark-950 border-t border-white/10">
           <div className="flex flex-col px-6 py-4 gap-4">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={handleLinkClick}
-                className="text-gray-700 font-medium text-sm py-2"
+                className="text-white/70 hover:text-white font-medium text-sm py-2 transition-colors"
               >
                 {link.label}
               </a>
@@ -104,9 +96,9 @@ export default function Navbar() {
             <Link
               href="/aerovision-demo/glasses-demo"
               onClick={handleLinkClick}
-              className="inline-flex items-center justify-center rounded-sm bg-gray-900 px-5 py-2.5 text-sm font-medium text-white hover:bg-dark-700"
+              className="inline-flex items-center justify-center rounded-sm bg-cream-200 px-5 py-2.5 text-sm font-medium text-dark-950 hover:bg-cream-300 transition-colors"
             >
-              See AeroVision
+              See It in Action
             </Link>
           </div>
         </div>

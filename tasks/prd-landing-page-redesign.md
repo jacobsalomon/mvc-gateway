@@ -1,235 +1,203 @@
-# PRD: MVC Landing Page Redesign
+# PRD: MVC Gateway Landing Page — Visual Redesign
 
 ## Overview
+Transform the MVC Gateway landing page from a clean-but-basic layout into a dark, cinematic, mission-driven experience inspired by Anduril and Hadrian. The copy and narrative structure stay the same — this is purely a visual and experiential upgrade. The page should feel like a defense-tech mission briefing: dark, atmospheric, serious, and deeply confident.
 
-Redesign the landing page at mechanicalvisioncorp.com (the `mvc-gateway` project at `~/Desktop/Primary_OIR/MVC/mvc-gateway/`) from a single-hero placeholder into a full multi-section marketing page. The page tells the story of why The Mechanical Vision Corporation exists: skilled tradespeople across aerospace, automotive, and industrial sectors are drowning in paperwork, and MVC is building the solution. The page drives visitors to AeroVision (the aerospace product demo) and the investor deck.
-
-**Key positioning:** MVC is a cross-industry company for mechanics. AeroVision is the first product line, focused on aerospace. The company is in stealth — don't reveal how the product works. Focus on the problem and paint a vision of the solved world.
+**Project:** `~/Desktop/Primary_OIR/MVC/mvc-gateway/`
+**Live URL:** mechanicalvisioncorp.com
+**Stack:** Next.js 15 + Tailwind CSS 4 + React 19 + lucide-react
+**Deploy:** Push to `main` on `jacobsalomon/mvc-gateway` → Vercel auto-deploys
 
 ## Goals
-
-- Replace the current single-hero page with a 7-section marketing page
-- Establish MVC as a cross-industry company serving mechanics in aerospace, automotive, and industrial
-- Communicate the paperwork crisis with real statistics
-- Weave in the reindustrialization/labor force narrative (one dedicated section + subtle references)
-- Drive visitors to the AeroVision demo, investor deck, and dashboard
-- Match the doss.com design language: bold typography, generous whitespace, card-based layouts, scroll animations
-- Dark hero transitioning to light sections below
-- Fully responsive (desktop + mobile)
-- Lightweight — CSS animations + Intersection Observer only (no GSAP/Framer Motion)
+- Make the page feel premium, cinematic, and mission-driven (Anduril/Hadrian energy)
+- Shift from alternating dark/light sections to a predominantly dark palette
+- Add atmospheric industrial imagery (aerial factories, runways) from Unsplash
+- Upgrade typography with a display font for headlines
+- Add polished animation touches (stat counters, parallax, refined reveals)
+- Fix remaining copy issues (navbar CTA, footer CTA)
+- Maintain fast load times and accessibility
 
 ## Quality Gates
 
-These must pass for every user story:
-- `npx tsc --noEmit` — TypeScript type checking
-- `npx next build` — Production build succeeds
-- Visual verification in browser at desktop (1440px) and mobile (375px) widths
+These commands must pass for every user story:
+- `npm run build` — Next.js production build
+- `npm run lint` — ESLint checks
+
+For UI stories, also include:
+- Visual verification in browser at `localhost:3000`
 
 ## User Stories
 
-### US-001: Project Setup & Design System
-**Description:** As a developer, I want the project scaffolded with design tokens, animation utilities, and component structure so that subsequent stories can build on a solid foundation.
+### US-001: Go Full Dark — Convert All Sections to Dark Palette
+**Description:** As a visitor, I want the entire page to feel dark, cinematic, and cohesive — not alternating between dark hero and white content sections like a typical SaaS page.
 
 **Acceptance Criteria:**
-- [ ] Install `lucide-react` as a dependency
-- [ ] Update `app/globals.css` with expanded design tokens: navy-900 (#0a0f1a), navy-800 (#111827), accent blue (#2563EB), stat-blue (#3b82f6), light grays for section backgrounds
-- [ ] Add CSS animation keyframes for fade-in-up, fade-in-left, fade-in-right (transform + opacity transitions, 0.6s ease-out)
-- [ ] Create `components/scroll-reveal.tsx` — a reusable wrapper component using Intersection Observer that adds animation classes when elements enter the viewport (threshold 0.1, triggerOnce)
-- [ ] Create `components/section-wrapper.tsx` — a reusable section container with consistent max-width (1280px), horizontal padding, and vertical spacing
-- [ ] Existing `next.config.ts` rewrites and `layout.tsx` Google Analytics are untouched
-- [ ] `npx tsc --noEmit` passes
-- [ ] `npx next build` passes
+- [ ] "The Opportunity" section (currently `bg-white`) becomes dark (e.g., `bg-dark-900` or similar)
+- [ ] "Why Now" section (currently `bg-gray-50`) becomes a slightly different dark shade for visual separation
+- [ ] "What We Believe" section (currently `bg-white`) becomes dark
+- [ ] CTA footer section becomes dark
+- [ ] All text colors updated for contrast against dark backgrounds (white/cream primary, white/60-70% for secondary)
+- [ ] Stat cards restyled for dark context (dark card with subtle border or glass-morphism effect)
+- [ ] "Why Now" right-column stat cards restyled for dark context
+- [ ] Section transitions use gradient fades rather than hard color breaks
+- [ ] Footer text colors updated for dark background
+- [ ] Page still reads well — hierarchy is clear, text is legible, sections are visually distinct despite all being dark
 
-### US-002: Sticky Navigation Bar
-**Description:** As a visitor, I want a sticky navigation bar so that I can always access the demo CTA and navigate between sections.
-
-**Acceptance Criteria:**
-- [ ] Create `components/navbar.tsx` with: MVC company name/wordmark on the left, section anchor links in the center (hidden on mobile), "See AeroVision" primary CTA button on the right
-- [ ] Nav starts transparent over the dark hero, transitions to solid white with shadow on scroll (using scroll event listener with a threshold ~50px)
-- [ ] Text color flips from white (over hero) to dark (after scroll) with smooth transition
-- [ ] "See AeroVision" button links to `/aerovision-demo/glasses-demo`
-- [ ] On mobile: hamburger menu icon toggles a slide-down menu with section links and CTA
-- [ ] Nav is `position: fixed` with `z-50`
-- [ ] Add navbar to `app/page.tsx`
-
-### US-003: Hero Section
-**Description:** As a visitor, I want a bold, dark hero section that immediately communicates what MVC does and compels me to scroll or click the CTA.
+### US-002: Typography Upgrade — Display Font + Refined Hierarchy
+**Description:** As a visitor, I want the typography to feel bold, industrial, and distinctive — not generic.
 
 **Acceptance Criteria:**
-- [ ] Full-viewport-height section with dark navy/near-black gradient background (navy-900 to navy-800)
-- [ ] Subtle geometric pattern or grid overlay at low opacity for visual texture (CSS-only, no images needed — use a repeating linear-gradient grid pattern)
-- [ ] Large headline: "The Mechanic Works." on line one, "The Paperwork Writes Itself." on line two — responsive sizing (text-5xl mobile, text-7xl desktop)
-- [ ] Subheadline below: one sentence establishing MVC across aerospace, automotive, and industrial (e.g., "Across aerospace, automotive, and industrial — we're ending the paperwork burden for the people who build and maintain everything.")
-- [ ] Primary CTA button: "See AeroVision" → `/aerovision-demo/glasses-demo` (white button, bold)
-- [ ] Secondary CTA link: "Investor Deck" → `/pitch` (text link with arrow, more subtle)
-- [ ] Staggered fade-in animations on headline, subheadline, and CTAs (using the CSS animation delays from US-001)
-- [ ] Scroll-down indicator at bottom (subtle animated chevron)
+- [ ] A display/heading font added via `next/font/google` (recommendation: Space Grotesk — techy, industrial, geometric)
+- [ ] All `<h1>` and `<h2>` elements use the display font
+- [ ] Hero headline (`h1`) sized up to `text-6xl md:text-8xl lg:text-9xl` with tight negative letter-spacing (`tracking-tighter`)
+- [ ] Section headings (`h2`) sized to `text-4xl md:text-6xl` with `tracking-tight`
+- [ ] Pillar numbers (01, 02, 03) use the display font at large size
+- [ ] Body text remains Inter
+- [ ] Stat numbers use the display font for extra impact
+- [ ] Overall visual contrast between headings and body text is dramatically increased
+- [ ] Font variables properly declared in layout.tsx and globals.css
 
-### US-004: The Problem Section
-**Description:** As a visitor, I want to understand the paperwork crisis facing mechanics so that I feel the urgency of what MVC is solving.
-
-**Acceptance Criteria:**
-- [ ] White/light background section, clear visual break from dark hero
-- [ ] Section header: something punchy establishing the problem (e.g., "The Crisis Hiding in Plain Sight")
-- [ ] Three stat cards in a responsive grid (3-column desktop, stacked mobile), each with:
-  - A large stat number in accent blue (doss-style oversized treatment, ~text-6xl)
-  - A supporting label below explaining the stat
-  - Stats to use: "60%" / "of a mechanic's day is paperwork, not work" | "40,000" / "mechanic shortage by 2028" | "$1–2M" / "cost of a single failed aircraft transition"
-- [ ] Below the cards: a short paragraph (2-3 sentences) that names all three verticals — aerospace, automotive, industrial — and frames this as a systemic problem, not one industry's quirk
-- [ ] All cards use ScrollReveal for fade-in-up animation on scroll
-- [ ] Source attributions in small muted text below stats (e.g., "McKinsey" / "Oliver Wyman" / "IBA")
-
-### US-005: The Stakes Section
-**Description:** As a visitor, I want to understand what's at risk when documentation fails so that the urgency is clear.
+### US-003: Hero Section — Atmospheric Background + Animated Grid
+**Description:** As a visitor, I want the hero to feel immersive and cinematic — like I've entered a different world — not just text on a dark gradient.
 
 **Acceptance Criteria:**
-- [ ] Light gray background (bg-gray-50 or similar) to differentiate from the Problem section
-- [ ] Section header framing the consequences (e.g., "When the Paperwork Fails, Everything Fails")
-- [ ] 3-4 stat items displayed in a horizontal layout (desktop) or stacked (mobile), each with a large number and one-line explanation. Stats to use:
-  - "520,000" / "suspected unapproved parts in aircraft annually"
-  - "70%" / "of compliance failures caused by poor documentation"
-  - "800+" / "aircraft grounded by the FAA for documentation violations"
-- [ ] No company names, no scandal narratives — just the numbers speaking for themselves
-- [ ] Subtle divider lines or card borders between stats
-- [ ] ScrollReveal fade-in animations
+- [ ] Subtle animated dot-grid or node-mesh background effect (CSS/canvas-based, lightweight — no heavy libraries)
+- [ ] A dark atmospheric Unsplash image layered behind the content with very low opacity (10-15%) for texture
+- [ ] Hero content has more vertical breathing room
+- [ ] CTA buttons restyled: primary button gets a subtle glow/shadow effect on hover
+- [ ] "Scroll" indicator refined (more subtle, thinner typography)
+- [ ] The overall hero feels like standing on the observation deck of a factory at night — dark, vast, purposeful
 
-### US-006: Reindustrialization & Labor Force Section
-**Description:** As a visitor, I want to understand why this problem matters NOW — connecting MVC to the broader reindustrialization of America and the labor force crisis.
+### US-004: Animated Stat Counters
+**Description:** As a visitor, I want the big numbers (25%, 1.9M, $2T+) to count up from zero when they scroll into view — making them feel alive and dramatic.
 
 **Acceptance Criteria:**
-- [ ] White background section
-- [ ] Section header tying to the labor force narrative (e.g., "America Is Rebuilding. The Workforce That Builds Everything Still Runs on Paper.")
-- [ ] Two-column layout on desktop (text left, visual/stats right), stacked on mobile
-- [ ] Left column: 2-3 short, punchy paragraphs weaving together:
-  - America is investing trillions in manufacturing, aerospace, defense, infrastructure
-  - The mechanics and technicians who do this work are the backbone — and they're retiring (80% within 6 years, 27% already over 64)
-  - You can't reindustrialize with 1970s paperwork systems
-  - Documentation IS infrastructure
-- [ ] Right column: 2-3 supporting stats displayed large (e.g., "80%" / "of the workforce expected to retire within 6 years" and "5 years" / "to train a new mechanic")
-- [ ] ScrollReveal animations (text fades in from left, stats from right)
+- [ ] New `CountUp` client component created at `components/count-up.tsx`
+- [ ] Uses Intersection Observer to trigger when element enters viewport
+- [ ] Animates from 0 to target number over ~2 seconds with ease-out curve
+- [ ] Handles different formats: percentage (25%), abbreviated millions (1.9M), currency ($2T+)
+- [ ] Prefix/suffix (%, M, $, +, T) handled correctly (don't animate the letters)
+- [ ] Animation only triggers once (doesn't re-animate on scroll back)
+- [ ] Respects `prefers-reduced-motion` (shows final number instantly)
+- [ ] Applied to all stat numbers on the page (Opportunity section + Why Now section)
 
-### US-007: "What If..." Vision Section
-**Description:** As a visitor, I want to imagine what the world looks like when the documentation problem is solved — without being told how the product works.
+### US-005: Atmospheric Imagery — Unsplash Sourcing + Integration
+**Description:** As a visitor, I want subtle, atmospheric industrial imagery that adds visual richness and depth without showing specific products or people.
 
 **Acceptance Criteria:**
-- [ ] Dark section (navy-800 or navy-900 background, white text) creating a visual bookend with the hero
-- [ ] Section opens with "What if..." in large italic or lighter-weight text
-- [ ] 3-4 "What if..." statements, each on its own line with generous spacing, painting the solved world:
-  - "What if mechanics never touched a form again?"
-  - "What if every part had a complete, tamper-proof history from the moment it was made?"
-  - "What if documentation generated itself — from the work, as it happens?"
-  - "What if the people who build everything could just... build?"
-- [ ] Each statement fades in sequentially as the user scrolls (staggered ScrollReveal)
-- [ ] No product details, no technology explanation — pure vision
-- [ ] Ends with a brief line: "That's what we're building." followed by "See AeroVision →" link to `/aerovision-demo/glasses-demo`
+- [ ] 2-3 Unsplash images sourced (aerial factory/industrial complex, airport runway from above, abstract industrial texture)
+- [ ] Images downloaded to `public/` directory (not hotlinked — Unsplash license requires download)
+- [ ] Hero section: one image as very low-opacity background texture
+- [ ] "Why Now" section: one image as background with dark overlay (opacity 8-12%)
+- [ ] Images are optimized (compressed, reasonable file size <500KB each)
+- [ ] Dark gradient overlays ensure text remains fully legible
+- [ ] Images add atmosphere without distracting from content
+- [ ] Proper Unsplash attribution added (comment in code with photographer + Unsplash link)
 
-### US-008: CTA Section & Footer
-**Description:** As a visitor, I want a clear final call-to-action and clean footer so I know exactly what to do next.
+### US-006: Navbar + CTA Footer Copy & Style Updates
+**Description:** As a visitor, I want the navigation and final call-to-action to feel cohesive with the new dark-cinematic design and use product-agnostic language.
 
 **Acceptance Criteria:**
-- [ ] CTA section with white background, centered layout
-- [ ] Headline: "See It In Action" or similar
-- [ ] Three CTA options clearly laid out:
-  - Primary: "See AeroVision" → `/aerovision-demo/glasses-demo` (large blue button)
-  - Secondary: "Investor Deck" → `/pitch` (outlined button or text link)
-  - Tertiary: "View Dashboard" → `/aerovision-demo/dashboard` (text link)
-- [ ] Below the CTAs: minimal footer with "The Mechanical Vision Corporation" and "Jake Salomon | jacobrsalomon@gmail.com" (matching current footer content)
-- [ ] Copyright line: "© 2026 The Mechanical Vision Corporation"
-- [ ] Footer has subtle top border and muted text colors
+- [ ] Navbar CTA button text changed from "See AeroVision" to "See It in Action" (all instances — desktop, mobile)
+- [ ] CTA footer paragraph changed from "We're starting in aerospace..." to something vague and exciting (e.g., "The technology is real. The mission is just beginning.")
+- [ ] Navbar scroll behavior updated: since page is now all-dark, navbar starts transparent and transitions to dark solid (not white) on scroll
+- [ ] Navbar scrolled state uses `bg-dark-950` or similar with subtle bottom border instead of `bg-white shadow-md`
+- [ ] All nav link colors work against dark scrolled background
+- [ ] Mobile menu styled dark to match
+- [ ] Footer styled cohesively with dark theme
 
-### US-009: Responsive Polish & Scroll Animations
-**Description:** As a visitor on any device, I want the page to look polished and animations to feel smooth so that MVC feels like a credible, well-built company.
+### US-007: Animation Polish — Parallax, Timing, Transitions
+**Description:** As a visitor, I want the page to feel smooth, refined, and intentional in its motion — subtle touches that elevate the experience.
 
 **Acceptance Criteria:**
-- [ ] All sections verified at 1440px (desktop), 1024px (tablet), and 375px (mobile) widths
-- [ ] Typography scales appropriately (hero headline shrinks on mobile, stat numbers stay large but not overflowing)
-- [ ] All stat cards stack to single-column on mobile with proper spacing
-- [ ] Navbar hamburger menu works correctly on mobile
-- [ ] ScrollReveal animations trigger correctly on all sections (no janky partial reveals)
-- [ ] `prefers-reduced-motion` media query disables animations for accessibility
-- [ ] No horizontal scroll on any viewport width
-- [ ] Page loads fast — no heavy images, no JS animation libraries
-- [ ] `npx tsc --noEmit` passes
-- [ ] `npx next build` passes
-- [ ] Visual verification at desktop AND mobile confirms all sections render correctly
+- [ ] Hero background has a subtle parallax effect (moves slightly slower than content on scroll) — CSS `background-attachment: fixed` or transform-based
+- [ ] Scroll-reveal animation durations increased slightly for more elegance (0.6s → 0.8s)
+- [ ] Easing curves updated to `cubic-bezier(0.16, 1, 0.3, 1)` for a more refined feel
+- [ ] Stat counter animations stagger slightly (first starts immediately, second after 0.2s, third after 0.4s)
+- [ ] Section gradient transitions are smooth (no jarring color jumps)
+- [ ] "What If" questions have a slightly longer stagger between reveals (feels more dramatic/deliberate)
+- [ ] All animations still respect `prefers-reduced-motion`
 
 ## Functional Requirements
-
-- FR-1: The page must include a sticky navigation bar with a "See AeroVision" CTA that links to `/aerovision-demo/glasses-demo`
-- FR-2: The page must include anchor links that smooth-scroll to each section
-- FR-3: All three CTAs must link to their correct destinations: `/aerovision-demo/glasses-demo`, `/pitch`, `/aerovision-demo/dashboard`
-- FR-4: Scroll-triggered animations must use Intersection Observer API (no external animation libraries)
-- FR-5: The page must be fully responsive from 375px to 1440px+
-- FR-6: The existing Vercel rewrites in `next.config.ts` must not be modified
-- FR-7: Google Analytics (G-ENBE6GFB86) in `layout.tsx` must not be removed
-- FR-8: The page must respect `prefers-reduced-motion` for accessibility
-- FR-9: All statistics displayed must be real numbers from the MVC research (McKinsey, Oliver Wyman, FAA, IBA, ATEC sources)
+- FR-1: Page must load in under 3 seconds on Fast 3G (images optimized, no heavy JS libraries)
+- FR-2: All text must maintain WCAG AA contrast ratio against dark backgrounds
+- FR-3: Page must remain fully responsive (mobile, tablet, desktop)
+- FR-4: No external animation libraries — all effects built with CSS animations, Intersection Observer, and lightweight vanilla JS/React
+- FR-5: Unsplash images must be self-hosted in `public/` (not hotlinked)
+- FR-6: Display font loaded via `next/font/google` for zero layout shift
 
 ## Non-Goals (Out of Scope)
-
-- No "How It Works" section — company is in stealth
-- No social proof / testimonials — company is pre-launch
-- No stock photography or imported images (geometric patterns and CSS only, keep existing aircraft-wireframe.jpg available but not required)
-- No heavy animation libraries (GSAP, Framer Motion, etc.)
-- No changes to the AeroVision MVP or Seed Deck projects
-- No contact form or email capture
-- No blog, team page, or additional routes
-- No dark mode toggle (the page has dark sections but is not a dark-mode site)
+- Changing the page copy/narrative structure (already approved)
+- Adding new sections or removing existing ones
+- Video backgrounds or Lottie animations (too heavy)
+- Interactive 3D elements (WebGL/Three.js — overkill for a landing page)
+- Mobile-specific redesign beyond responsive adjustments
+- SEO or metadata changes
 
 ## Technical Considerations
+- Project uses Next.js 15, Tailwind CSS 4, and lucide-react
+- Tailwind theme is defined inline in `globals.css` via `@theme inline`
+- No component library (shadcn/ui NOT installed in this project)
+- Existing components: `Navbar`, `ScrollReveal`, `SectionWrapper` — modify in place
+- New component needed: `CountUp` (client component for animated numbers)
+- New component needed: `AnimatedGrid` or `ParticleGrid` (lightweight hero background)
+- Images go in `public/` directory
+- All existing animation keyframes are in `globals.css`
+- **MUST stay on Next.js 15** — do NOT upgrade
+- `next.config.ts` contains Vercel rewrites — DO NOT MODIFY
+- `layout.tsx` has Google Analytics — DO NOT REMOVE
 
-- **Project:** `~/Desktop/Primary_OIR/MVC/mvc-gateway/`
-- **Stack:** Next.js 15 (^15.5.12, do NOT upgrade) + Tailwind 4 + React 19
-- **Tailwind 4:** Uses `@theme` inline directive in `globals.css`, NOT a separate `tailwind.config.ts`
-- **Existing asset:** `public/aircraft-wireframe.jpg` can be reused in hero if desired
-- **Deployment:** Push to `main` on `jacobsalomon/mvc-gateway` → Vercel auto-deploys
-- **Keep components simple:** Plain React components, no state management library needed
-- **Intersection Observer:** Create one reusable `ScrollReveal` component, don't repeat the observer logic
+## File Map
+| File | Changes |
+|------|---------|
+| `app/page.tsx` | Section backgrounds, text colors, stat counter integration, image backgrounds, CTA copy |
+| `app/globals.css` | New animations, updated easing curves, gradient utilities, parallax styles |
+| `app/layout.tsx` | Add display font import (keep everything else) |
+| `components/navbar.tsx` | Dark scrolled state, CTA text, mobile menu dark styling |
+| `components/scroll-reveal.tsx` | Updated timing/easing |
+| `components/count-up.tsx` | NEW — animated number counter |
+| `components/animated-grid.tsx` | NEW — subtle hero background animation |
+| `public/*.jpg` | NEW — 2-3 Unsplash images |
+
+## Current File State (as of Feb 2026)
+
+### page.tsx sections (lines ~1-413):
+1. Hero (dark gradient, "Free the Hands That Build")
+2. The Opportunity (white bg, 3 stat cards: 25%, 1.9M, $2T+)
+3. Why Now (gray-50 bg, 2-col with narrative left + stats right)
+4. What We Believe (white bg, 3 pillars: Vision/AI/Documentation)
+5. What If (dark bg, 4 "what if" questions)
+6. CTA + Footer (white bg, "See It for Yourself")
+
+### globals.css:
+- Custom dark palette: dark-950 (#0C0C0C) through dark-700 (#2A2A2A)
+- Warm cream accents: cream-200 (#E6E3E0) through cream-400 (#C2BCB5)
+- Warm amber: amber-400 (#C9A87C), amber-500 (#B8956A)
+- Warm-shifted grays
+- Animation keyframes: fade-in-up, fade-in-left, fade-in-right, bounce-slow
+- Utility classes for staggered reveals
+- prefers-reduced-motion support
+
+### Design Decisions Already Made:
+- Dark & cinematic overall (Anduril energy)
+- Abstract/atmospheric imagery — aerial factories, runways. No people.
+- Subtle & elegant animations (not flashy)
+- Typography: my pick (leading candidate: Space Grotesk for headlines)
+- Navbar CTA: "See It in Action"
+- Keep all existing copy — only change navbar CTA text + footer CTA paragraph
+- Unsplash photos for imagery (not AI-generated)
+
+### CTA Destinations:
+- Primary: `/aerovision-demo/glasses-demo` ("See It in Action")
+- Secondary: `/pitch` ("Investor Deck")
+- Tertiary: `/aerovision-demo/dashboard` ("Explore the Platform")
 
 ## Success Metrics
-
-- Page tells a coherent story from problem → stakes → why now → vision → CTA
-- All three CTA destinations work correctly through Vercel rewrites
-- Page feels like "a founder built it with conviction, not a marketing agency"
-- Loads fast with no layout shifts or jank
-- Looks polished at both desktop and mobile widths
+- The page feels like it belongs alongside Anduril.com and Hadrian.co
+- A visitor's first reaction is "these people are serious" — not "this is a startup template"
+- All content remains readable and accessible
+- Page loads fast, animations are smooth, no jank
 
 ## Open Questions
-
-- None — all key decisions resolved through clarifying questions
-
----
-
-## Pickup Context
-
-**To resume this work in a new session, paste this file path and say "execute this PRD".**
-
-### Key Research Stats (pre-extracted)
-- 60% of mechanic time on paperwork (McKinsey)
-- 40,000 mechanic shortage by 2028 (Oliver Wyman, ATEC)
-- $1-2M cost per failed narrowbody transition (IBA)
-- 520,000 suspected unapproved parts annually (FAA)
-- 70% of compliance failures from poor document management (Airbus)
-- 800+ aircraft grounded by FAA for documentation violations (Jan 2026)
-- 80% of workforce expected to retire within 6 years (ATEC)
-- 27% of mechanics over 64 (ATEC)
-- 5 years to train a new mechanic (Parker Aerospace conversation)
-
-### Design Decisions (already made)
-- Dark navy hero → light sections → dark "What If" → light CTA/footer
-- Tagline: "The Mechanic Works. The Paperwork Writes Itself."
-- MVC = cross-industry company (aerospace, automotive, industrial). AeroVision = aerospace product.
-- In stealth — no "how it works" section. "What if..." paints the vision instead.
-- No social proof (pre-launch). No scandal names (subtle stats only).
-- Reindustrialization woven in with labor force focus (one dedicated section + subtle references)
-- Doss.com design language: bold type, whitespace, card layouts, scroll animations
-- Lightweight: CSS animations + Intersection Observer only
-
-### Files to Preserve
-- `next.config.ts` — Vercel rewrites (DO NOT MODIFY)
-- `layout.tsx` — Google Analytics (DO NOT REMOVE)
-
-### CTA Destinations
-- Primary: `/aerovision-demo/glasses-demo` ("See AeroVision")
-- Secondary: `/pitch` ("Investor Deck")
-- Tertiary: `/aerovision-demo/dashboard` ("View Dashboard")
+- Exact Unsplash images TBD (will be selected during US-005)
+- Display font final selection confirmed during US-002 implementation (Space Grotesk is the leading candidate)
