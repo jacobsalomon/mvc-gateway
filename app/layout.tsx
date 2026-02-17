@@ -11,7 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "The Mechanical Vision Corporation",
   description:
-    "AI-powered documentation for aerospace maintenance. The Mechanic Works. The Paperwork Writes Itself.",
+    "Advanced vision technology and AI that unlocks the enormous productivity trapped inside America's maintenance and manufacturing workforce.",
 };
 
 export default function RootLayout({
