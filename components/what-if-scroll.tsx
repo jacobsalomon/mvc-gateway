@@ -7,28 +7,35 @@ import { ArrowRight } from "lucide-react";
 // Each "What If" statement becomes a full-viewport cinematic moment.
 // The section is tall (one viewport per slide), and a sticky frame
 // stays pinned while the slides crossfade as you scroll through.
+// Background images for each slide (Unsplash, free for commercial use).
+// Shown at very low opacity behind the text for atmospheric depth.
 const slides = [
-  { type: "intro" as const, text: "What if..." },
+  { type: "intro" as const, text: "What if...", bg: "/whatif-1.jpg" },
   {
     type: "statement" as const,
     text: "What if technicians never touched a form again?",
+    bg: "/whatif-2.jpg",
   },
   {
     type: "statement" as const,
     text: "What if every repair, every inspection, every maintenance task documented itself \u2014 automatically, accurately, instantly?",
+    bg: "/whatif-3.jpg",
   },
   {
     type: "statement" as const,
     text: "What if we could give every skilled worker in America back a third of their day?",
+    bg: "/whatif-4.jpg",
   },
   {
     type: "final" as const,
     text: "What if the people who build everything could just\u2026 ",
     highlight: "build?",
+    bg: "/whatif-5.jpg",
   },
   {
     type: "cta" as const,
     text: "That\u2019s what we\u2019re building.",
+    bg: "/whatif-6.jpg",
   },
 ];
 
@@ -187,15 +194,31 @@ export default function WhatIfScroll() {
         {slides.map((slide, i) => (
           <div
             key={i}
-            className="absolute inset-0 flex items-center justify-center px-8 md:px-20"
+            className="absolute inset-0"
             style={{
               opacity: active === i ? fadeOpacity : 0,
-              // Subtle rise effect as each slide fades in
-              transform: `translateY(${active === i ? (1 - fadeOpacity) * 24 : 24}px)`,
               pointerEvents: active === i ? "auto" : "none",
             }}
           >
-            <div className="max-w-3xl text-center">
+            {/* Background image — low opacity atmospheric layer */}
+            <div
+              className="absolute inset-0 bg-cover bg-center transition-opacity duration-700"
+              style={{
+                backgroundImage: `url('${slide.bg}')`,
+                opacity: 0.08,
+              }}
+            />
+            {/* Dark gradient overlay to ensure text readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-dark-950/60 via-transparent to-dark-950/60" />
+
+            {/* Text content — centered with subtle rise animation */}
+            <div
+              className="absolute inset-0 flex items-center justify-center px-8 md:px-20"
+              style={{
+                transform: `translateY(${active === i ? (1 - fadeOpacity) * 24 : 24}px)`,
+              }}
+            >
+            <div className="relative z-10 max-w-3xl text-center">
               {slide.type === "intro" && (
                 <p className="text-3xl md:text-5xl lg:text-6xl font-light italic text-white/50">
                   {slide.text}
@@ -225,6 +248,7 @@ export default function WhatIfScroll() {
                   </Link>
                 </div>
               )}
+            </div>
             </div>
           </div>
         ))}
