@@ -6,10 +6,12 @@ import ScrollReveal from "@/components/scroll-reveal";
 import AnimatedGrid from "@/components/animated-grid";
 import CountUp from "@/components/count-up";
 import WhatIfScroll from "@/components/what-if-scroll";
+import ScrollProgress from "@/components/scroll-progress";
 
 export default function Home() {
   return (
     <main>
+      <ScrollProgress />
       <Navbar />
 
       {/* ========================
