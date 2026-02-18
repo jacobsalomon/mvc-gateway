@@ -5,6 +5,7 @@ import SectionWrapper from "@/components/section-wrapper";
 import ScrollReveal from "@/components/scroll-reveal";
 import AnimatedGrid from "@/components/animated-grid";
 import CountUp from "@/components/count-up";
+import WhatIfScroll from "@/components/what-if-scroll";
 
 export default function Home() {
   return (
@@ -301,73 +302,11 @@ export default function Home() {
       </SectionWrapper>
 
       {/* ========================
-          WHAT IF — Vision of the solved world (dark, dramatic)
+          WHAT IF — Full-viewport scroll-driven cinematic experience.
+          Each statement takes up the entire screen and crossfades
+          as you scroll. Progress dots on the right edge.
           ======================== */}
-      <section
-        id="vision"
-        className="relative px-6 py-32 md:py-40 bg-gradient-to-b from-dark-800 to-dark-950 overflow-hidden"
-      >
-        {/* Subtle dot pattern matching hero for visual consistency */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-
-        <div className="relative z-10 mx-auto max-w-3xl">
-          <ScrollReveal>
-            <p className="text-2xl md:text-3xl font-light italic text-white/50">
-              What if...
-            </p>
-          </ScrollReveal>
-
-          <div className="mt-12 space-y-12">
-            <ScrollReveal delay={1}>
-              <p className="font-display text-2xl md:text-4xl font-bold text-white leading-snug">
-                What if technicians never touched a form again?
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={2}>
-              <p className="font-display text-2xl md:text-4xl font-bold text-white leading-snug">
-                What if every repair, every inspection, every maintenance task
-                documented itself — automatically, accurately, instantly?
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={3}>
-              <p className="font-display text-2xl md:text-4xl font-bold text-white leading-snug">
-                What if we could give every skilled worker in America back a
-                third of their day?
-              </p>
-            </ScrollReveal>
-
-            <ScrollReveal delay={4}>
-              <p className="font-display text-2xl md:text-4xl font-bold text-white/90 leading-snug">
-                What if the people who build everything could just...{" "}
-                <span className="text-cream-200">build?</span>
-              </p>
-            </ScrollReveal>
-          </div>
-
-          <ScrollReveal>
-            <div className="mt-16 flex flex-col sm:flex-row items-start gap-4">
-              <p className="text-white/50 text-lg">
-                That&apos;s what we&apos;re building.
-              </p>
-              <Link
-                href="/aerovision-demo/glasses-demo"
-                className="inline-flex items-center gap-2 text-cream-200 hover:text-white text-lg font-medium transition-colors"
-              >
-                See it in action <ArrowRight size={18} />
-              </Link>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      <WhatIfScroll />
 
       {/* ========================
           CTA + FOOTER
