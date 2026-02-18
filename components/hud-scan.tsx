@@ -2,14 +2,12 @@
 
 import { useEffect, useRef } from "react";
 
-// Subtle computer-vision HUD effect for the wasted-hours ticker.
-// Draws a faint grid + a single scan line that sweeps downward.
+// Minimal vision-system effect: just a single scan line sweeping
+// slowly downward. Hints at "camera / AI watching" without clutter.
 // Pure canvas — no libraries. Respects reduced motion.
-const GRID_SPACING = 60; // pixels between grid lines
-const GRID_OPACITY = 0.06; // faint but visible
-const SCAN_SPEED = 0.00008; // how fast the scan line moves (slower = more deliberate)
-const SCAN_HEIGHT = 150; // height of the scan line glow in pixels
-const SCAN_OPACITY = 0.12; // peak brightness of the scan line
+const SCAN_SPEED = 0.00008; // how fast the scan line moves
+const SCAN_HEIGHT = 160; // height of the scan line glow in pixels
+const SCAN_OPACITY = 0.1; // peak brightness of the scan line
 
 export default function HudScan() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -19,11 +17,8 @@ export default function HudScan() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    // Respect reduced-motion preference — show static grid only
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      drawStaticGrid(canvas);
-      return;
-    }
+    // No animation needed for reduced-motion — component is invisible
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -45,44 +40,10 @@ export default function HudScan() {
     const animate = (time: number) => {
       ctx.clearRect(0, 0, width, height);
 
-      // ── Static grid lines ──
-      ctx.strokeStyle = `rgba(255,255,255,${GRID_OPACITY})`;
-      ctx.lineWidth = 0.5;
-
-      // Vertical lines
-      for (let x = GRID_SPACING; x < width; x += GRID_SPACING) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, height);
-        ctx.stroke();
-      }
-      // Horizontal lines
-      for (let y = GRID_SPACING; y < height; y += GRID_SPACING) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(width, y);
-        ctx.stroke();
-      }
-
-      // ── Small crosshairs at grid intersections ──
-      ctx.strokeStyle = `rgba(255,255,255,${GRID_OPACITY * 1.5})`;
-      const cross = 4;
-      for (let x = GRID_SPACING; x < width; x += GRID_SPACING) {
-        for (let y = GRID_SPACING; y < height; y += GRID_SPACING) {
-          ctx.beginPath();
-          ctx.moveTo(x - cross, y);
-          ctx.lineTo(x + cross, y);
-          ctx.moveTo(x, y - cross);
-          ctx.lineTo(x, y + cross);
-          ctx.stroke();
-        }
-      }
-
-      // ── Sweeping scan line ──
-      // Moves from top to bottom, then loops
+      // Sweeping scan line — moves top to bottom, then loops
       const scanY = (time * SCAN_SPEED * height) % (height + SCAN_HEIGHT * 2) - SCAN_HEIGHT;
 
-      // Draw the scan line as a horizontal gradient band
+      // Draw as a soft horizontal gradient band
       const gradient = ctx.createLinearGradient(0, scanY - SCAN_HEIGHT / 2, 0, scanY + SCAN_HEIGHT / 2);
       gradient.addColorStop(0, "rgba(255,255,255,0)");
       gradient.addColorStop(0.5, `rgba(255,255,255,${SCAN_OPACITY})`);
@@ -108,32 +69,4 @@ export default function HudScan() {
       aria-hidden="true"
     />
   );
-}
-
-// Static fallback — just the grid, no animation
-function drawStaticGrid(canvas: HTMLCanvasElement) {
-  const dpr = window.devicePixelRatio || 1;
-  const width = canvas.offsetWidth;
-  const height = canvas.offsetHeight;
-  canvas.width = width * dpr;
-  canvas.height = height * dpr;
-  const ctx = canvas.getContext("2d");
-  if (!ctx) return;
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-  ctx.strokeStyle = `rgba(255,255,255,${GRID_OPACITY})`;
-  ctx.lineWidth = 0.5;
-
-  for (let x = GRID_SPACING; x < width; x += GRID_SPACING) {
-    ctx.beginPath();
-    ctx.moveTo(x, 0);
-    ctx.lineTo(x, height);
-    ctx.stroke();
-  }
-  for (let y = GRID_SPACING; y < height; y += GRID_SPACING) {
-    ctx.beginPath();
-    ctx.moveTo(0, y);
-    ctx.lineTo(width, y);
-    ctx.stroke();
-  }
 }

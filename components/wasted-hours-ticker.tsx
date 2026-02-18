@@ -32,7 +32,7 @@ export default function WastedHoursTicker() {
   const formatted = Math.floor(hours).toLocaleString("en-US");
 
   return (
-    <section className="relative px-6 py-24 md:py-32 bg-dark-950 overflow-hidden">
+    <section className="relative px-6 py-32 md:py-44 bg-dark-950 overflow-hidden">
       {/* Computer-vision HUD grid + scan line animation */}
       <HudScan />
 
