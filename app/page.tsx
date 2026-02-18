@@ -6,6 +6,7 @@ import ScrollReveal from "@/components/scroll-reveal";
 import AnimatedGrid from "@/components/animated-grid";
 import CountUp from "@/components/count-up";
 import WhatIfScroll from "@/components/what-if-scroll";
+import WastedHoursTicker from "@/components/wasted-hours-ticker";
 import ScrollProgress from "@/components/scroll-progress";
 
 export default function Home() {
@@ -302,6 +303,13 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </SectionWrapper>
+
+      {/* ========================
+          WASTED HOURS — Live ticker making the problem visceral.
+          Counts up hours of skilled labor lost to paperwork
+          since the visitor opened the page.
+          ======================== */}
+      <WastedHoursTicker />
 
       {/* ========================
           WHAT IF — Full-viewport scroll-driven cinematic experience.
