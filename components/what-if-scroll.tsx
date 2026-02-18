@@ -220,7 +220,7 @@ export default function WhatIfScroll() {
             >
             <div className="relative z-10 max-w-3xl text-center">
               {slide.type === "intro" && (
-                <p className="text-3xl md:text-5xl lg:text-6xl font-light italic text-white/50">
+                <p className="font-display text-3xl md:text-5xl lg:text-6xl font-bold italic text-white/50">
                   {slide.text}
                 </p>
               )}
