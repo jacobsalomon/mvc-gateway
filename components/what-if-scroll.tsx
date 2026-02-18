@@ -237,7 +237,7 @@ export default function WhatIfScroll() {
               )}
               {slide.type === "cta" && (
                 <div className="flex flex-col items-center gap-8">
-                  <p className="text-xl md:text-2xl text-white/50">
+                  <p className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-white/50 leading-tight">
                     {slide.text}
                   </p>
                   <Link

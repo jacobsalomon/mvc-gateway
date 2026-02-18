@@ -321,40 +321,43 @@ export default function Home() {
       {/* ========================
           CTA + FOOTER
           ======================== */}
-      <SectionWrapper className="bg-dark-950">
-        <ScrollReveal>
-          <div className="text-center">
-            <h2 className="font-display text-4xl md:text-6xl font-bold text-white tracking-tight">
-              See It for Yourself
-            </h2>
-            <p className="mt-4 text-lg text-white/60 max-w-xl mx-auto">
-              The technology is real. The mission is just beginning.
-            </p>
+      <section className="relative px-6 py-32 md:py-44 bg-dark-950 overflow-hidden">
+        <AnimatedGrid />
+        <div className="relative z-10 mx-auto max-w-7xl">
+          <ScrollReveal>
+            <div className="text-center">
+              <h2 className="font-display text-4xl md:text-6xl font-bold text-white tracking-tight">
+                See It for Yourself
+              </h2>
+              <p className="mt-4 text-lg text-white/60 max-w-xl mx-auto">
+                The technology is real. The mission is just beginning.
+              </p>
 
-            {/* CTA buttons */}
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/aerovision-demo/glasses-demo"
-                className="cta-glow flex h-14 items-center justify-center rounded-sm bg-cream-200 px-10 text-lg font-medium text-dark-950 transition-all hover:bg-cream-300 hover:scale-[1.02]"
-              >
-                See It in Action
-              </Link>
-              <Link
-                href="/pitch"
-                className="flex h-14 items-center justify-center rounded-sm border border-white/20 px-8 text-lg font-medium text-white/70 transition-all hover:border-white/40 hover:bg-white/[0.05]"
-              >
-                Investor Deck
-              </Link>
-              <Link
-                href="/aerovision-demo/dashboard"
-                className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-base font-medium"
-              >
-                Explore the Platform <ArrowRight size={16} />
-              </Link>
+              {/* CTA buttons */}
+              <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link
+                  href="/aerovision-demo/glasses-demo"
+                  className="cta-glow flex h-14 items-center justify-center rounded-sm bg-cream-200 px-10 text-lg font-medium text-dark-950 transition-all hover:bg-cream-300 hover:scale-[1.02]"
+                >
+                  See It in Action
+                </Link>
+                <Link
+                  href="/pitch"
+                  className="flex h-14 items-center justify-center rounded-sm border border-white/20 px-8 text-lg font-medium text-white/70 transition-all hover:border-white/40 hover:bg-white/[0.05]"
+                >
+                  Investor Deck
+                </Link>
+                <Link
+                  href="/aerovision-demo/dashboard"
+                  className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-base font-medium"
+                >
+                  Explore the Platform <ArrowRight size={16} />
+                </Link>
+              </div>
             </div>
-          </div>
-        </ScrollReveal>
-      </SectionWrapper>
+          </ScrollReveal>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="border-t border-white/10 bg-dark-950 px-6 py-8">
