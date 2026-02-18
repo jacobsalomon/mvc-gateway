@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import HudScan from "./hud-scan";
 
 // Math behind the ticker:
 // 1.5M US maintenance & repair technicians (BLS) × 8-hour shifts
@@ -32,6 +33,9 @@ export default function WastedHoursTicker() {
 
   return (
     <section className="relative px-6 py-24 md:py-32 bg-dark-950 overflow-hidden">
+      {/* Computer-vision HUD grid + scan line animation */}
+      <HudScan />
+
       {/* Subtle pulsing glow behind the number */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div
