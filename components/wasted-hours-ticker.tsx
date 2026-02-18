@@ -3,13 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 
 // Math behind the ticker:
-// 1.9M skilled workers × 8-hour shifts × 75% on paperwork
-// = 11.4M hours lost per day
-// = 11,400,000 / 86,400 seconds ≈ 131.9 hours per second
+// 1.9M skilled workers × 8-hour shifts × 60% on paperwork (McKinsey)
+// = 9.12M hours lost per day
+// = 9,120,000 / 86,400 seconds ≈ 105.6 hours per second
 //
-// We use a slightly conservative 90/sec to account for
+// We use a slightly conservative 72/sec to account for
 // not all workers being on shift simultaneously.
-const HOURS_PER_SECOND = 90;
+const HOURS_PER_SECOND = 72;
 
 export default function WastedHoursTicker() {
   const [hours, setHours] = useState(0);
@@ -64,7 +64,7 @@ export default function WastedHoursTicker() {
         </p>
 
         <p className="mt-3 text-sm text-white/30">
-          Based on 1.9M skilled workers &times; 75% documentation time
+          Based on 1.9M skilled workers &times; 60% documentation time (McKinsey)
         </p>
       </div>
     </section>
