@@ -1,13 +1,16 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import Navbar from "@/components/navbar";
 import SectionWrapper from "@/components/section-wrapper";
 import ScrollReveal from "@/components/scroll-reveal";
 import AnimatedGrid from "@/components/animated-grid";
 import CountUp from "@/components/count-up";
-import WhatIfScroll from "@/components/what-if-scroll";
-import WastedHoursTicker from "@/components/wasted-hours-ticker";
 import ScrollProgress from "@/components/scroll-progress";
+
+// Lazy-load heavy below-fold components — lets hero render instantly
+const WhatIfScroll = dynamic(() => import("@/components/what-if-scroll"), { ssr: false });
+const WastedHoursTicker = dynamic(() => import("@/components/wasted-hours-ticker"), { ssr: false });
 
 export default function Home() {
   return (
@@ -23,7 +26,7 @@ export default function Home() {
             Photo: Jetliner on tarmac (https://unsplash.com/photos/rLoa6JfULPw) */}
         <div
           className="absolute inset-0 parallax-bg opacity-[0.12]"
-          style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+          style={{ backgroundImage: "url('/hero-bg.webp')" }}
         />
 
         {/* Animated dot-grid background */}
@@ -159,7 +162,7 @@ export default function Home() {
             Photo: Welder with sparks (Unsplash photo-1504328345606) */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-[0.08]"
-          style={{ backgroundImage: "url('/why-now-bg.jpg')" }}
+          style={{ backgroundImage: "url('/why-now-bg.webp')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-dark-950/80 via-transparent to-dark-950/80" />
 

@@ -28,6 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="preload" href="/hero-bg.webp" as="image" type="image/webp" />
+        {process.env.NODE_ENV === "development" && (
+          <Script
+            src="//unpkg.com/react-grab/dist/index.global.js"
+            crossOrigin="anonymous"
+            strategy="beforeInteractive"
+          />
+        )}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-ENBE6GFB86"
           strategy="afterInteractive"

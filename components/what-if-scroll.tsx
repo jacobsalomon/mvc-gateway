@@ -10,32 +10,32 @@ import { ArrowRight } from "lucide-react";
 // Background images for each slide (Unsplash, free for commercial use).
 // Shown at very low opacity behind the text for atmospheric depth.
 const slides = [
-  { type: "intro" as const, text: "What if...", bg: "/whatif-1.jpg" },
+  { type: "intro" as const, text: "What if...", bg: "/whatif-1.webp" },
   {
     type: "statement" as const,
     text: "What if technicians never touched a form again?",
-    bg: "/whatif-2.jpg",
+    bg: "/whatif-2.webp",
   },
   {
     type: "statement" as const,
     text: "What if every repair, every inspection, every maintenance task documented itself \u2014 automatically, accurately, instantly?",
-    bg: "/whatif-3.jpg",
+    bg: "/whatif-3.webp",
   },
   {
     type: "statement" as const,
     text: "What if we could give every skilled worker in America back a third of their day?",
-    bg: "/whatif-4.jpg",
+    bg: "/whatif-4.webp",
   },
   {
     type: "final" as const,
     text: "What if the people who build everything could just\u2026 ",
     highlight: "build?",
-    bg: "/whatif-5.jpg",
+    bg: "/whatif-5.webp",
   },
   {
     type: "cta" as const,
     text: "That\u2019s what we\u2019re building.",
-    bg: "/whatif-6.jpg",
+    bg: "/whatif-6.webp",
   },
 ];
 
