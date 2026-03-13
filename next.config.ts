@@ -4,6 +4,23 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react"],
   },
+  async redirects() {
+    return [
+      // Redirect mechavisioncorp.com → mechanicalvisioncorp.com
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "mechavisioncorp.com" }],
+        destination: "https://mechanicalvisioncorp.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.mechavisioncorp.com" }],
+        destination: "https://mechanicalvisioncorp.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return {
       // beforeFiles rewrites run before Next.js checks its own routes,
