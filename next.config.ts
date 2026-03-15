@@ -19,6 +19,19 @@ const nextConfig: NextConfig = {
         destination: "https://mechanicalvisioncorp.com/:path*",
         permanent: true,
       },
+      // Redirect mechanicalvision.ai → mechanicalvisioncorp.com
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "mechanicalvision.ai" }],
+        destination: "https://mechanicalvisioncorp.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.mechanicalvision.ai" }],
+        destination: "https://mechanicalvisioncorp.com/:path*",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
