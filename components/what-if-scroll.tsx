@@ -103,10 +103,7 @@ export default function WhatIfScroll() {
   // ── Reduced-motion fallback: stacked paragraphs (matches original layout) ──
   if (!isScrollDriven) {
     return (
-      <section
-        id="vision"
-        className="relative px-6 py-32 md:py-40 bg-gradient-to-b from-dark-800 to-dark-950 overflow-hidden"
-      >
+      <section className="relative px-6 py-32 md:py-40 bg-gradient-to-b from-dark-800 to-dark-950 overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.04]"
           style={{
@@ -155,7 +152,6 @@ export default function WhatIfScroll() {
   // ── Scroll-driven cinematic version ──
   return (
     <section
-      id="vision"
       ref={containerRef}
       className="relative bg-gradient-to-b from-dark-800 to-dark-950"
       style={{ height: `${slides.length * 100}vh` }}
