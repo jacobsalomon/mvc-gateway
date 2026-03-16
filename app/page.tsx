@@ -53,7 +53,7 @@ export default function Home() {
           {/* CTAs */}
           <div className="animate-fade-in-delay-2 mt-4 flex flex-col sm:flex-row items-center gap-4">
             <Link
-              href="/aerovision-demo/glasses-demo"
+              href="/aerovision/glasses-demo"
               className="cta-glow flex h-14 items-center justify-center rounded-sm bg-cream-200 px-8 text-lg font-medium text-dark-950 transition-all hover:bg-cream-300 hover:scale-[1.02]"
             >
               See It in Action
@@ -341,7 +341,7 @@ export default function Home() {
               {/* CTA buttons */}
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
-                  href="/aerovision-demo/glasses-demo"
+                  href="/aerovision/glasses-demo"
                   className="cta-glow flex h-14 items-center justify-center rounded-sm bg-cream-200 px-10 text-lg font-medium text-dark-950 transition-all hover:bg-cream-300 hover:scale-[1.02]"
                 >
                   See It in Action
@@ -353,7 +353,7 @@ export default function Home() {
                   Investor Deck
                 </Link>
                 <Link
-                  href="/aerovision-demo/dashboard"
+                  href="/aerovision/dashboard"
                   className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-base font-medium"
                 >
                   Explore the Platform <ArrowRight size={16} />
