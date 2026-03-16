@@ -321,7 +321,9 @@ export default function Home() {
           Each statement takes up the entire screen and crossfades
           as you scroll. Progress dots on the right edge.
           ======================== */}
-      <WhatIfScroll />
+      <section id="vision">
+        <WhatIfScroll />
+      </section>
 
       {/* ========================
           CTA + FOOTER
