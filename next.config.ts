@@ -7,16 +7,6 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: "/Aerovision",
-        destination: "/aerovision",
-        permanent: true,
-      },
-      {
-        source: "/Aerovision/:path*",
-        destination: "/aerovision/:path*",
-        permanent: true,
-      },
-      {
         source: "/aerovision-demo",
         destination: "/aerovision",
         permanent: true,
