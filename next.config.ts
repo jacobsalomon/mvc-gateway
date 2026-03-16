@@ -6,6 +6,26 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: "/Aerovision",
+        destination: "/aerovision",
+        permanent: true,
+      },
+      {
+        source: "/Aerovision/:path*",
+        destination: "/aerovision/:path*",
+        permanent: true,
+      },
+      {
+        source: "/aerovision-demo",
+        destination: "/aerovision",
+        permanent: true,
+      },
+      {
+        source: "/aerovision-demo/:path*",
+        destination: "/aerovision/:path*",
+        permanent: true,
+      },
       // Redirect mechavisioncorp.com → mechanicalvisioncorp.com
       {
         source: "/:path*",
@@ -37,17 +57,17 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return {
       // beforeFiles rewrites run before Next.js checks its own routes,
-      // ensuring /aerovision-demo/* and /pitch/* are proxied to the sub-apps
+      // ensuring /aerovision/* and /pitch/* are proxied to the sub-apps
       beforeFiles: [
         {
-          source: "/aerovision-demo",
+          source: "/aerovision",
           destination:
-            "https://aerovision-mvp.vercel.app/aerovision-demo",
+            "https://aerovision-mvp.vercel.app/aerovision",
         },
         {
-          source: "/aerovision-demo/:path*",
+          source: "/aerovision/:path*",
           destination:
-            "https://aerovision-mvp.vercel.app/aerovision-demo/:path*",
+            "https://aerovision-mvp.vercel.app/aerovision/:path*",
         },
         {
           source: "/pitch",
