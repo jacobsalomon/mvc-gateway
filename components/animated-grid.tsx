@@ -111,14 +111,14 @@ export default function AnimatedGrid() {
 
       // ── Draw lines between neighboring dots ──────────
       ctx.lineWidth = 0.5;
+      const neighbors: number[] = [];
       for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
           const idx = (row * cols + col) * 2;
           const x1 = positions[idx];
           const y1 = positions[idx + 1];
 
-          // Check right neighbor and bottom neighbor only (avoids duplicates)
-          const neighbors = [];
+          neighbors.length = 0;
           if (col < cols - 1) neighbors.push((row * cols + col + 1) * 2);
           if (row < rows - 1) neighbors.push(((row + 1) * cols + col) * 2);
           // Diagonal (bottom-right) for richer connections

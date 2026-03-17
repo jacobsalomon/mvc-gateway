@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import { ChevronDown, ArrowRight } from "lucide-react";
@@ -11,8 +9,8 @@ import CountUp from "@/components/count-up";
 import ScrollProgress from "@/components/scroll-progress";
 
 // Lazy-load heavy below-fold components — lets hero render instantly
-const WhatIfScroll = dynamic(() => import("@/components/what-if-scroll"), { ssr: false });
-const WastedHoursTicker = dynamic(() => import("@/components/wasted-hours-ticker"), { ssr: false });
+const WhatIfScroll = dynamic(() => import("@/components/what-if-scroll"));
+const WastedHoursTicker = dynamic(() => import("@/components/wasted-hours-ticker"));
 
 export default function Home() {
   return (

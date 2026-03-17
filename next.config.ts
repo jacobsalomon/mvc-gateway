@@ -6,16 +6,6 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      {
-        source: "/aerovision-demo",
-        destination: "/aerovision",
-        permanent: true,
-      },
-      {
-        source: "/aerovision-demo/:path*",
-        destination: "/aerovision/:path*",
-        permanent: true,
-      },
       // Redirect mechavisioncorp.com → mechanicalvisioncorp.com
       {
         source: "/:path*",

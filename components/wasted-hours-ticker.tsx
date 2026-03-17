@@ -1,38 +1,54 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import HudScan from "./hud-scan";
 
-// Math behind the ticker:
-// 1.5M US maintenance & repair technicians (BLS) × 8-hour shifts
-// × 40% of shift on documentation (conservative — aerospace is ~60%)
-// = 4.8M hours lost per day
-// = 4,800,000 / 86,400 seconds ≈ 55.6 hours per second
 const HOURS_PER_SECOND = 55;
 
 export default function WastedHoursTicker() {
   const [hours, setHours] = useState(0);
+  const containerRef = useRef<HTMLElement>(null);
   const startRef = useRef(0);
   const frameRef = useRef(0);
+  const accumulatedRef = useRef(0);
+  const visibleSinceRef = useRef(0);
+
+  const tick = useCallback(() => {
+    const elapsed = (performance.now() - visibleSinceRef.current) / 1000;
+    setHours((accumulatedRef.current + elapsed) * HOURS_PER_SECOND);
+    frameRef.current = requestAnimationFrame(tick);
+  }, []);
 
   useEffect(() => {
-    startRef.current = performance.now();
+    const el = containerRef.current;
+    if (!el) return;
 
-    const tick = () => {
-      const elapsed = (performance.now() - startRef.current) / 1000;
-      setHours(elapsed * HOURS_PER_SECOND);
-      frameRef.current = requestAnimationFrame(tick);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          visibleSinceRef.current = performance.now();
+          frameRef.current = requestAnimationFrame(tick);
+        } else {
+          cancelAnimationFrame(frameRef.current);
+          accumulatedRef.current +=
+            (performance.now() - visibleSinceRef.current) / 1000;
+        }
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frameRef.current);
     };
-
-    frameRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frameRef.current);
-  }, []);
+  }, [tick]);
 
   // Format with commas and no decimals
   const formatted = Math.floor(hours).toLocaleString("en-US");
 
   return (
-    <section className="relative px-6 py-32 md:py-44 bg-dark-950 overflow-hidden">
+    <section ref={containerRef} className="relative px-6 py-32 md:py-44 bg-dark-950 overflow-hidden">
       {/* Computer-vision HUD grid + scan line animation */}
       <HudScan />
 
