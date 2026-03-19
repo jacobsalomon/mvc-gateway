@@ -353,7 +353,7 @@ export default function Home() {
                   Investor Deck
                 </Link>
                 <Link
-                  href="/aerovision/dashboard"
+                  href="/aerovision/login"
                   className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-base font-medium"
                 >
                   Explore the Platform <ArrowRight size={16} />
