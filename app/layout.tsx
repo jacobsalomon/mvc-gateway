@@ -46,6 +46,13 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-ENBE6GFB86');`}
         </Script>
+        <Script
+          id="vtag-ai-js"
+          src="https://r2.leadsy.ai/tag.js"
+          data-pid="1xbHYxWAwZlrdU6bj"
+          data-version="062024"
+          strategy="afterInteractive"
+        />
       </head>
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
         {children}
