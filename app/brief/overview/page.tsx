@@ -8,8 +8,8 @@ export default function BriefOverviewPage() {
   return (
     <BriefPage>
       <BriefHero
-        image="/whatif-2.jpg"
-        imageAlt="A technician working on an aircraft component"
+        image="/whatif-6.jpg"
+        imageAlt="A jet leaving contrails across the sky"
         headline={<>Mechanics inspect. Glasses observe. Paperwork writes itself.</>}
         subhead={<>Reclaim your shift. Focus on the real work.</>}
       />
