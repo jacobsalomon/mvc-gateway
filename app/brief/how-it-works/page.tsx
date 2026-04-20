@@ -7,10 +7,10 @@ export default function BriefHowItWorksPage() {
   return (
     <BriefPage>
       <BriefHero
-        image="/whatif-5.jpg"
-        imageAlt="A technician's hands working with tools on a component"
+        image="/whatif-2.jpg"
+        imageAlt="A technician working under an aircraft engine"
         headline={<>How it works.</>}
-        subhead={<>Three layers. Each one removes friction the last one left behind.</>}
+        subhead={<>Three layers: Understanding, Documenting, and Visibility.</>}
         heightClass="h-[2.1in]"
       />
 
@@ -26,7 +26,7 @@ export default function BriefHowItWorksPage() {
               Upload the CMM and any supporting manuals. The platform reads every page, identifies the inspection sections, and structures the measurements, tolerances, go and no-go checks, tool callouts, and configuration variants into a usable template.
             </p>
             <p style={{ fontSize: "12.5px", lineHeight: 1.5 }}>
-              Multi-level bills of materials come through intact. An inspector can see assembly, sub-assembly, and item relationships the way the manual intends, with torque specs, matched-set flags, and safety-wire requirements attached to the right step.
+              Multi-level BOMs come through intact. An inspector can see assembly, sub-assembly, and item relationships the way the manual intends, with torque specs, matched-set flags, and safety-wire requirements attached to the right step.
             </p>
             <p
               className="mt-1 text-amber-400"
@@ -39,19 +39,13 @@ export default function BriefHowItWorksPage() {
             aria-hidden
             className="relative h-[1.55in] w-full overflow-hidden rounded-sm border border-cream-200/15"
             style={{
-              backgroundImage: "url('/aircraft-wireframe.jpg')",
-              backgroundSize: "cover",
+              backgroundImage: "url('/aircraft-wireframe-black.png')",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
               backgroundPosition: "center",
+              backgroundColor: "#000",
             }}
-          >
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(140deg, rgba(12,12,12,0.2) 0%, rgba(12,12,12,0.65) 100%)",
-              }}
-            />
-          </div>
+          />
         </div>
       </BriefSection>
 
@@ -84,7 +78,7 @@ export default function BriefHowItWorksPage() {
             {
               num: "04",
               label: "Sign.",
-              detail: "The technician reviews the pre-filled paperwork and certifies the job.",
+              detail: "The technician reviews the pre-filled paperwork, with evidence attached to every entry, and certifies the job.",
             },
           ].map((step) => (
             <li
