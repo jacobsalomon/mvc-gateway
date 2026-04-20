@@ -11,38 +11,38 @@ export default function BriefOverviewPage() {
         image="/whatif-2.jpg"
         imageAlt="A technician working on an aircraft component"
         headline={<>Mechanics inspect. Glasses observe. Paperwork writes itself.</>}
-        subhead={<>Aerospace maintenance, captured as it happens.</>}
+        subhead={<>Reclaim your shift. Focus on the real work.</>}
       />
 
       {/* PROBLEM */}
       <BriefSection
         eyebrow="The problem"
-        title="The work and the paperwork don't agree."
+        title="Three failure modes in how shops document inspections today."
         className="mt-[0.3in]"
       >
         <div className="grid grid-cols-3 gap-4">
           <div>
             <div className="font-display text-cream-200" style={{ fontSize: "13.5px", fontWeight: 600 }}>
-              Paperwork bends the shift.
+              Every measurement is captured twice.
             </div>
             <p className="mt-1.5 text-cream-400" style={{ fontSize: "11.5px", lineHeight: 1.5 }}>
-              Inspection CMMs run seventy-plus pages. Every measurement is hand-written, then re-entered into a separate MRO system. The shift warps around the forms, not the work.
+              Technicians hand-write measurements on the CMM, then re-enter the same numbers into the MRO system on every job.
             </p>
           </div>
           <div>
             <div className="font-display text-cream-200" style={{ fontSize: "13.5px", fontWeight: 600 }}>
-              Work flows. Forms don't.
+              Flow breaks, and pencil whipping creeps in.
             </div>
             <p className="mt-1.5 text-cream-400" style={{ fontSize: "11.5px", lineHeight: 1.5 }}>
-              Inspectors jump around based on access and tooling. Forms expect a fixed sequence. One missed measurement can cost hours of teardown to recapture what was already done.
+              Every stop to write down a measurement pulls the technician off the part. Numbers end up filled in later, from memory.
             </p>
           </div>
           <div>
             <div className="font-display text-cream-200" style={{ fontSize: "13.5px", fontWeight: 600 }}>
-              Everyone demands proof.
+              Audit retrieval is slow and expensive.
             </div>
             <p className="mt-1.5 text-cream-400" style={{ fontSize: "11.5px", lineHeight: 1.5 }}>
-              Operators, regulators, insurers, and customers all expect instant searchability and auditability. Current systems make that slow and expensive to produce.
+              Operators, regulators, insurers, and customers expect on-demand evidence. Pulling records takes hours. Gaps force re-measurements of parts already delivered.
             </p>
           </div>
         </div>
@@ -50,32 +50,26 @@ export default function BriefOverviewPage() {
 
       {/* SCALE */}
       <BriefSection
-        eyebrow="The scale of the tax"
+        eyebrow="What it costs"
         title="What the paperwork actually costs a shop."
         className="mt-[0.28in]"
       >
         <div className="grid grid-cols-3 gap-4">
           <BriefStat
-            value={<>70+</>}
-            label={<>pages in a single CMM inspection package.</>}
+            value={<>Dozens</>}
+            label={<>of distinct documents consulted for a single inspection: CMMs, manuals, service bulletins, work cards, and BOMs.</>}
           />
           <BriefStat
-            value={<>33-50%</>}
+            value={<>30-60%</>}
             label={<>of a technician's day spent on paperwork instead of maintenance.</>}
           />
           <BriefStat
             value={<>Forever</>}
-            label={<>how long operators, regulators, insurers, and customers expect inspection evidence to remain retrievable.</>}
+            label={<>how long operators, regulators, insurers, and customers expect the work to be auditable.</>}
           />
         </div>
         <p
-          className="mt-3 text-amber-400"
-          style={{ fontSize: "11.5px", lineHeight: 1.5, fontStyle: "italic" }}
-        >
-          A ten-technician shop loses the labor of three to five full technicians every year to paperwork, not maintenance.
-        </p>
-        <p
-          className="mt-1.5 text-cream-400/80"
+          className="mt-3 text-cream-400/80"
           style={{ fontSize: "10.5px", lineHeight: 1.4 }}
         >
           Ranges observed across AeroVision shop-floor research, Spring 2026.
@@ -100,7 +94,7 @@ export default function BriefOverviewPage() {
               className="mt-[6px] h-[5px] w-[5px] flex-none rounded-full bg-amber-400"
             />
             <span className="text-cream-300" style={{ fontSize: "12.5px", lineHeight: 1.5 }}>
-              No scripts. No clipboards. No extra steps. The mechanic just does the job.
+              Paperwork writes itself from what the glasses observe. No second pass, no re-entry.
             </span>
           </li>
           <li className="flex gap-3">
@@ -109,7 +103,7 @@ export default function BriefOverviewPage() {
               className="mt-[6px] h-[5px] w-[5px] flex-none rounded-full bg-amber-400"
             />
             <span className="text-cream-300" style={{ fontSize: "12.5px", lineHeight: 1.5 }}>
-              The platform follows the technician. Inspections proceed in whatever order access and tooling allow, and the record still adds up.
+              Inspections can proceed in any order access and tooling allow. The platform reconciles the record against the CMM at sign-off.
             </span>
           </li>
           <li className="flex gap-3">
@@ -118,16 +112,7 @@ export default function BriefOverviewPage() {
               className="mt-[6px] h-[5px] w-[5px] flex-none rounded-full bg-amber-400"
             />
             <span className="text-cream-300" style={{ fontSize: "12.5px", lineHeight: 1.5 }}>
-              Works on remote flight lines. Capture buffers on-device and syncs when connectivity returns.
-            </span>
-          </li>
-          <li className="flex gap-3">
-            <span
-              aria-hidden
-              className="mt-[6px] h-[5px] w-[5px] flex-none rounded-full bg-amber-400"
-            />
-            <span className="text-cream-300" style={{ fontSize: "12.5px", lineHeight: 1.5 }}>
-              Every measurement links to the video frame that produced it. Instantly searchable by operators, regulators, insurers, and customers.
+              Every measurement links to the video frame that produced it. The full record is retrievable in seconds, even from remote flight lines.
             </span>
           </li>
         </ul>

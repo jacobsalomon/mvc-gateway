@@ -12,9 +12,6 @@ export default function BriefFooter() {
       </div>
       <div className="flex flex-col items-end gap-0.5 text-cream-400">
         <div>jake@mechanicalvisioncorp.com</div>
-        <div className="uppercase tracking-[0.2em] text-amber-500" style={{ fontSize: "9.5px" }}>
-          Design partnerships open · Spring 2026
-        </div>
       </div>
     </footer>
   );
