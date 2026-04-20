@@ -1,0 +1,79 @@
+/*
+  Shared print styles for /brief routes. Keep the document simple:
+  one physical page per route, Letter sized, colors preserved.
+*/
+
+@page {
+  size: letter;
+  margin: 0;
+}
+
+.brief-shell {
+  min-height: 100vh;
+  background: #1A1A1A;
+  color: var(--color-cream-200);
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.brief-page {
+  position: relative;
+  width: 8.5in;
+  height: 11in;
+  background: var(--color-dark-950);
+  color: var(--color-cream-200);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), 0 8px 24px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  display: flex;
+  flex-direction: column;
+}
+
+.brief-page * {
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+/* Web responsiveness: if the viewport is narrower than the page, scale down */
+@media (max-width: 900px) {
+  .brief-shell {
+    padding: 1rem 0.5rem;
+  }
+  .brief-page {
+    transform: scale(var(--brief-scale, 0.9));
+    transform-origin: top center;
+  }
+}
+
+@media print {
+  html,
+  body {
+    background: var(--color-dark-950) !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  .brief-shell {
+    padding: 0;
+    background: var(--color-dark-950);
+  }
+
+  .brief-page {
+    box-shadow: none;
+    width: 8.5in;
+    height: 11in;
+    page-break-after: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    transform: none;
+  }
+
+  /* Hide any dev-only scaffolding during print */
+  .brief-no-print {
+    display: none !important;
+  }
+}
