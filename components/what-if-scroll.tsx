@@ -138,7 +138,7 @@ export default function WhatIfScroll() {
               That&rsquo;s what we&rsquo;re building.
             </p>
             <Link
-              href="/aerovision/glasses-demo"
+              href="/aerovision/login"
               className="inline-flex items-center gap-2 text-cream-200 hover:text-white text-lg font-medium transition-colors"
             >
               See it in action <ArrowRight size={18} />
@@ -237,7 +237,7 @@ export default function WhatIfScroll() {
                     {slide.text}
                   </p>
                   <Link
-                    href="/aerovision/glasses-demo"
+                    href="/aerovision/login"
                     className="inline-flex items-center gap-2 text-cream-200 hover:text-white text-lg font-medium transition-colors"
                   >
                     See it in action <ArrowRight size={18} />
