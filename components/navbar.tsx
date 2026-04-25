@@ -62,7 +62,7 @@ export default function Navbar() {
         {/* Primary CTA + mobile hamburger */}
         <div className="flex items-center gap-4">
           <Link
-            href="/aerovision/login"
+            href="/aerovision/dashboard"
             className="hidden sm:inline-flex items-center rounded-sm bg-cream-200 px-5 py-2 text-sm font-medium text-dark-950 transition-all duration-300 hover:bg-cream-300"
           >
             See It in Action
@@ -94,7 +94,7 @@ export default function Navbar() {
               </a>
             ))}
             <Link
-              href="/aerovision/login"
+              href="/aerovision/dashboard"
               onClick={handleLinkClick}
               className="inline-flex items-center justify-center rounded-sm bg-cream-200 px-5 py-2.5 text-sm font-medium text-dark-950 hover:bg-cream-300 transition-colors"
             >
