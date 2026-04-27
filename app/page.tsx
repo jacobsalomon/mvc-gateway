@@ -373,7 +373,7 @@ export default function Home() {
           <div className="flex items-center gap-4">
             <span>Jake Salomon</span>
             <span className="w-1 h-1 rounded-full bg-white/30" />
-            <span>jacobrsalomon@gmail.com</span>
+            <span>jake@mechanicalvisioncorp.com</span>
           </div>
         </div>
       </footer>
