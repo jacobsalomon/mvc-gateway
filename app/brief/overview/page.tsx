@@ -61,7 +61,7 @@ export default function BriefOverviewPage() {
           />
           <BriefStat
             value={<>30-60%</>}
-            label={<>of a technician's day spent on paperwork instead of maintenance.</>}
+            label={<>of a technician&apos;s day spent on paperwork instead of maintenance.</>}
           />
           <BriefStat
             value={<>Forever</>}
