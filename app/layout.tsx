@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import { AnalyticsHealthCheck } from "@/components/analytics-health-check";
 import "./globals.css";
 
 const inter = Inter({
@@ -58,6 +59,7 @@ gtag('config', 'G-ENBE6GFB86');`}
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
         {children}
         <Analytics />
+        <AnalyticsHealthCheck />
       </body>
     </html>
   );

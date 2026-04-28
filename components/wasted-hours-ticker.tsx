@@ -8,7 +8,6 @@ const HOURS_PER_SECOND = 55;
 export default function WastedHoursTicker() {
   const [hours, setHours] = useState(0);
   const containerRef = useRef<HTMLElement>(null);
-  const startRef = useRef(0);
   const frameRef = useRef(0);
   const accumulatedRef = useRef(0);
   const visibleSinceRef = useRef(0);
