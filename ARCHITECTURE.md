@@ -1,0 +1,156 @@
+# MVC Gateway Architecture
+
+## What This Repo Is
+
+Think of the gateway as the front door and traffic cop for `mechanicalvisioncorp.com`.
+
+It has two jobs:
+
+1. Present the public-facing MVC story.
+2. Route visitors to the right downstream app.
+
+This repo should stay thin. It is not the product backend. It is not the investor deck app. It is the entry layer that makes the three-zone domain feel like one site.
+
+## What This Repo Owns
+
+- The landing page at `/`
+- The print-first brief pages under `/brief`
+- Domain canonicalization redirects
+- Rewrites into AeroVision and the seed deck
+- Shared marketing shell concerns like fonts, analytics, and page-level atmosphere
+
+## What This Repo Does Not Own
+
+- AeroVision authentication, dashboard, or APIs
+- Seed deck application logic
+- Product data, AI pipelines, or database access
+
+If a change starts to look like business logic, it is probably in the wrong repo.
+
+## Multi-Zone Model
+
+The public domain is split across three Next.js projects:
+
+```text
+mechanicalvisioncorp.com
+  /                -> mvc-gateway
+  /brief/*         -> mvc-gateway
+  /aerovision/*    -> aerovision-mvp
+  /pitch/*         -> aerovision-seed-deck
+```
+
+The gateway is the piece that makes those boundaries invisible to the visitor.
+
+## Routing Responsibilities
+
+`next.config.ts` is the real control plane in this repo.
+
+It owns:
+
+- host redirects from `mechavisioncorp.com` and `mechanicalvision.ai` to `mechanicalvisioncorp.com`
+- `beforeFiles` rewrites for `/aerovision` and `/pitch`
+
+That means routing changes are infrastructure changes, even if they look like small text edits.
+
+## Request Flow
+
+```text
+Visitor hits mechanicalvisioncorp.com
+  -> host redirect check
+  -> path check
+     -> /aerovision/* rewrites to deployed AeroVision app
+     -> /pitch/* rewrites to deployed seed deck app
+     -> everything else is served by the gateway itself
+```
+
+The gateway currently rewrites to the deployed Vercel project URLs, so if those project targets change, `next.config.ts` must change with them.
+
+## Directory Map
+
+```text
+app/
+  layout.tsx             Global fonts, analytics, shared shell
+  globals.css            Landing-page design tokens and motion helpers
+  page.tsx               Main marketing homepage
+  brief/
+    layout.tsx           Print-specific shell
+    print.css            Letter-size and print rules
+    overview/page.tsx    One-page overview brief
+    how-it-works/page.tsx
+
+components/
+  navbar.tsx
+  animated-grid.tsx
+  scroll-reveal.tsx
+  scroll-progress.tsx
+  wasted-hours-ticker.tsx
+  what-if-scroll.tsx
+  brief/*                Print brief building blocks
+```
+
+## Two Visual Surfaces
+
+This repo actually contains two presentation modes.
+
+### 1. Cinematic Landing Page
+
+This is the homepage.
+
+- dark, high-contrast, narrative-driven
+- scroll pacing matters
+- heavier interactive pieces are lazy-loaded below the fold
+- CTAs move the visitor into the product or the pitch deck
+
+### 2. Print-First Briefs
+
+These are the `/brief` routes.
+
+- fixed letter-size pages
+- controlled density
+- optimized for web viewing and print
+- no indexing by search engines
+
+Treat them like branded handouts, not like normal website pages.
+
+## Runtime Behavior
+
+Most of the repo is simple server-rendered marketing content. A few pieces are intentionally client-side:
+
+- navbar scroll state
+- animated background grid
+- reveal-on-scroll sections
+- the wasted-hours ticker
+- the "What If" cinematic scroll sequence
+
+Heavy motion is pushed below the fold or lazy-loaded so the hero renders fast.
+
+## Deployment Constraints
+
+- This repo must stay on **Next.js 15** to remain compatible with the multi-zone rewrite setup.
+- The gateway itself does not depend on backend product secrets.
+- Vercel auto-deploys from `main`.
+
+Because the gateway is thin, changes here should usually be low-risk. The exception is routing. Rewrites and redirects can break the whole domain if they are wrong.
+
+## Ownership Boundaries
+
+Keep these lines sharp:
+
+- Gateway owns public messaging and navigation into the system.
+- AeroVision owns the actual product experience.
+- Seed deck owns investor storytelling.
+
+The gateway can point people into those experiences, but it should not start recreating them locally.
+
+## Change Guardrails
+
+- Keep routing logic centralized in `next.config.ts`.
+- Keep the homepage focused on story and conversion, not feature sprawl.
+- Keep `/brief` print-first. Do not turn it into a general CMS.
+- When adding CTAs, point to the real downstream product surfaces instead of creating fake stand-ins here.
+- Prefer lightweight interactions over heavy client-side complexity.
+
+## Related Docs
+
+- `DESIGN.md` is the visual system brief for future UI work in this repo.
+- The AeroVision and seed deck repos own their own internal architecture.
