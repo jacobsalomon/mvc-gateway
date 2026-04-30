@@ -15,12 +15,12 @@ const workflowSteps = [
   {
     label: "Observe",
     detail:
-      "The mechanic starts the job normally. AeroVision glasses observe without changing the flow.",
+      "The mechanic starts the job normally. AeroVision glasses observe the work without changing the flow.",
   },
   {
     label: "Prepare",
     detail:
-      "AI maps measurements, findings, photos, timestamps, and CMM context into the record.",
+      "AI maps measurements, findings, photos, timestamps, and task context into the record.",
   },
   {
     label: "Review",
@@ -29,29 +29,29 @@ const workflowSteps = [
   },
 ];
 
-const valueProps = [
+const outcomes = [
   {
-    value: "TAT",
-    label:
-      "Reduce turnaround time by moving from finished work to release-ready records faster.",
+    label: "Reduce turnaround time",
+    detail:
+      "Move from completed work to review-ready records faster, so aircraft can progress toward release sooner.",
   },
   {
-    value: "Efficiency",
-    label:
-      "Reduce paperwork burden so the same team produces more useful work per hour.",
+    label: "More output per hour",
+    detail:
+      "Reduce duplicate entry and end-of-shift reconstruction, so the same team spends more time on aircraft.",
   },
   {
-    value: "Auditability",
-    label:
-      "Ask what was done, then open the record and video proof of the work being done.",
+    label: "Evidence-backed auditability",
+    detail:
+      "Ask what was done, then open both the maintenance record and video proof of the work being done.",
   },
 ];
 
-const buyerBenefits = [
-  "Ask AeroVision what was done, then jump to the record and the video proof.",
-  "Cleaner QA review with evidence attached to each critical field.",
-  "Measurement capture that can feed existing systems, including Quantum.",
-  "A dispute-resistant audit log without black-box signoff.",
+const proofPoints = [
+  "22 measurements captured in one SilverWings session.",
+  "100% accuracy versus manual verification.",
+  "Feeds existing systems, including Quantum.",
+  "Human review and signoff stay in control.",
 ];
 
 export default function AeroVisionBriefPage() {
@@ -67,29 +67,29 @@ export default function AeroVisionBriefPage() {
         }
         subhead={
           <>
-            AeroVision glasses observe maintenance work as it happens, then prepare review-ready records with the evidence already attached.
+            AeroVision glasses observe maintenance work as it happens, then prepare review-ready records with evidence already attached.
           </>
         }
-        heightClass="h-[1.9in]"
+        heightClass="h-[2.18in]"
       />
 
       {/* Problem framing for MRO leaders who care about turnaround time. */}
       <BriefSection
         eyebrow="The turnaround leak"
-        title="The work may be done, but the aircraft is not ready until the record is clean."
-        className="mt-[0.2in]"
+        title="The aircraft is not ready until the record is clean."
+        className="mt-[0.23in]"
       >
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-[1.05fr_1fr_1fr] gap-5">
           <div>
-            <div className="font-display text-cream-200" style={{ fontSize: "13.2px", fontWeight: 600 }}>
+            <div className="font-display text-cream-200" style={{ fontSize: "13.4px", fontWeight: 650 }}>
               Documentation slows release.
             </div>
             <p className="mt-1.5 text-cream-400" style={{ fontSize: "11.2px", lineHeight: 1.45 }}>
-              Technicians lose time after the task capturing measurements, findings, and corrective actions again.
+              Technicians lose time after the task capturing measurements, findings, and corrective actions a second time.
             </p>
           </div>
           <div>
-            <div className="font-display text-cream-200" style={{ fontSize: "13.2px", fontWeight: 600 }}>
+            <div className="font-display text-cream-200" style={{ fontSize: "13.4px", fontWeight: 650 }}>
               QA chases missing proof.
             </div>
             <p className="mt-1.5 text-cream-400" style={{ fontSize: "11.2px", lineHeight: 1.45 }}>
@@ -97,7 +97,7 @@ export default function AeroVisionBriefPage() {
             </p>
           </div>
           <div>
-            <div className="font-display text-cream-200" style={{ fontSize: "13.2px", fontWeight: 600 }}>
+            <div className="font-display text-cream-200" style={{ fontSize: "13.4px", fontWeight: 650 }}>
               The best teams need capacity.
             </div>
             <p className="mt-1.5 text-cream-400" style={{ fontSize: "11.2px", lineHeight: 1.45 }}>
@@ -108,42 +108,41 @@ export default function AeroVisionBriefPage() {
       </BriefSection>
 
       <BriefSection
-        eyebrow="Value propositions"
-        title="Faster release, more output per hour, and proof the work was done."
-        className="mt-[0.18in]"
+        eyebrow="Buyer outcomes"
+        title="Faster release, more useful work per hour, and proof the work was done."
+        className="mt-[0.23in]"
       >
-        <div className="grid grid-cols-3 gap-3">
-          {valueProps.map((prop) => (
-            <div
-              key={prop.value}
-              className="rounded-sm border border-cream-200/10 bg-cream-200/[0.02] px-3 py-2.5"
-            >
+        <div className="grid grid-cols-[1.1fr_1.65fr] gap-6">
+          <p className="text-cream-300" style={{ fontSize: "12.1px", lineHeight: 1.5 }}>
+            AeroVision starts with the real source of truth: the work itself. The glasses observe the task, the AI organizes the evidence, and the mechanic reviews the record before signoff.
+          </p>
+          <div className="border-y border-cream-200/10">
+            {outcomes.map((outcome, index) => (
               <div
-                className="font-display font-bold text-amber-400"
-                style={{
-                  fontSize:
-                    prop.value === "Auditability"
-                      ? "25px"
-                      : prop.value === "Efficiency"
-                        ? "31px"
-                        : "34px",
-                  lineHeight: 1,
-                }}
+                key={outcome.label}
+                className="grid grid-cols-[0.42in_1fr] gap-3 border-t border-cream-200/10 py-2 first:border-t-0"
               >
-                {prop.value}
+                <div
+                  className="font-display text-amber-400"
+                  style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "0.08em" }}
+                >
+                  0{index + 1}
+                </div>
+                <div>
+                  <div
+                    className="font-display text-cream-200"
+                    style={{ fontSize: "14px", fontWeight: 680, lineHeight: 1.2 }}
+                  >
+                    {outcome.label}
+                  </div>
+                  <p className="mt-1 text-cream-400" style={{ fontSize: "11px", lineHeight: 1.45 }}>
+                    {outcome.detail}
+                  </p>
+                </div>
               </div>
-              <p className="mt-1.5 text-cream-300" style={{ fontSize: "10.7px", lineHeight: 1.36 }}>
-                {prop.label}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        <p
-          className="mt-2 text-cream-400/85"
-          style={{ fontSize: "10.8px", lineHeight: 1.4 }}
-        >
-          SilverWings pilot proof: 22 measurements captured in one session with 100% accuracy versus manual verification.
-        </p>
       </BriefSection>
 
       <BriefSection
@@ -154,13 +153,13 @@ export default function AeroVisionBriefPage() {
             <span className="text-amber-400">Keep humans in control.</span>
           </span>
         }
-        className="mt-[0.18in]"
+        className="mt-[0.23in]"
       >
         <ol className="grid grid-cols-3 gap-3">
           {workflowSteps.map((step, index) => (
             <li
               key={step.label}
-              className="rounded-sm border border-cream-200/10 bg-cream-200/[0.02] px-3 py-3"
+              className="border-l border-cream-200/15 pl-3"
             >
               <div
                 className="font-display text-amber-400"
@@ -183,23 +182,23 @@ export default function AeroVisionBriefPage() {
       </BriefSection>
 
       <BriefSection
-        eyebrow="Why observed work wins"
-        title="A maintenance record should be built from what happened, not reconstructed later."
-        className="mt-[0.18in]"
+        eyebrow="Proof and fit"
+        title="Proof without black-box signoff."
+        className="mt-[0.23in]"
       >
         <div className="grid grid-cols-[1.1fr_1fr] gap-5">
-          <p style={{ fontSize: "12.4px", lineHeight: 1.48 }}>
-            Manual capture depends on the technician remembering every useful detail after the work. AeroVision starts with the real source of truth: the work itself. The glasses observe the task, the AI organizes the evidence, and the mechanic reviews the record before signoff. If anyone questions the work later, the answer can include both the record and video of the work actually being done.
+          <p style={{ fontSize: "11.8px", lineHeight: 1.45 }}>
+            If anyone questions the work later, the answer can include both the record and video of the work actually being done. QA gets proof without asking mechanics to document more.
           </p>
-          <ul className="flex flex-col gap-1.5">
-            {buyerBenefits.map((benefit) => (
-              <li key={benefit} className="flex gap-3">
+          <ul className="grid grid-cols-1 gap-1">
+            {proofPoints.map((point) => (
+              <li key={point} className="flex gap-3">
                 <span
                   aria-hidden
                   className="mt-[6px] h-[5px] w-[5px] flex-none rounded-full bg-amber-400"
                 />
-                <span className="text-cream-300" style={{ fontSize: "11.4px", lineHeight: 1.4 }}>
-                  {benefit}
+                <span className="text-cream-300" style={{ fontSize: "10.8px", lineHeight: 1.35 }}>
+                  {point}
                 </span>
               </li>
             ))}
