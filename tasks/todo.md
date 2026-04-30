@@ -31,3 +31,20 @@ Review notes
 - Validation passed: `npm run build`
 - Visual screenshot saved: `/Users/jake/.codex/playwright-output/aerovision-one-pager-chrome-v2.png`
 - Local preview URL: `http://localhost:3000/brief/aerovision`
+
+## AeroVision Value Proposition Tightening
+
+- [x] Refresh from latest main so the live one-pager is present in this worktree.
+- [x] Update the one-pager to make the three value propositions explicit: reduced turnaround time, more team output per hour, and evidence-backed auditability.
+- [x] Run lint and build validation.
+- [x] Visually verify the page after the copy/layout update.
+- [ ] Open and merge a focused PR if validation is green.
+
+Review notes
+- Added explicit prospect-facing value propositions: TAT reduction, reduced paperwork burden, and auditability through records plus video proof of work being done.
+- Tightened product language so the mechanic starts the job normally and AeroVision glasses observe without changing the flow.
+- Validation passed: `npm run lint`
+- Validation passed: `/Users/jake/bin/mvc-doctor.sh` (same App Store Connect issuer warning as before)
+- Validation passed: `npm run build`
+- Visual screenshot saved: `/Users/jake/.codex/playwright-output/aerovision-one-pager-value-props-final-local-production.png`
+- Browser tool screenshot saved: `aerovision-one-pager-value-props-playwright.png`

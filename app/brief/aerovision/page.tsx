@@ -4,7 +4,6 @@ import BriefFooter from "@/components/brief/BriefFooter";
 import BriefHero from "@/components/brief/BriefHero";
 import BriefPage from "@/components/brief/BriefPage";
 import BriefSection from "@/components/brief/BriefSection";
-import BriefStat from "@/components/brief/BriefStat";
 
 export const metadata: Metadata = {
   title: "AeroVision · Prospect one-pager",
@@ -16,7 +15,7 @@ const workflowSteps = [
   {
     label: "Observe",
     detail:
-      "The mechanic puts on glasses and starts the job. AeroVision observes without changing the flow.",
+      "The mechanic starts the job normally. AeroVision glasses observe without changing the flow.",
   },
   {
     label: "Prepare",
@@ -30,11 +29,29 @@ const workflowSteps = [
   },
 ];
 
+const valueProps = [
+  {
+    value: "TAT",
+    label:
+      "Reduce turnaround time by moving from finished work to release-ready records faster.",
+  },
+  {
+    value: "Efficiency",
+    label:
+      "Reduce paperwork burden so the same team produces more useful work per hour.",
+  },
+  {
+    value: "Auditability",
+    label:
+      "Ask what was done, then open the record and video proof of the work being done.",
+  },
+];
+
 const buyerBenefits = [
-  "Fewer end-of-shift writeups and less duplicate entry",
-  "Cleaner QA review with evidence attached to each critical field",
-  "Measurement capture that can feed existing systems, including Quantum",
-  "No rip-and-replace and no black-box signoff",
+  "Ask AeroVision what was done, then jump to the record and the video proof.",
+  "Cleaner QA review with evidence attached to each critical field.",
+  "Measurement capture that can feed existing systems, including Quantum.",
+  "A dispute-resistant audit log without black-box signoff.",
 ];
 
 export default function AeroVisionBriefPage() {
@@ -53,7 +70,7 @@ export default function AeroVisionBriefPage() {
             AeroVision glasses observe maintenance work as it happens, then prepare review-ready records with the evidence already attached.
           </>
         }
-        heightClass="h-[2.1in]"
+        heightClass="h-[1.9in]"
       />
 
       {/* Problem framing for MRO leaders who care about turnaround time. */}
@@ -90,26 +107,43 @@ export default function AeroVisionBriefPage() {
         </div>
       </BriefSection>
 
-      {/* Proof and value claims kept concrete for prospect conversations. */}
       <BriefSection
-        eyebrow="What changes"
-        title="AeroVision removes documentation drag from the maintenance flow."
-        className="mt-[0.2in]"
+        eyebrow="Value propositions"
+        title="Faster release, more output per hour, and proof the work was done."
+        className="mt-[0.18in]"
       >
-        <div className="grid grid-cols-3 gap-4">
-          <BriefStat
-            value={<>22</>}
-            label={<>measurements captured in one SilverWings session.</>}
-          />
-          <BriefStat
-            value={<>100%</>}
-            label={<>accuracy versus manual verification in that session.</>}
-          />
-          <BriefStat
-            value={<>TAT</>}
-            label={<>target outcome: cleaner records sooner, so work can move to release faster.</>}
-          />
+        <div className="grid grid-cols-3 gap-3">
+          {valueProps.map((prop) => (
+            <div
+              key={prop.value}
+              className="rounded-sm border border-cream-200/10 bg-cream-200/[0.02] px-3 py-2.5"
+            >
+              <div
+                className="font-display font-bold text-amber-400"
+                style={{
+                  fontSize:
+                    prop.value === "Auditability"
+                      ? "25px"
+                      : prop.value === "Efficiency"
+                        ? "31px"
+                        : "34px",
+                  lineHeight: 1,
+                }}
+              >
+                {prop.value}
+              </div>
+              <p className="mt-1.5 text-cream-300" style={{ fontSize: "10.7px", lineHeight: 1.36 }}>
+                {prop.label}
+              </p>
+            </div>
+          ))}
         </div>
+        <p
+          className="mt-2 text-cream-400/85"
+          style={{ fontSize: "10.8px", lineHeight: 1.4 }}
+        >
+          SilverWings pilot proof: 22 measurements captured in one session with 100% accuracy versus manual verification.
+        </p>
       </BriefSection>
 
       <BriefSection
@@ -120,7 +154,7 @@ export default function AeroVisionBriefPage() {
             <span className="text-amber-400">Keep humans in control.</span>
           </span>
         }
-        className="mt-[0.2in]"
+        className="mt-[0.18in]"
       >
         <ol className="grid grid-cols-3 gap-3">
           {workflowSteps.map((step, index) => (
@@ -151,11 +185,11 @@ export default function AeroVisionBriefPage() {
       <BriefSection
         eyebrow="Why observed work wins"
         title="A maintenance record should be built from what happened, not reconstructed later."
-        className="mt-[0.2in]"
+        className="mt-[0.18in]"
       >
         <div className="grid grid-cols-[1.1fr_1fr] gap-5">
           <p style={{ fontSize: "12.4px", lineHeight: 1.48 }}>
-            Manual capture depends on the technician remembering every useful detail after the work. AeroVision starts with the real source of truth: the work itself. The glasses observe the task, the AI organizes the evidence, and the mechanic reviews the record before signoff.
+            Manual capture depends on the technician remembering every useful detail after the work. AeroVision starts with the real source of truth: the work itself. The glasses observe the task, the AI organizes the evidence, and the mechanic reviews the record before signoff. If anyone questions the work later, the answer can include both the record and video of the work actually being done.
           </p>
           <ul className="flex flex-col gap-1.5">
             {buyerBenefits.map((benefit) => (
