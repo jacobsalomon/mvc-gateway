@@ -48,3 +48,23 @@ Review notes
 - Validation passed: `npm run build`
 - Visual screenshot saved: `/Users/jake/.codex/playwright-output/aerovision-one-pager-value-props-final-local-production.png`
 - Browser tool screenshot saved: `aerovision-one-pager-value-props-playwright.png`
+
+## AeroVision One-Pager UI Polish
+
+- [x] Inventory current brief one-pagers.
+- [x] Run an end-to-end visual review of the AeroVision one-pager.
+- [x] Improve spacing, hierarchy, and value-prop presentation.
+- [x] Run lint/build validation.
+- [x] Visually verify the revised page with screenshots.
+- [ ] Open and merge a focused PR if validation is green.
+
+Review notes
+- Current one-pagers: `/brief/overview`, `/brief/how-it-works`, and `/brief/aerovision`.
+- Visual issue found: the AeroVision page fit on one sheet, but the top and bottom spacing felt cramped and the value proposition cards used mismatched display type.
+- Reworked the AeroVision page into a calmer editorial layout: taller hero, no value-prop cards, a cleaner buyer-outcomes section, and a shorter proof section with the footer visible.
+- Validation passed: `npm run lint`
+- Validation passed: `/Users/jake/bin/mvc-doctor.sh` (same App Store Connect issuer warning as before)
+- Validation passed: `npm run build`
+- Baseline screenshot saved: `/Users/jake/.codex/playwright-output/aerovision-one-pager-ui-baseline.png`
+- Final local production screenshot saved: `/Users/jake/.codex/playwright-output/aerovision-one-pager-ui-polish-final-local-production.png`
+- Browser tool screenshot saved: `aerovision-one-pager-ui-polish-playwright.png`
