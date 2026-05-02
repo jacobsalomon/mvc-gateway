@@ -48,9 +48,7 @@ const outcomes = [
 ];
 
 const proofPoints = [
-  "22 measurements captured in one SilverWings session.",
-  "100% accuracy versus manual verification.",
-  "Feeds existing systems, including Quantum.",
+  "Feeds existing systems.",
   "Human review and signoff stay in control.",
 ];
 
@@ -58,16 +56,16 @@ export default function AeroVisionBriefPage() {
   return (
     <BriefPage>
       <BriefHero
-        image="/whatif-2.jpg"
-        imageAlt="A maintenance technician working below an aircraft engine"
+        image="/aerovision-brief-airplane-bw.jpg"
+        imageAlt="A wide-body aircraft parked at an airport terminal"
         headline={
           <>
-            Get aircraft back faster. Mechanics just do the job.
+            Mechanics inspect. Glasses observe. Paperwork writes itself.
           </>
         }
         subhead={
           <>
-            AeroVision glasses observe maintenance work as it happens, then prepare review-ready records with evidence already attached.
+            Reclaim your shift. Focus on the real work.
           </>
         }
         heightClass="h-[2.18in]"
