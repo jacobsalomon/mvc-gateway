@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 type Props = {
   image: string;
@@ -6,6 +6,9 @@ type Props = {
   headline: ReactNode;
   subhead: ReactNode;
   heightClass?: string;
+  imageClassName?: string;
+  headlineStyle?: CSSProperties;
+  subheadStyle?: CSSProperties;
 };
 
 export default function BriefHero({
@@ -14,6 +17,9 @@ export default function BriefHero({
   headline,
   subhead,
   heightClass = "h-[2.9in]",
+  imageClassName = "",
+  headlineStyle,
+  subheadStyle,
 }: Props) {
   return (
     <header className={`relative w-full ${heightClass} flex-none overflow-hidden`}>
@@ -21,7 +27,7 @@ export default function BriefHero({
       <img
         src={image}
         alt={imageAlt}
-        className="absolute inset-0 h-full w-full object-cover"
+        className={`absolute inset-0 h-full w-full object-cover ${imageClassName}`}
       />
       <div
         aria-hidden
@@ -34,13 +40,13 @@ export default function BriefHero({
       <div className="relative z-10 flex h-full flex-col justify-end px-[0.6in] pb-[0.35in]">
         <h1
           className="font-display font-bold tracking-tight text-cream-200"
-          style={{ fontSize: "44px", lineHeight: 1.05 }}
+          style={{ fontSize: "44px", lineHeight: 1.05, ...headlineStyle }}
         >
           {headline}
         </h1>
         <p
           className="mt-3 max-w-[6.5in] text-cream-300"
-          style={{ fontSize: "17px", lineHeight: 1.45 }}
+          style={{ fontSize: "17px", lineHeight: 1.45, ...subheadStyle }}
         >
           {subhead}
         </p>
