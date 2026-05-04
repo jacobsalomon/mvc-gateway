@@ -8,6 +8,7 @@ import AnimatedGrid from "@/components/animated-grid";
 import CountUp from "@/components/count-up";
 import ScrollProgress from "@/components/scroll-progress";
 import PanelCorners from "@/components/panel-corners";
+import VideoBg from "@/components/video-bg";
 
 // Lazy-load heavy below-fold components — lets hero render instantly
 const WhatIfScroll = dynamic(() => import("@/components/what-if-scroll"));
@@ -172,6 +173,12 @@ export default function Home() {
         id="why-now"
         className="section-hairline relative scroll-mt-20 overflow-hidden bg-dark-950 px-6 py-24 md:py-32"
       >
+        <VideoBg
+          src="/videos/whynow-bg.mp4"
+          poster="/videos/panel-detail.jpg"
+          opacity={0.13}
+          className="section-video-layer"
+        />
         {/* Atmospheric Unsplash image — very low opacity for texture
             Photo: Welder with sparks (Unsplash photo-1504328345606) */}
         <div
