@@ -7,6 +7,8 @@ import ScrollReveal from "@/components/scroll-reveal";
 import AnimatedGrid from "@/components/animated-grid";
 import CountUp from "@/components/count-up";
 import ScrollProgress from "@/components/scroll-progress";
+import PanelCorners from "@/components/panel-corners";
+import VideoBg from "@/components/video-bg";
 
 // Lazy-load heavy below-fold components — lets hero render instantly
 const WhatIfScroll = dynamic(() => import("@/components/what-if-scroll"));
@@ -77,11 +79,15 @@ export default function Home() {
       {/* ========================
           THE UNLOCK — Reframe the problem as massive opportunity
           ======================== */}
-      <SectionWrapper id="opportunity" className="bg-gradient-to-b from-dark-900 to-dark-950">
+      <SectionWrapper
+        id="opportunity"
+        className="section-hairline scroll-mt-20 bg-gradient-to-b from-dark-900 to-dark-950"
+      >
         <ScrollReveal>
-          <h2 className="text-center font-display text-4xl md:text-6xl font-bold text-white tracking-tight">
+          <h2 className="text-center font-display text-4xl font-bold text-white md:text-6xl">
             The Biggest Productivity Unlock
             <br className="hidden md:block" />
+            {" "}
             in a Generation
           </h2>
         </ScrollReveal>
@@ -98,9 +104,9 @@ export default function Home() {
         {/* Stat cards — glass-morphism on dark */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Stat 1 — Wrench time */}
-          <ScrollReveal delay={1}>
-            <div className="text-center p-8 rounded-sm bg-white/[0.05] border border-white/[0.08]">
-              <div className="font-display text-6xl md:text-7xl font-bold text-white tracking-tight">
+          <ScrollReveal>
+            <PanelCorners className="control-panel stat-card-glow rounded-sm p-8 text-center">
+              <div className="font-display text-6xl font-bold text-white md:text-7xl">
                 <CountUp end={25} suffix="%" />
               </div>
               <p className="mt-4 text-white/70 text-lg font-medium">
@@ -109,13 +115,16 @@ export default function Home() {
               <p className="mt-2 text-sm text-white/40">
                 Industry average &ldquo;wrench time&rdquo;
               </p>
-            </div>
+            </PanelCorners>
           </ScrollReveal>
 
           {/* Stat 2 — Jobs at risk */}
-          <ScrollReveal delay={2}>
-            <div className="text-center p-8 rounded-sm bg-white/[0.05] border border-white/[0.08]">
-              <div className="font-display text-6xl md:text-7xl font-bold text-white tracking-tight">
+          <ScrollReveal>
+            <PanelCorners
+              className="control-panel stat-card-glow rounded-sm p-8 text-center"
+              style={{ animationDelay: "1.2s" }}
+            >
+              <div className="font-display text-6xl font-bold text-white md:text-7xl">
                 <CountUp end={1.9} suffix="M" decimals={1} />
               </div>
               <p className="mt-4 text-white/70 text-lg font-medium">
@@ -124,13 +133,16 @@ export default function Home() {
               <p className="mt-2 text-sm text-white/40">
                 Deloitte &amp; Manufacturing Institute
               </p>
-            </div>
+            </PanelCorners>
           </ScrollReveal>
 
           {/* Stat 3 — Investment pouring in */}
-          <ScrollReveal delay={3}>
-            <div className="text-center p-8 rounded-sm bg-white/[0.05] border border-white/[0.08]">
-              <div className="font-display text-6xl md:text-7xl font-bold text-white tracking-tight">
+          <ScrollReveal>
+            <PanelCorners
+              className="control-panel stat-card-glow rounded-sm p-8 text-center"
+              style={{ animationDelay: "2.4s" }}
+            >
+              <div className="font-display text-6xl font-bold text-white md:text-7xl">
                 <CountUp end={2} prefix="$" suffix="T+" />
               </div>
               <p className="mt-4 text-white/70 text-lg font-medium">
@@ -139,7 +151,7 @@ export default function Home() {
               <p className="mt-2 text-sm text-white/40">
                 Reshoring Initiative
               </p>
-            </div>
+            </PanelCorners>
           </ScrollReveal>
         </div>
 
@@ -157,7 +169,16 @@ export default function Home() {
       {/* ========================
           WHY NOW — Reindustrialization moment
           ======================== */}
-      <section id="why-now" className="relative px-6 py-24 md:py-32 bg-dark-950 overflow-hidden">
+      <section
+        id="why-now"
+        className="section-hairline relative scroll-mt-20 overflow-hidden bg-dark-950 px-6 py-24 md:py-32"
+      >
+        <VideoBg
+          src="/videos/whynow-bg.mp4"
+          poster="/videos/panel-detail.jpg"
+          opacity={0.13}
+          className="section-video-layer"
+        />
         {/* Atmospheric Unsplash image — very low opacity for texture
             Photo: Welder with sparks (Unsplash photo-1504328345606) */}
         <div
@@ -171,7 +192,7 @@ export default function Home() {
           {/* Left column — heading + narrative */}
           <div>
             <ScrollReveal>
-              <h2 className="font-display text-4xl md:text-6xl font-bold text-white tracking-tight">
+              <h2 className="font-display text-4xl font-bold text-white md:text-5xl xl:text-6xl">
                 A Once-in-a-Generation
                 <br />
                 <span className="text-white/50">Moment.</span>
@@ -205,8 +226,8 @@ export default function Home() {
           {/* Right column — stats, aligned with heading */}
           <ScrollReveal animation="fade-in-right">
             <div className="space-y-8">
-              <div className="p-6 rounded-sm bg-white/[0.05] border border-white/[0.08]">
-                <div className="font-display text-5xl font-bold text-white tracking-tight">
+              <PanelCorners className="control-panel rounded-sm p-6">
+                <div className="font-display text-5xl font-bold text-white">
                   <CountUp end={65} suffix="%" />
                 </div>
                 <p className="mt-2 text-white/60 text-base">
@@ -214,9 +235,9 @@ export default function Home() {
                   challenge
                 </p>
                 <p className="mt-1 text-sm text-white/40">Deloitte</p>
-              </div>
-              <div className="p-6 rounded-sm bg-white/[0.05] border border-white/[0.08]">
-                <div className="font-display text-5xl font-bold text-white tracking-tight">
+              </PanelCorners>
+              <PanelCorners className="control-panel rounded-sm p-6">
+                <div className="font-display text-5xl font-bold text-white">
                   4–5 years
                 </div>
                 <p className="mt-2 text-white/60 text-base">
@@ -224,9 +245,9 @@ export default function Home() {
                   knowledge walks out the door when they retire
                 </p>
                 <p className="mt-1 text-sm text-white/40">Dept. of Labor</p>
-              </div>
-              <div className="p-6 rounded-sm bg-white/[0.05] border border-white/[0.08]">
-                <div className="font-display text-5xl font-bold text-white tracking-tight">
+              </PanelCorners>
+              <PanelCorners className="control-panel rounded-sm p-6">
+                <div className="font-display text-5xl font-bold text-white">
                   <CountUp end={26} suffix="%" />
                 </div>
                 <p className="mt-2 text-white/60 text-base">
@@ -236,7 +257,7 @@ export default function Home() {
                 <p className="mt-1 text-sm text-white/40">
                   Deloitte
                 </p>
-              </div>
+              </PanelCorners>
             </div>
           </ScrollReveal>
         </div>
@@ -326,12 +347,12 @@ export default function Home() {
       {/* ========================
           CTA + FOOTER
           ======================== */}
-      <section className="relative px-6 py-32 md:py-44 bg-dark-950 overflow-hidden">
+      <section className="section-hairline relative overflow-hidden bg-dark-950 px-6 py-32 md:py-44">
         <AnimatedGrid />
         <div className="relative z-10 mx-auto max-w-7xl">
           <ScrollReveal>
             <div className="text-center">
-              <h2 className="font-display text-4xl md:text-6xl font-bold text-white tracking-tight">
+              <h2 className="font-display text-4xl font-bold text-white md:text-6xl">
                 See It for Yourself
               </h2>
               <p className="mt-4 text-lg text-white/60 max-w-xl mx-auto">
@@ -342,13 +363,13 @@ export default function Home() {
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href="/aerovision/dashboard"
-                  className="cta-glow flex h-14 items-center justify-center rounded-sm bg-cream-200 px-10 text-lg font-medium text-dark-950 transition-all hover:bg-cream-300 hover:scale-[1.02]"
+                  className="command-button cta-glow flex h-14 items-center justify-center rounded-sm bg-cream-200 px-10 text-lg font-medium text-dark-950 transition-all hover:scale-[1.02] hover:bg-white"
                 >
                   See It in Action
                 </Link>
                 <Link
                   href="/pitch"
-                  className="flex h-14 items-center justify-center rounded-sm border border-white/20 px-8 text-lg font-medium text-white/70 transition-all hover:border-white/40 hover:bg-white/[0.05]"
+                  className="secondary-command flex h-14 items-center justify-center rounded-sm border border-white/20 px-8 text-lg font-medium text-white/70 transition-all hover:border-white/40 hover:bg-white/[0.05]"
                 >
                   Investor Deck
                 </Link>
