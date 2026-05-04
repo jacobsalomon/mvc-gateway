@@ -200,6 +200,101 @@ html {
   box-shadow: 0 0 30px rgba(230, 227, 224, 0.25), 0 0 60px rgba(230, 227, 224, 0.1);
 }
 
+/* Scoped visual polish for the three review-approved homepage sections. */
+.control-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.028)),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: auto, 28px 28px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    inset 0 -1px 0 rgba(0,0,0,0.72),
+    0 28px 90px rgba(0,0,0,0.36);
+}
+
+.control-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255,255,255,0.07), transparent 34%),
+    linear-gradient(115deg, transparent 0%, rgba(255,255,255,0.04) 50%, transparent 64%);
+  opacity: 0.65;
+}
+
+.control-panel > :not(.corner) {
+  position: relative;
+  z-index: 1;
+}
+
+.panel-corners .corner {
+  position: absolute;
+  z-index: 2;
+  width: 14px;
+  height: 14px;
+  border-color: rgba(255, 255, 255, 0.17);
+  border-style: solid;
+  pointer-events: none;
+  transition: border-color 0.25s ease;
+}
+
+.panel-corners:hover .corner {
+  border-color: rgba(255, 255, 255, 0.34);
+}
+
+.corner-tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+.corner-tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+.corner-bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+.corner-br { right: 0; bottom: 0; border-width: 0 1px 1px 0; }
+
+.stat-card-glow {
+  animation: stat-border-pulse 4.8s ease-in-out infinite;
+}
+
+@keyframes stat-border-pulse {
+  0%, 100% {
+    box-shadow:
+      inset 0 0 24px rgba(255,255,255,0),
+      inset 0 1px 0 rgba(255,255,255,0.08),
+      0 28px 90px rgba(0,0,0,0.36);
+  }
+  50% {
+    box-shadow:
+      inset 0 0 42px rgba(255,255,255,0.04),
+      inset 0 1px 0 rgba(255,255,255,0.12),
+      0 32px 100px rgba(0,0,0,0.44);
+  }
+}
+
+.command-button {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.9),
+    0 0 0 1px rgba(255,255,255,0.22),
+    0 18px 60px rgba(255,255,255,0.08);
+}
+
+.secondary-command {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+.section-hairline {
+  position: relative;
+}
+
+.section-hairline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.16), transparent);
+}
+
 /* Respect user preference for reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in,
@@ -212,7 +307,8 @@ html {
   .scroll-fade-in-right,
   .animate-bounce-slow,
   .animate-grid-pulse,
-  .animate-grid-pulse-slow {
+  .animate-grid-pulse-slow,
+  .stat-card-glow {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
