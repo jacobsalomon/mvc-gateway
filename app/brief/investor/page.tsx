@@ -145,12 +145,6 @@ export default function InvestorBriefPage() {
             >
               Mechanical Vision Corporation
             </div>
-            <div
-              className="rounded-sm border border-cream-200/20 bg-dark-950/55 px-2.5 py-1 uppercase text-cream-400"
-              style={{ fontSize: "8.5px", letterSpacing: "0.2em" }}
-            >
-              Investor one-pager
-            </div>
           </div>
 
           <div>
@@ -177,7 +171,7 @@ export default function InvestorBriefPage() {
       <main className="flex flex-1 flex-col gap-[0.16in] px-[0.6in] py-[0.24in]">
         <CornerPanel
           eyebrow="Problem"
-          title="Scarce technicians are stuck recreating proof after the work is done."
+          title="Scarce technicians are stuck writing notes after the work is done."
         >
           <div className="grid grid-cols-[1.55in_1fr] gap-4">
             <div className="rounded-sm border border-amber-400/25 bg-amber-400/10 px-3 py-3">
@@ -191,7 +185,7 @@ export default function InvestorBriefPage() {
                 of a mechanic&apos;s day is spent on paperwork, not fixing airplanes.
               </p>
               <p className="mt-2 text-cream-400/70" style={{ fontSize: "8.6px", lineHeight: 1.3 }}>
-                Source: McKinsey, via MVC seed deck.
+                Source: McKinsey.
               </p>
             </div>
 
@@ -273,8 +267,8 @@ export default function InvestorBriefPage() {
                 regulated records, and scarce technicians make the pain immediate.
               </p>
               <p className="text-cream-400" style={{ fontSize: "10.5px", lineHeight: 1.35 }}>
-                TAM source: MVC TAM/SAM/SOM Rebuild, Apr. 27, 2026. Long-term
-                upside comes from proprietary expert-work data for physical AI.
+                Long-term upside comes from proprietary expert-work data for
+                physical AI.
               </p>
             </div>
           </div>
