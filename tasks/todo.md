@@ -1,3 +1,20 @@
+## Wencor IT Legal Docs
+
+- [x] Review Circuit's public Terms of Service and Privacy Policy as structure references.
+- [x] Draft MVC Terms of Service with customer ownership, MVC service-improvement rights, AI model training rights, Aggregated Data rights, NDI handling, and staged integration language.
+- [x] Draft MVC Privacy Policy with collected data, storage, sharing, security, AI use, Aggregated Data, NDI, and retention sections.
+- [x] Add website-ready legal pages at `/legal/terms` and `/legal/privacy`.
+- [x] Run focused validation.
+- [x] Record review notes.
+
+Review notes
+- Drafts are legal-policy starting points for business and IT review, not a substitute for counsel review before broad public launch.
+- The drafts intentionally say customers retain ownership of Customer Content while MVC receives rights to provide, improve, train/evaluate MVC models, develop new products, and use Aggregated Data.
+- Validation passed: `npm run lint`
+- Validation passed: `/Users/jake/bin/mvc-doctor.sh`
+- Validation passed: `npm run build`
+- Browser smoke passed: `/legal/terms` and `/legal/privacy` rendered at `http://localhost:3000` during local verification. The only console errors were from the existing Leadsy analytics script being blocked on localhost.
+
 ## Gateway Browser Error Alerts
 
 - [x] Confirm the root Gateway app is missing browser/server Sentry capture.

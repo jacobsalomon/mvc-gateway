@@ -396,6 +396,14 @@ export default function Home() {
             <span className="w-1 h-1 rounded-full bg-white/30" />
             <span>jake@mechanicalvisioncorp.com</span>
             <span className="w-1 h-1 rounded-full bg-white/30" />
+            <Link href="/legal/terms" className="transition-colors hover:text-white">
+              Terms
+            </Link>
+            <span className="w-1 h-1 rounded-full bg-white/30" />
+            <Link href="/legal/privacy" className="transition-colors hover:text-white">
+              Privacy
+            </Link>
+            <span className="w-1 h-1 rounded-full bg-white/30" />
             <Link href="/brief/overview" className="transition-colors hover:text-white">
               For MRO design partners
             </Link>
