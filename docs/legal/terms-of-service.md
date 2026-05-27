@@ -1,12 +1,12 @@
 ---
 title: Mechanical Vision Corporation Terms of Service
 lastUpdated: May 27, 2026
-summary: Terms for using AeroVision and related Mechanical Vision Corporation services.
+summary: Terms for using Mechanical Vision Corporation products and services.
 ---
 
 # Mechanical Vision Corporation Terms of Service
 
-These Terms of Service are a legal agreement between you and Mechanical Vision Corporation, also called "MVC," "we," "us," or "our," for your access to and use of AeroVision, our websites, hosted applications, mobile applications, smart glasses capture workflows, APIs, AI features, documentation tools, pilot programs, and related services, together called the "Service."
+These Terms of Service are a legal agreement between you and Mechanical Vision Corporation, also called "MVC," "we," "us," or "our," for your access to and use of our websites, hosted applications, mobile applications, smart glasses capture workflows, APIs, AI features, documentation tools, pilot programs, and related products and services, together called the "Service."
 
 Please read these Terms carefully. By creating an account, accepting an order form, joining a pilot, accessing the Service, or using the Service, you agree to these Terms. If you use the Service for a company or other organization, you represent that you have authority to bind that organization, and "you" includes that organization.
 
@@ -14,11 +14,11 @@ If your organization has a separate written pilot agreement, order form, master 
 
 ## 1. Service Overview
 
-AeroVision helps aviation maintenance, repair, inspection, manufacturing, and industrial teams capture evidence of work, map observations to records, and prepare review-ready documentation.
+The Service helps aviation maintenance, repair, inspection, manufacturing, and industrial teams capture evidence of work, map observations to records, and prepare review-ready documentation.
 
-The intended workflow is simple: glasses observe, the mechanic just does the job, and a human reviews and signs. AeroVision may capture video, audio, images, document scans, measurements, timestamps, user inputs, workflow status, device information, and other evidence. AI features may analyze that evidence in real time or after capture to suggest form fields, checklist status, inspection notes, summaries, discrepancies, and other outputs.
+The intended workflow is simple: glasses observe, the mechanic just does the job, and a human reviews and signs. The Service may capture video, audio, images, document scans, measurements, timestamps, user inputs, workflow status, device information, and other evidence. AI features may analyze that evidence in real time or after capture to suggest form fields, checklist status, inspection notes, summaries, discrepancies, and other outputs.
 
-AeroVision is an assistive documentation and inspection workflow tool. It does not replace required inspection procedures, human judgment, regulatory obligations, company quality systems, or the authority of certificated personnel. Your organization remains responsible for final review, approval, release, signature, and compliance decisions.
+The Service is an assistive documentation and inspection workflow tool. It does not replace required inspection procedures, human judgment, regulatory obligations, company quality systems, or the authority of certificated personnel. Your organization remains responsible for final review, approval, release, signature, and compliance decisions.
 
 ## 2. Pilot Programs and Enterprise Use
 

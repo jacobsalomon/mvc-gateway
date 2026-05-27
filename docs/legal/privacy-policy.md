@@ -1,20 +1,20 @@
 ---
 title: Mechanical Vision Corporation Privacy Policy
 lastUpdated: May 27, 2026
-summary: How Mechanical Vision Corporation collects, uses, stores, and shares information for AeroVision and related services.
+summary: How Mechanical Vision Corporation collects, uses, stores, and shares information for its products and services.
 ---
 
 # Mechanical Vision Corporation Privacy Policy
 
-This Privacy Policy explains how Mechanical Vision Corporation, also called "MVC," "we," "us," or "our," collects, uses, stores, discloses, and protects information when you use AeroVision, our websites, hosted applications, mobile applications, smart glasses capture workflows, APIs, AI features, pilot programs, and related services, together called the "Service."
+This Privacy Policy explains how Mechanical Vision Corporation, also called "MVC," "we," "us," or "our," collects, uses, stores, discloses, and protects information when you use our websites, hosted applications, mobile applications, smart glasses capture workflows, APIs, AI features, pilot programs, and related products and services, together called the "Service."
 
 This Privacy Policy is part of our Terms of Service. If your organization has a separate written agreement with MVC, that agreement may include additional privacy, security, retention, or data processing terms.
 
 ## 1. Summary
 
-AeroVision helps teams document aviation maintenance, repair, inspection, manufacturing, and industrial work. In plain English: glasses observe, the mechanic just does the job, and a human reviews and signs.
+MVC products and services help teams document aviation maintenance, repair, inspection, manufacturing, and industrial work. In plain English: glasses observe, the mechanic just does the job, and a human reviews and signs.
 
-To provide the Service, we may collect inspection evidence and related information, including video, audio, images, document scans, measurements, notes, transcripts, form fields, workflow data, account data, device data, and system logs. We use that information to provide the Service, secure it, support users, prepare review-ready records, improve AeroVision, train and evaluate MVC models, and develop new MVC products and services.
+To provide the Service, we may collect inspection evidence and related information, including video, audio, images, document scans, measurements, notes, transcripts, form fields, workflow data, account data, device data, and system logs. We use that information to provide the Service, secure it, support users, prepare review-ready records, improve MVC products and services, train and evaluate MVC models, and develop new MVC products and services.
 
 Customers retain ownership of their Customer Content. MVC receives the rights needed to provide and improve the Service, and MVC may use Aggregated Data as described below.
 
@@ -87,7 +87,7 @@ MVC may use Aggregated Data for any lawful business purpose, including improving
 
 ## 6. AI Processing and Model Improvement
 
-AeroVision uses AI to help capture inspection data, understand evidence, identify possible matches to procedure steps or form fields, generate draft records, and support human review.
+The Service uses AI to help capture inspection data, understand evidence, identify possible matches to procedure steps or form fields, generate draft records, and support human review.
 
 We may use Customer Content to train, evaluate, test, and improve AI models used by or for MVC in connection with the Service and related MVC products or services. This may include proprietary MVC models for computer vision, speech recognition, language understanding, workflow understanding, document generation, and multimodal reasoning.
 
@@ -129,7 +129,7 @@ Your organization decides what to capture, upload, or connect to the Service. Th
 
 Unless a written agreement says otherwise, you should not submit classified information, controlled unclassified information, ITAR-controlled technical data, protected health information, payment card data, government security information, or other highly regulated data to the Service.
 
-If your organization wants to use AeroVision for sensitive NDI data, export-controlled data, or other restricted data, MVC and your organization should agree in writing on the scope, controls, storage, access, retention, and integration requirements before that data is captured.
+If your organization wants to use the Service for sensitive NDI data, export-controlled data, or other restricted data, MVC and your organization should agree in writing on the scope, controls, storage, access, retention, and integration requirements before that data is captured.
 
 ## 11. Data Retention and Deletion
 
