@@ -6,11 +6,11 @@ summary: Terms for using Mechanical Vision Corporation products and services.
 
 # Mechanical Vision Corporation Terms of Service
 
-These Terms of Service are a legal agreement between you and Mechanical Vision Corporation, also called "MVC," "we," "us," or "our," for your access to and use of our websites, hosted applications, mobile applications, smart glasses capture workflows, APIs, AI features, documentation tools, pilot programs, and related products and services, together called the "Service."
+These Terms of Service are a legal agreement between you and Mechanical Vision Corporation, also called "MVC," "we," "us," or "our," for your access to and use of our websites, hosted applications, mobile applications, smart glasses capture workflows, APIs, AI features, documentation tools, evaluations, and related products and services, together called the "Service."
 
-Please read these Terms carefully. By creating an account, accepting an order form, joining a pilot, accessing the Service, or using the Service, you agree to these Terms. If you use the Service for a company or other organization, you represent that you have authority to bind that organization, and "you" includes that organization.
+Please read these Terms carefully. By creating an account, accepting an order form, accepting an invitation, accessing the Service, or using the Service, you agree to these Terms. If you use the Service for a company or other organization, you represent that you have authority to bind that organization, and "you" includes that organization.
 
-If your organization has a separate written pilot agreement, order form, master services agreement, data processing agreement, security addendum, or similar agreement with MVC, that separate agreement controls if there is a conflict with these Terms.
+If your organization has a separate written agreement, order form, master services agreement, data processing agreement, security addendum, statement of work, or similar agreement with MVC, that separate agreement controls if there is a conflict with these Terms.
 
 ## 1. Service Overview
 
@@ -20,11 +20,11 @@ The intended workflow is simple: glasses observe, the mechanic just does the job
 
 The Service is an assistive documentation and inspection workflow tool. It does not replace required inspection procedures, human judgment, regulatory obligations, company quality systems, or the authority of certificated personnel. Your organization remains responsible for final review, approval, release, signature, and compliance decisions.
 
-## 2. Pilot Programs and Enterprise Use
+## 2. Company Accounts and Separate Agreements
 
-MVC may make the Service available through evaluations, pilots, design partner programs, paid subscriptions, enterprise deployments, or other limited access programs.
+MVC may make the Service available through evaluations, trials, paid subscriptions, enterprise accounts, or other access programs.
 
-Specific pilot scope, commercial terms, data retention commitments, security requirements, deployment details, and integrations may be described in a separate written agreement between MVC and your organization.
+Customer-specific commercial terms, implementation scope, integrations, data retention commitments, security requirements, support commitments, service levels, deployment details, and similar terms may be described in a separate written agreement between MVC and your organization.
 
 ## 3. Eligibility and Accounts
 

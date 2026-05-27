@@ -6,7 +6,7 @@ summary: How Mechanical Vision Corporation collects, uses, stores, and shares in
 
 # Mechanical Vision Corporation Privacy Policy
 
-This Privacy Policy explains how Mechanical Vision Corporation, also called "MVC," "we," "us," or "our," collects, uses, stores, discloses, and protects information when you use our websites, hosted applications, mobile applications, smart glasses capture workflows, APIs, AI features, pilot programs, and related products and services, together called the "Service."
+This Privacy Policy explains how Mechanical Vision Corporation, also called "MVC," "we," "us," or "our," collects, uses, stores, discloses, and protects information when you use our websites, hosted applications, mobile applications, smart glasses capture workflows, APIs, AI features, evaluations, and related products and services, together called the "Service."
 
 This Privacy Policy is part of our Terms of Service. If your organization has a separate written agreement with MVC, that agreement may include additional privacy, security, retention, or data processing terms.
 
@@ -113,7 +113,7 @@ Unless a written agreement says otherwise, MVC stores Service information in clo
 
 Information may be processed by service providers in locations where they operate, subject to contractual and technical safeguards. If your organization enables an integration, information may also move to or from the systems your organization selects.
 
-For enterprise or pilot programs with special requirements, MVC and your organization may agree in writing on specific storage, retention, access, security, or regional requirements before expanding the deployment.
+Customer-specific storage, retention, access, security, regional, integration, or deployment commitments may be set out in a separate written agreement between MVC and your organization.
 
 ## 9. Security
 
