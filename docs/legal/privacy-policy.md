@@ -22,7 +22,7 @@ Customers retain ownership of their Customer Content. MVC receives the rights ne
 
 ### 2.1 Account and Contact Information
 
-We may collect names, email addresses, phone numbers, job titles, organization names, passwords or authentication credentials, account settings, user roles, support requests, and communication preferences.
+We may collect names, email addresses, phone numbers, job titles, organization names, authentication-related information, account settings, user roles, support requests, and communication preferences.
 
 ### 2.2 Customer Content and Inspection Evidence
 
@@ -111,7 +111,7 @@ We do not sell Customer Content. We do not sell personal information as that ter
 
 Unless a written agreement says otherwise, MVC stores Service information in cloud infrastructure used by MVC and its service providers, primarily in the United States.
 
-Information may be processed by service providers in locations where they operate, subject to contractual and technical safeguards. If your organization enables an integration, information may also move to or from the systems your organization selects.
+Information may be processed by MVC and our service providers in locations where we or they operate, subject to contractual and technical safeguards. If your organization enables an integration, information may also move to or from the systems your organization selects.
 
 Customer-specific storage, retention, access, security, regional, integration, or deployment commitments may be set out in a separate written agreement between MVC and your organization.
 

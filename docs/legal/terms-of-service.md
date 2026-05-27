@@ -60,7 +60,7 @@ MVC is not responsible for third-party systems, third-party terms, third-party a
 
 As between you and MVC, you retain ownership of Customer Content. These Terms do not transfer ownership of Customer Content to MVC.
 
-Subject to MVC's rights in the Service, your organization may own the documents, reports, and records generated from your Customer Content for your internal business use.
+Subject to MVC's rights in the Service and any separate written agreement, your organization owns the documents, reports, and records generated from your Customer Content for your internal business use.
 
 ### 6.3 License to Provide and Improve the Service
 
@@ -114,6 +114,8 @@ Our Privacy Policy explains how we collect, use, store, disclose, and protect pe
 MVC uses reasonable administrative, technical, and organizational safeguards designed to protect the Service and Customer Content. No system is perfectly secure, and we cannot guarantee that unauthorized access, loss, or misuse will never occur.
 
 These safeguards may include encryption in transit and at rest, authentication and access controls, logging and monitoring, backups, internal access limits, vendor review, and written commitments from service providers that process information for MVC.
+
+Customer-specific security, retention, access, integration, or deployment commitments may be described in a separate written agreement between MVC and your organization.
 
 ## 8. Third-Party Services and Providers
 
