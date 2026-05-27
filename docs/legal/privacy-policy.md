@@ -32,7 +32,7 @@ We may collect Customer Content submitted, uploaded, captured, imported, generat
 - transcripts, voice notes, annotations, comments, and mechanic input
 - document scans, manuals, drawings, forms, work instructions, and reference files
 - work orders, component data, part numbers, serial numbers, measurements, inspection notes, discrepancy notes, and review decisions
-- non-destructive inspection or NDI records when your organization chooses to capture or upload them
+- sensitive inspection and maintenance records when your organization chooses to capture or upload them
 - generated reports, drafts, summaries, form fields, checklists, audit trails, and related outputs
 - timestamps, location-related metadata if enabled, device metadata, file metadata, workflow status, and other evidence metadata
 
@@ -43,8 +43,6 @@ We may collect information about how users interact with the Service, including 
 ### 2.4 Integration Information
 
 If your organization enables integrations, we may collect or exchange information with third-party systems as authorized by your organization. This may include data from maintenance, ERP, quality, document, identity, storage, messaging, analytics, or inspection systems.
-
-If no integration is enabled, the Service may operate without connecting to your organization's enterprise systems.
 
 ### 2.5 Cookies and Similar Technologies
 
@@ -77,11 +75,11 @@ MVC owns the Service, software, models, model improvements, workflows, product i
 
 ## 5. Aggregated, De-Identified, and Anonymized Data
 
-We may create and use data derived from Customer Content and Service usage that does not reasonably identify a specific individual, customer, facility, aircraft, component, work order, or other source. We call this "Aggregated Data."
+We may create and use data derived from Customer Content and Service usage that does not reasonably identify your specific organization or individual personnel. We call this "Aggregated Data."
 
-Aggregated Data may include statistics, model inputs, model outputs, annotations, embeddings, performance metrics, workflow patterns, inspection patterns, transformed media, and other derived information. Aggregated Data may also include video, image, audio, transcript, or measurement data that has been aggregated, de-identified, anonymized, masked, cropped, blurred, transformed, or otherwise processed so it is not reasonably traceable to the original source.
+Aggregated Data may include statistics, model inputs, model outputs, annotations, embeddings, performance metrics, workflow patterns, inspection patterns, component characteristics, part categories, defect patterns, process steps, transformed media, and other derived information. Aggregated Data may also include video, image, audio, transcript, or measurement data that has been aggregated, de-identified, anonymized, masked, cropped, blurred, transformed, or otherwise processed so it is not reasonably traceable to your specific organization or individual personnel.
 
-For video or image data, de-identification may include face blurring, badge or name removal, metadata reduction, serial number masking, background masking, or similar technology.
+For video or image data, de-identification may include face blurring, badge or name removal, customer name removal, metadata reduction, background masking, or similar technology.
 
 MVC may use Aggregated Data for any lawful business purpose, including improving the Service, training or evaluating MVC models, creating benchmarks, improving reliability, developing new products and services, and understanding product performance.
 
@@ -119,17 +117,17 @@ For enterprise or pilot programs with special requirements, MVC and your organiz
 
 ## 9. Security
 
-MVC uses reasonable administrative, technical, and organizational safeguards designed to protect information. These safeguards may include encryption in transit, access controls, authentication, logging, monitoring, backups, vendor review, and internal access limits.
+MVC uses reasonable administrative, technical, and organizational safeguards designed to protect information. These safeguards may include encryption in transit and at rest, authentication and access controls, logging and monitoring, backups, internal access limits, vendor review, and written commitments from service providers that process information for MVC.
 
 No internet or cloud service can be guaranteed to be perfectly secure. You are responsible for using strong credentials, protecting devices, managing organization users, and promptly telling us about suspected unauthorized access.
 
-## 10. Sensitive Data and NDI
+## 10. Sensitive and Regulated Data
 
-Your organization decides what to capture, upload, or connect to the Service. The Service may process sensitive inspection information, including NDI records, proprietary repair data, supplier data, customer data, component data, and confidential business information.
+Your organization decides what to capture, upload, or connect to the Service. The Service may process sensitive inspection or maintenance information, proprietary repair data, supplier data, customer data, component data, and confidential business information.
 
 Unless a written agreement says otherwise, you should not submit classified information, controlled unclassified information, ITAR-controlled technical data, protected health information, payment card data, government security information, or other highly regulated data to the Service.
 
-If your organization wants to use the Service for sensitive NDI data, export-controlled data, or other restricted data, MVC and your organization should agree in writing on the scope, controls, storage, access, retention, and integration requirements before that data is captured.
+Additional handling requirements for specific sensitive or regulated data categories may be set out in a separate written agreement between MVC and your organization.
 
 ## 11. Data Retention and Deletion
 

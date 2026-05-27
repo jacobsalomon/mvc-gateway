@@ -24,7 +24,7 @@ The Service is an assistive documentation and inspection workflow tool. It does 
 
 MVC may make the Service available through evaluations, pilots, design partner programs, paid subscriptions, enterprise deployments, or other limited access programs.
 
-Unless a written agreement says otherwise, a pilot may begin with limited scope, limited users, limited data capture, and no integration with your enterprise systems. Additional functionality, security reviews, data flows, or integrations may be added later only when MVC and your organization agree on the scope, timing, and requirements.
+Specific pilot scope, commercial terms, data retention commitments, security requirements, deployment details, and integrations may be described in a separate written agreement between MVC and your organization.
 
 ## 3. Eligibility and Accounts
 
@@ -79,9 +79,9 @@ This license is not a transfer of ownership. It exists so MVC can provide the Se
 
 ### 6.4 Aggregated, De-Identified, and Anonymized Data
 
-MVC may derive or generate data, datasets, annotations, model inputs, model outputs, metrics, statistics, signals, embeddings, patterns, analyses, and other information from Customer Content and use of the Service that does not reasonably identify a specific individual, customer, facility, aircraft, component, work order, or other source. We call this "Aggregated Data."
+MVC may derive or generate data, datasets, annotations, model inputs, model outputs, metrics, statistics, signals, embeddings, patterns, analyses, and other information from Customer Content and use of the Service that does not reasonably identify your specific organization or individual personnel. We call this "Aggregated Data."
 
-Aggregated Data may include images, video clips, audio, transcripts, measurements, inspection patterns, workflow signals, or other technical data that has been aggregated, de-identified, anonymized, masked, cropped, blurred, transformed, or otherwise processed so it is not reasonably traceable to the original source. For video or image data, these methods may include face blurring, badge or name removal, metadata reduction, serial number masking, background masking, or similar technology.
+Aggregated Data may include images, video clips, audio, transcripts, measurements, inspection patterns, workflow signals, component characteristics, part categories, defect patterns, process steps, or other technical data that has been aggregated, de-identified, anonymized, masked, cropped, blurred, transformed, or otherwise processed so it is not reasonably traceable to your specific organization or individual personnel. For video or image data, these methods may include face blurring, badge or name removal, customer name removal, metadata reduction, background masking, or similar technology.
 
 You grant MVC a worldwide, perpetual, irrevocable, sublicensable, transferable, royalty-free license to use Aggregated Data for any lawful business purpose, including to improve the Service, train or evaluate MVC models, develop new products or services, create benchmarks, improve safety and reliability, and understand product performance. MVC owns Aggregated Data, Service usage analytics, model improvements, trained model parameters, and Service improvements that do not reasonably identify you or your organization.
 
@@ -93,13 +93,13 @@ MVC may use Customer Content to train, evaluate, test, and improve AI models use
 
 Unless your organization has agreed otherwise in writing, MVC does not authorize third-party AI providers to use your Customer Content to train their general-purpose models. MVC may use third-party AI providers and infrastructure providers to process Customer Content as needed to provide the Service, subject to the Privacy Policy and applicable provider terms.
 
-### 6.6 Sensitive Inspection Data and NDI
+### 6.6 Sensitive and Regulated Data
 
-You are responsible for deciding what Customer Content is appropriate to capture in the Service. Customer Content may include sensitive inspection or maintenance information, including non-destructive inspection or "NDI" records, proprietary repair data, customer data, supplier data, export-controlled information, and confidential business information.
+You are responsible for deciding what Customer Content is appropriate to capture in the Service. Customer Content may include sensitive inspection or maintenance information, proprietary repair data, customer data, supplier data, export-controlled information, and confidential business information.
 
 Unless a written agreement says otherwise, you must not submit classified information, controlled unclassified information, ITAR-controlled technical data, protected health information, payment card data, government security information, or other highly regulated data to the Service.
 
-If your organization wants to use the Service for sensitive inspection data, NDI data, export-controlled data, or other restricted data, MVC and your organization should agree in writing on the scope, controls, storage, access, retention, and integration requirements before that data is captured.
+Additional handling requirements for specific sensitive or regulated data categories may be set out in a separate written agreement between MVC and your organization.
 
 ### 6.7 Your Responsibilities for Customer Content
 
@@ -112,6 +112,8 @@ You must not upload or capture content that violates law, violates third-party r
 Our Privacy Policy explains how we collect, use, store, disclose, and protect personal information and Customer Content. The Privacy Policy is part of these Terms.
 
 MVC uses reasonable administrative, technical, and organizational safeguards designed to protect the Service and Customer Content. No system is perfectly secure, and we cannot guarantee that unauthorized access, loss, or misuse will never occur.
+
+These safeguards may include encryption in transit and at rest, authentication and access controls, logging and monitoring, backups, internal access limits, vendor review, and written commitments from service providers that process information for MVC.
 
 ## 8. Third-Party Services and Providers
 
