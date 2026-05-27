@@ -89,7 +89,7 @@ Deletion of Customer Content does not require MVC to delete Aggregated Data, de-
 
 ### 6.5 AI Model Use
 
-MVC may use Customer Content to train, evaluate, test, and improve AI models used by or for MVC in connection with the Service and related MVC products or services. This may include proprietary MVC models and systems for computer vision, speech recognition, language understanding, workflow understanding, document generation, and multimodal reasoning.
+MVC may use Customer Content to train, evaluate, test, and improve AI models used by or for MVC in connection with the Service and related MVC products or services. This may include proprietary MVC models and systems for computer vision, speech recognition, language understanding, workflow understanding, document generation, multimodal reasoning, physical-world task understanding, robotics, and other AI or machine learning systems.
 
 Unless your organization has agreed otherwise in writing, MVC does not authorize third-party AI providers to use your Customer Content to train their general-purpose models. MVC may use third-party AI providers and infrastructure providers to process Customer Content as needed to provide the Service, subject to the Privacy Policy and applicable provider terms.
 

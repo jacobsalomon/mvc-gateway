@@ -87,7 +87,7 @@ MVC may use Aggregated Data for any lawful business purpose, including improving
 
 The Service uses AI to help capture inspection data, understand evidence, identify possible matches to procedure steps or form fields, generate draft records, and support human review.
 
-We may use Customer Content to train, evaluate, test, and improve AI models used by or for MVC in connection with the Service and related MVC products or services. This may include proprietary MVC models for computer vision, speech recognition, language understanding, workflow understanding, document generation, and multimodal reasoning.
+We may use Customer Content to train, evaluate, test, and improve AI models used by or for MVC in connection with the Service and related MVC products or services. This may include proprietary MVC models for computer vision, speech recognition, language understanding, workflow understanding, document generation, multimodal reasoning, physical-world task understanding, robotics, and other AI or machine learning systems.
 
 Unless your organization has agreed otherwise in writing, MVC does not authorize third-party AI providers to use Customer Content to train their general-purpose models. We may use third-party AI providers and infrastructure providers to process Customer Content as needed to provide, secure, support, and improve the Service.
 
