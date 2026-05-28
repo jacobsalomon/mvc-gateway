@@ -58,6 +58,14 @@ export default function Home() {
             >
               See It in Action
             </Link>
+            <a
+              href="https://calendly.com/jacobsalomon"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-white/70 hover:text-white transition-colors text-base font-medium"
+            >
+              Get in Touch <ArrowRight size={16} />
+            </a>
           </div>
         </div>
 
