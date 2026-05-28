@@ -58,12 +58,6 @@ export default function Home() {
             >
               See It in Action
             </Link>
-            <Link
-              href="/pitch"
-              className="flex items-center gap-2 text-white/70 hover:text-white transition-colors text-base font-medium"
-            >
-              Investor Deck <ArrowRight size={16} />
-            </Link>
           </div>
         </div>
 
