@@ -3,7 +3,7 @@
 - [x] Confirm the current MVC one-pager routes.
 - [x] Add all one-pagers to the main website footer.
 - [x] Run focused validation.
-- [ ] Record review notes and PR status.
+- [x] Record review notes and PR status.
 
 Review notes
 - Current one-pagers: `/brief/overview`, `/brief/aerovision`, `/brief/how-it-works`, and `/brief/investor`.
@@ -13,6 +13,7 @@ Review notes
 - Validation passed: `/Users/jake/bin/mvc-doctor.sh`
 - Validation passed: `npm run build`
 - Browser desktop and mobile checks passed at `http://localhost:3000`. The only console errors were existing Leadsy localhost fetch/CORS errors.
+- PR opened: https://github.com/jacobsalomon/mvc-gateway/pull/24
 
 ## Wencor IT Legal Docs
 
