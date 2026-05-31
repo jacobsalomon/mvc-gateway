@@ -1,3 +1,19 @@
+## Footer One-Pager Links
+
+- [x] Confirm the current MVC one-pager routes.
+- [x] Add all one-pagers to the main website footer.
+- [x] Run focused validation.
+- [ ] Record review notes and PR status.
+
+Review notes
+- Current one-pagers: `/brief/overview`, `/brief/aerovision`, `/brief/how-it-works`, and `/brief/investor`.
+- The investor one-pager URL for sharing is `https://mechanicalvisioncorp.com/brief/investor`.
+- Added a dedicated One-pagers section to the homepage footer with all four links.
+- Validation passed: `npm run lint`
+- Validation passed: `/Users/jake/bin/mvc-doctor.sh`
+- Validation passed: `npm run build`
+- Browser desktop and mobile checks passed at `http://localhost:3000`. The only console errors were existing Leadsy localhost fetch/CORS errors.
+
 ## Wencor IT Legal Docs
 
 - [x] Review Circuit's public Terms of Service and Privacy Policy as structure references.
