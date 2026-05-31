@@ -14,6 +14,13 @@ import VideoBg from "@/components/video-bg";
 const WhatIfScroll = dynamic(() => import("@/components/what-if-scroll"));
 const WastedHoursTicker = dynamic(() => import("@/components/wasted-hours-ticker"));
 
+const ONE_PAGER_LINKS = [
+  { label: "Design Partner Brief", href: "/brief/overview" },
+  { label: "AeroVision MRO One-Pager", href: "/brief/aerovision" },
+  { label: "How It Works", href: "/brief/how-it-works" },
+  { label: "Investor One-Pager", href: "/brief/investor" },
+];
+
 export default function Home() {
   return (
     <main>
@@ -388,28 +395,40 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/10 bg-dark-950 px-6 py-8">
-        <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/40">
-          <span>
-            &copy; 2026 The Mechanical Vision Corporation
-          </span>
-          <div className="flex items-center gap-4">
-            <span>Jake Salomon</span>
-            <span className="w-1 h-1 rounded-full bg-white/30" />
-            <span>jake@mechanicalvisioncorp.com</span>
-            <span className="w-1 h-1 rounded-full bg-white/30" />
-            <Link href="/legal/terms" className="transition-colors hover:text-white">
-              Terms
-            </Link>
-            <span className="w-1 h-1 rounded-full bg-white/30" />
-            <Link href="/legal/privacy" className="transition-colors hover:text-white">
-              Privacy
-            </Link>
-            <span className="w-1 h-1 rounded-full bg-white/30" />
-            <Link href="/brief/overview" className="transition-colors hover:text-white">
-              For MRO design partners
-            </Link>
+      <footer className="border-t border-white/10 bg-dark-950 px-6 py-10">
+        <div className="mx-auto grid max-w-7xl gap-8 text-sm text-white/45 md:grid-cols-[1fr_auto]">
+          <div className="flex flex-col gap-4">
+            <span className="text-white/55">
+              &copy; 2026 The Mechanical Vision Corporation
+            </span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <span>Jake Salomon</span>
+              <span>jake@mechanicalvisioncorp.com</span>
+              <Link href="/legal/terms" className="transition-colors hover:text-white">
+                Terms
+              </Link>
+              <Link href="/legal/privacy" className="transition-colors hover:text-white">
+                Privacy
+              </Link>
+            </div>
           </div>
+
+          <nav aria-label="MVC one-pagers" className="md:min-w-[27rem]">
+            <div className="font-display text-[11px] font-semibold uppercase tracking-[0.22em] text-white/60">
+              One-pagers
+            </div>
+            <div className="mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2">
+              {ONE_PAGER_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-white/50 transition-colors hover:text-white"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </nav>
         </div>
       </footer>
     </main>
