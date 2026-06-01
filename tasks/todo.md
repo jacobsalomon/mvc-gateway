@@ -15,6 +15,18 @@ Review notes
 - Browser desktop and mobile checks passed at `http://localhost:3000`. The only console errors were existing Leadsy localhost fetch/CORS errors.
 - PR opened: https://github.com/jacobsalomon/mvc-gateway/pull/24
 
+## Gateway Meeting Link
+
+- [x] Replace the old personal Calendly link with the MVC Google Calendar scheduling link.
+- [x] Run focused validation.
+- [ ] Open a focused PR for deployment.
+
+Review notes
+- Old link removed: `https://calendly.com/jacobsalomon`
+- New link target: `https://calendar.app.google/DD3fVDEey8V7rCp8A`
+- Validation passed: `/Users/jake/bin/mvc-doctor.sh`
+- Validation passed: `npm run lint`
+
 ## Wencor IT Legal Docs
 
 - [x] Review Circuit's public Terms of Service and Privacy Policy as structure references.
