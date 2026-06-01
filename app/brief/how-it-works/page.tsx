@@ -1,84 +1,105 @@
+import type { Metadata } from "next";
+
 import BriefPage from "@/components/brief/BriefPage";
 import BriefHero from "@/components/brief/BriefHero";
 import BriefSection from "@/components/brief/BriefSection";
 import BriefFooter from "@/components/brief/BriefFooter";
 
+export const metadata: Metadata = {
+  title: "How MVC Works",
+  description:
+    "MVC observes maintenance work, prepares evidence-backed records, and keeps human review and signoff in control.",
+  robots: { index: false, follow: false },
+};
+
 export default function BriefHowItWorksPage() {
   return (
     <BriefPage>
       <BriefHero
-        image="/whatif-2.jpg"
-        imageAlt="A technician working under an aircraft engine"
+        image="/whatif-3.jpg"
+        imageAlt="Aircraft maintenance tools in a shop"
         headline={<>How it works.</>}
-        subhead={<>Three layers: Understanding, Documenting, and Visibility.</>}
-        heightClass="h-[2.1in]"
+        subhead={<>Three layers: Understand the job, observe the work, prepare the record.</>}
+        heightClass="h-[2.05in]"
       />
 
       {/* LAYER 1 */}
       <BriefSection
         eyebrow="Layer 1"
         title="Understand the work before it starts."
-        className="mt-[0.24in]"
+        className="mt-[0.22in]"
       >
-        <div className="grid grid-cols-[1fr_1.4in] gap-4">
-          <div className="flex flex-col gap-2">
-            <p style={{ fontSize: "12.5px", lineHeight: 1.5 }}>
-              Upload the CMM and any supporting manuals. The platform reads every page, identifies the inspection sections, and structures the measurements, tolerances, go and no-go checks, tool callouts, and configuration variants into a usable template.
-            </p>
-            <p style={{ fontSize: "12.5px", lineHeight: 1.5 }}>
-              Multi-level BOMs come through intact. An inspector can see assembly, sub-assembly, and item relationships the way the manual intends, with torque specs, matched-set flags, and safety-wire requirements attached to the right step.
-            </p>
-            <p
-              className="mt-1 text-amber-400"
-              style={{ fontSize: "11.5px", lineHeight: 1.5, fontStyle: "italic" }}
-            >
-              Every template version is frozen when it is certified. Old work orders stay pinned to the template that approved them.
-            </p>
+        <div className="flex flex-col gap-2">
+          <p style={{ fontSize: "12.5px", lineHeight: 1.5 }}>
+            Upload the CMM, work card, or supporting manuals. The platform reads the source material, identifies the relevant procedure steps, and structures measurements, tolerances, go and no-go checks, tool callouts, and configuration variants into a usable job template.
+          </p>
+          <p style={{ fontSize: "12.5px", lineHeight: 1.5 }}>
+            Assembly, sub-assembly, and item relationships stay tied to the right procedure context. Torque specs, matched-set flags, safety-wire requirements, and visual checks stay attached to the step that needs them.
+          </p>
+          <div className="mt-1 grid grid-cols-3 gap-3">
+            {[
+              ["01", "Source docs"],
+              ["02", "Required steps"],
+              ["03", "Evidence fields"],
+            ].map(([num, label]) => (
+              <div
+                key={num}
+                className="flex items-center gap-2 rounded-sm border border-amber-400/25 bg-amber-400/10 px-3 py-2"
+              >
+                <span
+                  className="font-display text-amber-400"
+                  style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "0.04em" }}
+                >
+                  {num}
+                </span>
+                <span
+                  className="font-display text-cream-200"
+                  style={{ fontSize: "11.5px", fontWeight: 700, lineHeight: 1.2 }}
+                >
+                  {label}
+                </span>
+              </div>
+            ))}
           </div>
-          <div
-            aria-hidden
-            className="relative h-[1.55in] w-full overflow-hidden rounded-sm border border-cream-200/15"
-            style={{
-              backgroundImage: "url('/aircraft-wireframe-black.png')",
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "center",
-              backgroundColor: "#000",
-            }}
-          />
+          <p
+            className="mt-1 text-amber-400"
+            style={{ fontSize: "11.5px", lineHeight: 1.45, fontStyle: "italic" }}
+          >
+            Each job stays tied to the source procedure version used when the work began.
+          </p>
         </div>
       </BriefSection>
 
       {/* LAYER 2 */}
       <BriefSection
         eyebrow="Layer 2"
-        title="Capture without changing the work."
-        className="mt-[0.2in]"
+        title="Observe without changing the work."
+        className="mt-[0.18in]"
       >
         <p style={{ fontSize: "12.5px", lineHeight: 1.5 }}>
-          The technician picks the part and the work order, puts on smart glasses, and starts the job. That is the only added step. From there, the platform observes.
+          The mechanic or inspector picks the part and work order, puts on smart glasses or another head-mounted camera, and starts the job. From there, the platform observes while the person does the work normally.
         </p>
         <ol className="mt-3 grid grid-cols-4 gap-3">
           {[
             {
               num: "01",
               label: "Pick part and work order.",
-              detail: "The template for that part loads on a tablet or phone.",
+              detail: "The right procedure context loads on a tablet, laptop, or nearby workstation.",
             },
             {
               num: "02",
               label: "Start capture.",
-              detail: "Glasses record video and close-mic audio as the job proceeds.",
+              detail: "Glasses or a head-mounted camera record video and close-mic audio as the job proceeds.",
             },
             {
               num: "03",
               label: "Observe.",
-              detail: "The platform maps tools in frame, parts in hand, gauge readings, and spoken measurements to the template items.",
+              detail: "The platform maps tools, parts, gauge readings, photos, and spoken measurements to the required steps.",
             },
             {
               num: "04",
-              label: "Sign.",
-              detail: "The technician reviews the pre-filled paperwork, with evidence attached to every entry, and certifies the job.",
+              label: "Review and sign.",
+              detail: "The authorized mechanic, inspector, or reviewer checks the record and signs. AI does not approve the work.",
             },
           ].map((step) => (
             <li
@@ -107,15 +128,15 @@ export default function BriefHowItWorksPage() {
           ))}
         </ol>
         <p className="mt-3" style={{ fontSize: "12.5px", lineHeight: 1.5 }}>
-          The platform is hardware agnostic. Clip-on camera, headband, or smart glasses, whichever fits the environment. Remote sites without continuous connectivity capture on-device and sync when the link returns, so the record is complete even when the internet is not.
+          The platform is hardware agnostic: smart glasses, headband, or another approved head-mounted camera, whichever fits the environment.
         </p>
       </BriefSection>
 
       {/* LAYER 3 */}
       <BriefSection
         eyebrow="Layer 3"
-        title="Evidence that holds up forever."
-        className="mt-[0.2in]"
+        title="Prepare records that humans can trust."
+        className="mt-[0.18in]"
       >
         <ul className="flex flex-col gap-2">
           <li className="flex gap-3">
@@ -127,7 +148,7 @@ export default function BriefHowItWorksPage() {
               <span className="font-display text-cream-200" style={{ fontWeight: 600 }}>
                 Exceptions-only review.
               </span>{" "}
-              Supervisors see the problems first: out-of-spec measurements, findings that need attention, and items the platform could not match on its own. A clean inspection is a nearly empty review.
+              Reviewers see the problems first: out-of-spec measurements, findings that need attention, and items the platform could not match confidently.
             </span>
           </li>
           <li className="flex gap-3">
@@ -139,7 +160,7 @@ export default function BriefHowItWorksPage() {
               <span className="font-display text-cream-200" style={{ fontWeight: 600 }}>
                 Every measurement traces back to its source.
               </span>{" "}
-              Each number links to the video frame, audio moment, or manual entry that produced it, with the user, timestamp, and method attached.
+              Each number can link to the video frame, audio moment, photo, or manual entry that produced it, with the user, timestamp, and method attached.
             </span>
           </li>
           <li className="flex gap-3">
@@ -149,9 +170,9 @@ export default function BriefHowItWorksPage() {
             />
             <span style={{ fontSize: "12.5px", lineHeight: 1.5 }}>
               <span className="font-display text-cream-200" style={{ fontWeight: 600 }}>
-                Sign-off is permanent.
+                Human signoff stays in control.
               </span>{" "}
-              When the supervisor signs, the record locks. It stays retrievable forever, with operator, regulator, and third-party audits in mind.
+              When the authorized person signs, the reviewed record is retained for audit and operational review. The AI prepares the record. It does not certify the job.
             </span>
           </li>
         </ul>
@@ -159,7 +180,7 @@ export default function BriefHowItWorksPage() {
           className="mt-3 text-amber-400"
           style={{ fontSize: "12px", lineHeight: 1.45, fontStyle: "italic" }}
         >
-          The same record feeds the metrics your operations team already wants. Inspection time, rework rate, technician load, trended across shops and fleets.
+          The same evidence trail can support the operational metrics teams already want: inspection time, rework, reviewer load, and handover quality across shops and fleets.
         </p>
       </BriefSection>
 
