@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 type Props = {
   image: string;
@@ -6,6 +6,7 @@ type Props = {
   headline: ReactNode;
   subhead: ReactNode;
   heightClass?: string;
+  overlayStyle?: CSSProperties;
 };
 
 export default function BriefHero({
@@ -14,6 +15,7 @@ export default function BriefHero({
   headline,
   subhead,
   heightClass = "h-[2.9in]",
+  overlayStyle,
 }: Props) {
   return (
     <header className={`relative w-full ${heightClass} flex-none overflow-hidden`}>
@@ -26,10 +28,12 @@ export default function BriefHero({
       <div
         aria-hidden
         className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(12,12,12,0.25) 0%, rgba(12,12,12,0.72) 65%, rgba(12,12,12,0.95) 100%)",
-        }}
+        style={
+          overlayStyle ?? {
+            background:
+              "linear-gradient(180deg, rgba(12,12,12,0.25) 0%, rgba(12,12,12,0.72) 65%, rgba(12,12,12,0.95) 100%)",
+          }
+        }
       />
       <div className="relative z-10 flex h-full flex-col justify-end px-[0.6in] pb-[0.35in]">
         <h1
