@@ -11,7 +11,9 @@ export default function BriefFooter() {
         <div className="text-cream-400">mechanicalvisioncorp.com</div>
       </div>
       <div className="flex flex-col items-end gap-0.5 text-cream-400">
-        <div>jake@mechanicalvisioncorp.com</div>
+        <a href="mailto:jake@mechanicalvisioncorp.com">
+          jake@mechanicalvisioncorp.com
+        </a>
       </div>
     </footer>
   );
