@@ -19,13 +19,14 @@ Review notes
 
 - [x] Replace the old personal Calendly link with the MVC Google Calendar scheduling link.
 - [x] Run focused validation.
-- [ ] Open a focused PR for deployment.
+- [x] Open a focused PR for deployment.
 
 Review notes
 - Old link removed: `https://calendly.com/jacobsalomon`
 - New link target: `https://calendar.app.google/DD3fVDEey8V7rCp8A`
 - Validation passed: `/Users/jake/bin/mvc-doctor.sh`
 - Validation passed: `npm run lint`
+- PR opened: https://github.com/jacobsalomon/mvc-gateway/pull/26
 
 ## Wencor IT Legal Docs
 
