@@ -127,9 +127,6 @@ export default function BriefHowItWorksPage() {
             </li>
           ))}
         </ol>
-        <p className="mt-3" style={{ fontSize: "12.5px", lineHeight: 1.5 }}>
-          The platform is hardware agnostic: smart glasses, headband, or another approved head-mounted camera, whichever fits the environment.
-        </p>
       </BriefSection>
 
       {/* LAYER 3 */}
