@@ -16,6 +16,21 @@ Review notes
 - Browser preview passed at `http://localhost:3015/brief/overview`; only the existing Leadsy localhost fetch/CORS errors appeared.
 - Mobile-width browser snapshot passed for the fixed brief shell.
 
+## Generic MVC Overview Concision Pass
+
+- [x] Tighten the opening copy to recover vertical space.
+- [x] Soften the bottom image transition with a fade.
+- [x] Preview locally before merge.
+- [x] Run focused validation.
+
+Review notes
+- Shortened the "What MVC does" text and replaced the slightly salesy section headline with "A useful record without slowing down the work."
+- Added a top mask to the bottom image/overlay so the transition from dotted page background is less harsh.
+- Local preview image saved: `/Users/jake/.codex/playwright-output/mvc-overview-copy-tightened-fade.png`
+- Validation passed: `npm run lint`
+- Validation passed: `/Users/jake/bin/mvc-doctor.sh`
+- Validation passed: `npm run build`
+
 ## Footer One-Pager Links
 
 - [x] Confirm the current MVC one-pager routes.

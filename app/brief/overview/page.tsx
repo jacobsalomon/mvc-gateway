@@ -65,6 +65,9 @@ const workflow = [
   },
 ];
 
+const recordSectionFade =
+  "linear-gradient(180deg, transparent 0px, rgba(0,0,0,0.55) 34px, #000 82px)";
+
 export default function BriefOverviewPage() {
   return (
     <BriefPage>
@@ -92,17 +95,14 @@ export default function BriefOverviewPage() {
         <div className="grid grid-cols-[1fr_1.45fr] gap-6">
           <div className="flex flex-col gap-2">
             <p style={{ fontSize: "11.8px", lineHeight: 1.38 }}>
-              Aviation maintenance teams lose time after the work is done:
-              writing notes, matching photos to steps, transcribing
-              measurements, rebuilding shift history, and pulling proof for
-              audits. The details vary shop by shop, but the pattern is
-              consistent. The work happens once. The record gets rebuilt later.
+              Maintenance teams lose time turning completed work into proof:
+              notes, photos, measurements, shift history, and audit evidence.
+              The work happens once. The record gets rebuilt later.
             </p>
             <p style={{ fontSize: "11.8px", lineHeight: 1.38 }}>
-              The mechanic or inspector does the job the way they already do
-              it. The CMM or approved manual stays canonical. MVC observes the
-              work against that source, pulls out the evidence that matters,
-              and prepares the record.
+              The mechanic or inspector works normally. The CMM or approved
+              manual stays canonical. MVC observes the work against that source
+              and prepares the record for review.
             </p>
           </div>
           <div className="grid grid-cols-3 gap-3">
@@ -134,7 +134,7 @@ export default function BriefOverviewPage() {
 
       <BriefSection
         eyebrow="What maintenance teams get back"
-        title="A useful record without stealing time from the floor."
+        title="A useful record without slowing down the work."
         className="mt-[0.14in]"
       >
         <div className="grid grid-cols-4 gap-3">
@@ -169,6 +169,8 @@ export default function BriefOverviewPage() {
             backgroundPosition: "right -1.52in top -1.36in",
             filter: "grayscale(1) contrast(1.12) brightness(1.38)",
             opacity: 0.86,
+            WebkitMaskImage: recordSectionFade,
+            maskImage: recordSectionFade,
           }}
         />
         <div
@@ -177,6 +179,8 @@ export default function BriefOverviewPage() {
           style={{
             background:
               "linear-gradient(90deg, rgba(8,8,8,0.98) 0%, rgba(8,8,8,0.94) 43%, rgba(8,8,8,0.34) 62%, rgba(8,8,8,0.08) 82%, rgba(8,8,8,0.28) 100%), linear-gradient(180deg, rgba(8,8,8,0.84) 0%, rgba(8,8,8,0.06) 48%, rgba(8,8,8,0.82) 100%)",
+            WebkitMaskImage: recordSectionFade,
+            maskImage: recordSectionFade,
           }}
         />
         <div className="relative z-10">
