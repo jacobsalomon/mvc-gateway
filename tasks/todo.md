@@ -1,3 +1,21 @@
+## Generic MVC Overview One-Pager
+
+- [x] Start from the live V-Star one-pager structure.
+- [x] Replace `/brief/overview` with a generic customer-facing MVC teaser.
+- [x] Remove the accidental `/brief/overview-2` route.
+- [x] Run focused validation.
+- [x] Record review notes.
+
+Review notes
+- Replaced the old dense overview page with the same three-section shape as the V-Star one-pager: what MVC does, what maintenance teams get back, and what the record carries.
+- Broadened the documentation pain statement so it does not assume every shop captures measurements the same way.
+- Kept the required hero: "The Mechanical Vision Corporation" and "The Mechanic works. The paperwork writes itself."
+- Validation passed: `npm run lint`
+- Validation passed: `/Users/jake/bin/mvc-doctor.sh`
+- Validation passed: `npm run build`
+- Browser preview passed at `http://localhost:3015/brief/overview`; only the existing Leadsy localhost fetch/CORS errors appeared.
+- Mobile-width browser snapshot passed for the fixed brief shell.
+
 ## Footer One-Pager Links
 
 - [x] Confirm the current MVC one-pager routes.
