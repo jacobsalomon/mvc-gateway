@@ -43,13 +43,6 @@ export default function Home() {
             <span className="text-cream-200">That Build.</span>
           </h1>
 
-          {/* Subheadline — vague but powerful */}
-          <p className="animate-fade-in-delay-1 text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed">
-            Advanced vision technology and AI, purpose-built to unlock the
-            enormous productivity trapped inside America&apos;s maintenance and
-            manufacturing workforce.
-          </p>
-
           {/* CTAs */}
           <div className="animate-fade-in-delay-2 mt-4 flex flex-col sm:flex-row items-center gap-4">
             <Link
