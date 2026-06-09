@@ -77,9 +77,8 @@ export default function JuniorityFieldNotePage() {
               The Juniority Effect in Aircraft Maintenance
             </h1>
             <p className="mt-7 max-w-3xl text-xl leading-relaxed text-white/68 md:text-2xl">
-              The MRO labor problem is not only that there are not enough
-              technicians. It is that the industry is losing experienced judgment
-              faster than new headcount can replace it.
+              The industry is not just short on technicians. It is short on
+              experienced judgment.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/45">
               <span>Mechanical Vision Corporation</span>
@@ -99,23 +98,20 @@ export default function JuniorityFieldNotePage() {
 
                 <p>
                   It is pattern recognition. It is knowing when a part looks wrong
-                  before the defect is obvious. It is remembering how a similar
-                  problem showed up years ago on a different aircraft. It is
-                  knowing which measurement matters, which note will save QA an
-                  hour later, and when a job that looks finished is not actually
-                  ready to release.
+                  before the defect is obvious. It is knowing which measurement
+                  matters, which note will save QA an hour later, and when a job
+                  that looks finished is not ready to release.
                 </p>
 
                 <p>
-                  That kind of experience does not show up cleanly in a hiring
-                  spreadsheet. A shop can lose one senior technician and hire one
-                  new technician. The headcount line goes back to even. But the
-                  operation is not even.
+                  That does not show up cleanly in a hiring spreadsheet. Lose one
+                  senior technician and hire one new technician. The headcount line
+                  goes back to even. The operation does not.
                 </p>
 
                 <p>
                   The new person may be smart, motivated, and exactly who the
-                  industry needs. Still, they cannot immediately replace{" "}
+                  industry needs. They still cannot immediately replace{" "}
                   <SourceLink href="https://arsa.org/market-assessment/">
                     25 or 35 years of judgment
                   </SourceLink>
@@ -164,9 +160,9 @@ export default function JuniorityFieldNotePage() {
                 </p>
 
                 <p>
-                  The Government Accountability Office has made a useful caveat:
-                  exact mechanic supply and demand are hard to measure because less
-                  is known about how many mechanics{" "}
+                  The Government Accountability Office adds an important caveat:
+                  exact mechanic supply and demand are hard to measure because
+                  less is known about how many mechanics{" "}
                   <SourceLink href="https://www.gao.gov/products/gao-23-105571">
                     enter or exit aviation each year
                   </SourceLink>
@@ -175,10 +171,10 @@ export default function JuniorityFieldNotePage() {
                 </p>
 
                 <p>
-                  So the issue is not simply whether more people are entering the
-                  field. More are. The issue is whether enough experienced capacity
-                  is available in the right places, at the right time, with the
-                  right authority and judgment.
+                  So the issue is not whether more people are entering the field.
+                  More are. The issue is whether enough experienced capacity is
+                  available in the right places, at the right time, with the right
+                  authority and judgment.
                 </p>
 
                 <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
@@ -186,32 +182,31 @@ export default function JuniorityFieldNotePage() {
                 </h2>
 
                 <p>
-                  The experienced technician is often carrying more than their own
+                  The experienced technician often carries more than their own
                   work card.
                 </p>
 
                 <p>
-                  They are answering questions. They are catching small mistakes
-                  before they become rework. They are helping younger mechanics
-                  understand why a procedure is written the way it is. They are
-                  translating between the manual, the part, the customer
-                  requirement, and the real condition in front of them.
+                  They answer questions. They catch small mistakes before they
+                  become rework. They help younger mechanics understand why a
+                  procedure is written the way it is. They translate between the
+                  manual, the part, the customer requirement, and the real
+                  condition in front of them.
                 </p>
 
                 <p>
                   They are also often the person QA trusts when the record is
                   unclear. That creates a hidden dependency. A shop may think of
-                  senior technicians as high-skill labor, but operationally, they
-                  are also memory, training infrastructure, quality control, and
-                  exception handling.
+                  senior technicians as high-skill labor. Operationally, they are
+                  also memory, training, quality control, and exception handling.
                 </p>
 
                 <p>
-                  When those people retire, the loss spreads. The newer technician
-                  needs more support. The inspector gets more questions. The lead
-                  gets interrupted more often. The quality team sees more
-                  ambiguous records. The same work may still get done, but it takes
-                  more touches to get to confidence.
+                  When those people retire, the loss spreads. Newer technicians
+                  need more support. Inspectors get more questions. Leads get
+                  interrupted more often. Quality sees more ambiguous records. The
+                  same work may get done, but it takes more touches to get to
+                  confidence.
                 </p>
 
                 <p>
@@ -224,9 +219,8 @@ export default function JuniorityFieldNotePage() {
 
                 <p>
                   A younger workforce is not a problem by itself. Every expert was
-                  new once. The problem is what happens when too much of the
-                  organization becomes dependent on too few experienced people at
-                  the same time.
+                  new once. The problem starts when too much of the operation
+                  depends on too few experienced people.
                 </p>
 
                 <p>
@@ -240,17 +234,15 @@ export default function JuniorityFieldNotePage() {
                 <p>
                   In a high-trust maintenance environment, that matters. A new
                   technician may complete a task correctly, but still need
-                  confirmation. A record may be mostly complete, but still lack the
-                  context a reviewer needs. A photo may show the part, but not the
-                  reason the technician captured it. A measurement may be entered,
-                  but not tied clearly to the condition it proves.
+                  confirmation. A record may be mostly complete, but still lack
+                  reviewer context. A photo may show the part, but not why it was
+                  captured.
                 </p>
 
                 <p>
-                  The work is physical. The confidence is social and procedural. It
-                  depends on experienced people being able to transfer what they
-                  know. When the workforce gets more junior, that transfer load
-                  increases.
+                  The work is physical. The confidence is social and procedural.
+                  It depends on experienced people transferring what they know.
+                  When the workforce gets more junior, that transfer load rises.
                 </p>
 
                 <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
@@ -264,26 +256,24 @@ export default function JuniorityFieldNotePage() {
 
                 <p>
                   But when too much knowledge lives only in people&apos;s heads, it
-                  becomes fragile. A senior technician remembers which jobs usually
-                  produce follow-up questions. A lead knows which customer records
+                  becomes fragile. A senior technician remembers which jobs
+                  usually produce follow-up questions. A lead knows which records
                   need extra clarity. An inspector knows which evidence will make
-                  release smoother. A planner knows which task will look simple on
-                  paper but get complicated on the floor.
+                  release smoother.
                 </p>
 
                 <p>
-                  That knowledge is valuable because it was earned. It is also hard
-                  to scale. If the only way to transfer it is through
-                  interruptions, shadowing, rework, and repeated explanation, then
-                  training becomes expensive in a way the schedule does not fully
-                  show.
+                  That knowledge is valuable because it was earned. It is also
+                  hard to scale. If the only way to transfer it is through
+                  interruptions, shadowing, rework, and repeated explanation,
+                  training becomes expensive in ways the schedule does not show.
                 </p>
 
                 <p>
-                  Senior people spend more of their day being pulled backward into
-                  work that already happened. Junior people wait longer for
-                  answers. QA spends more time reconstructing context. None of this
-                  looks like one big failure. It looks like drag.
+                  Senior people get pulled backward into work that already
+                  happened. Junior people wait longer for answers. QA spends more
+                  time reconstructing context. None of this looks like one big
+                  failure. It looks like drag.
                 </p>
 
                 <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
@@ -291,19 +281,16 @@ export default function JuniorityFieldNotePage() {
                 </h2>
 
                 <p>
-                  This is why records matter so much. A maintenance record is not
-                  just a compliance artifact. It is one of the few places where
-                  operational knowledge can survive beyond the person who did the
-                  work.
+                  A maintenance record is not just a compliance artifact. It is
+                  one of the few places where operational knowledge can survive
+                  beyond the person who did the work.
                 </p>
 
                 <p>
                   But only if the record captures enough context. If the record is
-                  thin, the shop loses the learning. If the photos are disconnected
+                  thin, the shop loses the learning. If photos are disconnected
                   from the step, the next person has to infer what they mean. If a
                   measurement is copied in late, the reviewer has to trust memory.
-                  If the exception is explained verbally but never captured
-                  cleanly, the knowledge disappears when the person moves on.
                 </p>
 
                 <p>
@@ -311,7 +298,7 @@ export default function JuniorityFieldNotePage() {
                   senior technician may know what happened without much
                   explanation. The newer technician may need the breadcrumb trail.
                   The reviewer may need the evidence. The next shift may need the
-                  context. The customer may need confidence.
+                  context.
                 </p>
 
                 <p>
@@ -320,14 +307,13 @@ export default function JuniorityFieldNotePage() {
                 </p>
 
                 <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
-                  The real goal is not replacing experience
+                  Protect the judgment already in the shop
                 </h2>
 
                 <p>
-                  The industry should recruit more technicians. It should train
-                  more technicians. It should make the career more visible, more
-                  attractive, and more durable. The Bureau of Labor Statistics
-                  projects about{" "}
+                  The industry should recruit more technicians, train more
+                  technicians, and make the career more visible. The Bureau of
+                  Labor Statistics projects about{" "}
                   <SourceLink href="https://www.bls.gov/ooh/installation-maintenance-and-repair/aircraft-and-avionics-equipment-mechanics-and-technicians.htm">
                     13,100 aircraft and avionics technician openings each year
                   </SourceLink>
@@ -340,57 +326,27 @@ export default function JuniorityFieldNotePage() {
                 </p>
 
                 <p>
-                  But MROs also need to ask a different question: how do we make
-                  experience easier to transfer?
+                  But hiring alone will not solve the juniority effect. MROs also
+                  have to make experience easier to transfer.
                 </p>
 
                 <p>
                   Not by asking senior people to write more after the job. Not by
-                  creating more forms. Not by adding another system that pulls
-                  technicians away from the aircraft.
-                </p>
-
-                <p>
-                  The goal should be to preserve more of what experienced people
-                  see, decide, measure, and verify while the work is happening.
-                  Because the point is not to replace judgment. The point is to
-                  stop wasting it.
+                  creating more forms. By preserving more of what experienced
+                  people see, decide, measure, and verify while the work is
+                  happening.
                 </p>
 
                 <p>
                   The best senior technicians do not just complete work. They make
-                  everyone around them better. They shorten uncertainty. They
-                  reduce unnecessary back-and-forth. They know what proof will
-                  matter later.
+                  everyone around them better. They shorten uncertainty. They know
+                  what proof will matter later. That is the capability MROs have
+                  to protect.
                 </p>
 
                 <p>
-                  That is the capability MROs have to protect.
-                </p>
-
-                <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
-                  The next shortage is a knowledge shortage
-                </h2>
-
-                <p>
-                  The labor shortage is real. The numbers matter. But for MRO
-                  leaders, the more immediate pain may be the knowledge shortage
-                  hiding inside it. A shop can hire people and still be short on
-                  judgment. It can fill shifts and still be short on independent
-                  capacity. It can increase training throughput and still overload
-                  the few people everyone depends on.
-                </p>
-
-                <p>
-                  That is the juniority effect. It is not an argument against new
-                  technicians. It is the opposite. It is an argument for building
-                  systems that help new technicians become productive faster, while
-                  reducing the load on the experienced people teaching them.
-                </p>
-
-                <p>
-                  The future of maintenance depends on bringing new people in. But
-                  it also depends on making sure the expertise already in the shop
+                  The future of maintenance depends on bringing new people in. It
+                  also depends on making sure the expertise already in the shop
                   does not vanish into memory, interruptions, and late paperwork.
                 </p>
 

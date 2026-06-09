@@ -14,31 +14,31 @@ const publishedNotes = [
   {
     title: "The Aircraft Is Not Ready Until the Record Is Clean",
     href: "/field-notes/the-aircraft-is-not-ready-until-the-record-is-clean",
-    dek: "Why the MRO labor shortage is becoming a capacity problem, and why scarce technician hours have to be protected at the point of work.",
+    dek: "Why the MRO labor shortage is really a useful-hours problem.",
     meta: "Field Note 01",
   },
   {
     title: "The Juniority Effect in Aircraft Maintenance",
     href: "/field-notes/the-juniority-effect-in-aircraft-maintenance",
-    dek: "Why replacing technician headcount does not immediately replace experienced maintenance capacity.",
+    dek: "Why headcount does not immediately replace experienced judgment.",
     meta: "Field Note 02",
   },
   {
     title: "The Work Is in One Place. The Record Is in Another.",
     href: "/field-notes/the-work-is-in-one-place-the-record-is-in-another",
-    dek: "Why context switching between the job and the record quietly drains MRO capacity.",
+    dek: "Why moving between the job and the record drains capacity.",
     meta: "Field Note 03",
   },
   {
     title: "When a Check Mark Is Not Enough",
     href: "/field-notes/when-a-check-mark-is-not-enough",
-    dek: "Why a completed step does not always preserve the evidence behind the maintenance decision.",
+    dek: "Why completed steps do not always explain maintenance decisions.",
     meta: "Field Note 04",
   },
   {
     title: "The Record Has to Survive the Question",
     href: "/field-notes/the-record-has-to-survive-the-question",
-    dek: "Why auditability depends on records that can explain the work months after the job closes.",
+    dek: "Why the record has to answer questions months later.",
     meta: "Field Note 05",
   },
 ];

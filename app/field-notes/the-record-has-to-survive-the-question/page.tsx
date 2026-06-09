@@ -55,38 +55,28 @@ export default function RecordSurvivesQuestionFieldNotePage() {
             <div className="max-w-3xl">
               <div className="space-y-7 text-[18px] leading-8 text-white/72">
                 <p className="text-2xl leading-9 text-white/84">
-                  The job does not end when the aircraft leaves the hangar or the
-                  component leaves the bench.
+                  The work ends before the record does.
                 </p>
 
                 <p>
-                  Operationally, it may feel that way. The work is complete. The
-                  signoff is done. The part moved forward. The aircraft returned
-                  to service. The team is already on the next job.
+                  The signoff is done. The part moved forward. The aircraft
+                  returned to service. The team is on the next job.
                 </p>
 
-                <p>But the record has a longer life than the work.</p>
+                <p>Then, weeks or months later, a question comes back.</p>
 
                 <p>
-                  Weeks or months later, someone may come back with a question.
-                </p>
-
-                <p>
-                  A customer wants to understand why a part was rejected. A
-                  regulator asks how a step was performed. An owner wants
-                  confidence that the work was done correctly. An insurer, buyer,
-                  quality leader, or internal reviewer needs to know what happened
-                  at the time.
+                  A customer wants to know why a part was rejected. A regulator
+                  asks how a step was performed. An owner wants confidence that
+                  the work was done correctly. A quality leader needs to know what
+                  happened at the time.
                 </p>
 
                 <p>
-                  At that moment, the people may have moved on. The part may be
-                  gone. The aircraft may be somewhere else. The shift may have
-                  changed. The technician may not remember. The only thing left is
-                  the record.
+                  By then, the people may have moved on. The part may be gone. The
+                  aircraft may be somewhere else. The technician may not remember.
+                  The only thing left is the record.
                 </p>
-
-                <p>So the real question becomes simple:</p>
 
                 <p>Can the record survive the question?</p>
 
@@ -94,16 +84,15 @@ export default function RecordSurvivesQuestionFieldNotePage() {
                   The existence of paperwork is not the same as trust
                 </h2>
 
-                <p>Not &quot;does a record exist?&quot;</p>
-
-                <p>Not &quot;was the form completed?&quot;</p>
-
-                <p>Not &quot;is there a signature somewhere?&quot;</p>
+                <p>
+                  Not &quot;does a record exist?&quot; Not &quot;was the form completed?&quot;
+                  Not &quot;is there a signature somewhere?&quot;
+                </p>
 
                 <p>
-                  Those are necessary, but they are not enough. The deeper question
-                  is whether the record can still explain the work after the work
-                  itself is no longer available to inspect.
+                  Those things matter. They are not enough. The deeper question is
+                  whether the record can explain the work after the work itself is
+                  no longer available to inspect.
                 </p>
 
                 <p>This is where auditability and visibility start to separate.</p>
@@ -115,23 +104,11 @@ export default function RecordSurvivesQuestionFieldNotePage() {
                   Was the step closed?
                 </p>
 
-                <p>Visibility asks something harder.</p>
-
-                <p>What actually happened?</p>
-
-                <p>What did the technician see?</p>
-
-                <p>What evidence supported the decision?</p>
-
-                <p>Was the condition obvious or borderline?</p>
-
-                <p>Was the measurement captured in context?</p>
-
-                <p>Was the right manual revision being used at the time?</p>
-
                 <p>
-                  Can someone who was not there understand why the job moved
-                  forward?
+                  Visibility asks something harder. What actually happened? What
+                  did the technician see? What evidence supported the decision?
+                  Was the condition obvious or borderline? Can someone who was not
+                  there understand why the job moved forward?
                 </p>
 
                 <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
@@ -140,50 +117,44 @@ export default function RecordSurvivesQuestionFieldNotePage() {
 
                 <p>
                   Many MROs are auditable in the formal sense but still lack real
-                  visibility into the work. They can produce paperwork, but
+                  visibility into the work. They can produce paperwork. But
                   answering a specific question later may still require digging
-                  through systems, calling people, searching photos, reading notes,
-                  and reconstructing the job from fragments.
+                  through systems, calling people, searching photos, reading
+                  notes, and reconstructing the job from fragments.
                 </p>
 
-                <p>That creates risk.</p>
-
-                <p>It also creates drag.</p>
+                <p>That creates risk. It also creates drag.</p>
 
                 <p>
-                  When a question comes back months later, the shop may spend hours
-                  trying to prove something that was obvious to the technician in
-                  the moment. A quality manager may have to chase down context. A
-                  technician may have to stop current work to explain old work. A
-                  customer conversation may become harder than it needed to be
-                  because the record shows the conclusion but not the basis for the
-                  conclusion.
+                  When a question comes back months later, the shop may spend
+                  hours proving something that was obvious in the moment. A
+                  quality manager chases context. A technician stops current work
+                  to explain old work. A customer conversation gets harder because
+                  the record shows the conclusion, not the basis for it.
                 </p>
 
-                <p>In the best case, this is frustrating.</p>
-
-                <p>In the worst case, it becomes expensive.</p>
+                <p>
+                  In the best case, this is frustrating. In the worst case, it is
+                  expensive.
+                </p>
 
                 <p>
                   A dispute does not always mean someone did bad work. Often, it
                   means the record cannot carry the full story. The work may have
-                  been done correctly. The judgment may have been sound. The part
-                  may have been handled properly. But if the record cannot show
-                  that clearly, the shop is left defending the work from a weaker
-                  position.
+                  been right. The judgment may have been sound. The part may have
+                  been handled properly. But if the record cannot show that
+                  clearly, the shop defends the work from a weaker position.
                 </p>
 
                 <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
                   The record is the shop&apos;s witness
                 </h2>
 
-                <p>That is the opportunity.</p>
-
                 <p>
                   MROs should not have to choose between moving fast and being able
                   to explain themselves later. The record should make the work
                   visible enough that a future reviewer can understand the job
-                  without reopening the whole thing.
+                  without reopening it.
                 </p>
 
                 <p>
@@ -193,40 +164,34 @@ export default function RecordSurvivesQuestionFieldNotePage() {
                   work, and who reviewed and signed.
                 </p>
 
-                <p>The point is not to replace trust in mechanics.</p>
-
-                <p>It is to protect it.</p>
+                <p>
+                  The point is not to replace trust in mechanics. It is to protect
+                  it.
+                </p>
 
                 <p>
                   A good mechanic&apos;s work should not become harder to defend
-                  just because the evidence lived only in the moment. A good
-                  quality team should not have to rebuild a job from memory. A
-                  good MRO should not have to answer serious questions with thin
-                  records and disconnected artifacts.
+                  because the evidence lived only in the moment. A good quality
+                  team should not rebuild a job from memory. A good MRO should
+                  not answer serious questions with thin records and disconnected
+                  artifacts.
                 </p>
 
                 <p>
                   The next generation of MRO auditability will be richer than
-                  &quot;the paperwork exists.&quot;
+                  &quot;the paperwork exists.&quot; It will make the work behind the
+                  paperwork visible, reviewable, and trusted.
                 </p>
 
                 <p>
-                  It will make the work behind the paperwork visible, reviewable,
-                  and trusted.
+                  Not more bureaucracy. Not more boxes for technicians to fill
+                  out. Better memory for the operation.
                 </p>
 
                 <p>
-                  That is where the industry needs to go. Not more bureaucracy.
-                  Not more boxes for technicians to fill out. Better memory for
-                  the operation.
+                  When the question comes back months later, the record is the
+                  shop&apos;s witness. That witness needs to hold up.
                 </p>
-
-                <p>
-                  Because when the question comes back months later, the record is
-                  the shop&apos;s witness.
-                </p>
-
-                <p>And that witness needs to hold up.</p>
 
                 <p>
                   If you run maintenance operations and this mirrors what you see,
