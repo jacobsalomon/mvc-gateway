@@ -55,44 +55,28 @@ export default function WorkAndRecordFieldNotePage() {
             <div className="max-w-3xl">
               <div className="space-y-7 text-[18px] leading-8 text-white/72">
                 <p className="text-2xl leading-9 text-white/84">
-                  In aircraft maintenance, the work rarely happens in the same
-                  place as the record.
+                  In aircraft maintenance, the work and the record often live in
+                  different places.
                 </p>
 
                 <p>
-                  The work happens at the aircraft, on the bench, inside the
-                  component, beside the toolbox, under the light, with a
-                  calibrated tool in hand. The record often lives somewhere else.
-                  A laptop. A terminal. A printed traveler. A work order system.
-                  A manual on another screen. A quality queue.
+                  The work is at the aircraft, on the bench, inside the component,
+                  under the light, with a calibrated tool in hand. The record is
+                  somewhere else: a laptop, a terminal, a traveler, a work order
+                  system, a manual, a quality queue.
+                </p>
+
+                <p>That separation feels normal. It is not free.</p>
+
+                <p>
+                  Every trip from the job to the record costs attention. Put the
+                  tool down. Find the right line. Enter a value. Check a manual.
+                  Take a photo. Label it. Attach it. Explain what it shows. Wait
+                  for review.
                 </p>
 
                 <p>
-                  That physical separation is easy to treat as normal because it
-                  has always been part of the job. Mechanics know how to move
-                  through it. Inspectors know how to move through it. Leads and
-                  quality teams know how to chase the record back into shape when
-                  something is missing.
-                </p>
-
-                <p>But normal does not mean free.</p>
-
-                <p>
-                  Every time a technician has to stop, put the tool down, move to
-                  a screen, find the right line, enter a value, check a manual,
-                  take a photo, label that photo, attach it somewhere, explain
-                  what it shows, or wait for someone else to review it, useful
-                  capacity leaks out of the operation.
-                </p>
-
-                <p>
-                  Not because anyone is lazy. Not because the process is
-                  careless.
-                </p>
-
-                <p>
-                  Because the system asks scarce skilled people to keep switching
-                  contexts.
+                  None of those steps is dumb. Together, they drain capacity.
                 </p>
 
                 <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
@@ -101,35 +85,24 @@ export default function WorkAndRecordFieldNotePage() {
 
                 <p>
                   A technician is not only doing maintenance. They are also
-                  navigating the record of maintenance. They move between the
-                  physical job and the administrative shadow of that job all day
-                  long. Aircraft. Bench. Manual. Work order. Tool crib. Camera.
-                  Notes. Signoff. Quality. Back to the aircraft. Back to the
-                  bench.
+                  shepherding the record of maintenance. Aircraft. Bench. Manual.
+                  Work order. Tool crib. Camera. Notes. Signoff. Quality. Back to
+                  the aircraft. Back to the bench.
                 </p>
 
                 <p>
-                  Each move makes sense in isolation. Together, they become a
-                  capacity problem.
+                  For an MRO, the bottleneck is not just headcount. It is useful
+                  technician attention. A shop can have people on the floor and
+                  still lose throughput if too much of the day is spent helping the
+                  record catch up to the work.
                 </p>
 
                 <p>
-                  For an MRO, this matters because the bottleneck is not just
-                  headcount. It is useful technician attention. A shop can have
-                  people on the floor and still lose throughput if too much of
-                  their day is spent helping the record catch up to the work.
+                  Digital tools do not automatically fix this. Sometimes they only
+                  move the record from paper to a screen. That can be an
+                  improvement. But the interruption remains if the mechanic still
+                  has to stop the physical job to feed the system.
                 </p>
-
-                <p>
-                  The digital tools do not always solve this. In some cases they
-                  just move the record from paper to a screen. That can be better.
-                  It can reduce lost documents, improve traceability, and make
-                  review easier. But the basic interruption can remain: the
-                  mechanic still has to stop doing the physical job to feed the
-                  digital system.
-                </p>
-
-                <p>That is the part worth looking at closely.</p>
 
                 <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
                   Digital is not the same as uninterrupted
@@ -152,19 +125,14 @@ export default function WorkAndRecordFieldNotePage() {
                 </p>
 
                 <p>
-                  MROs have lived with the second model for a long time. That does
-                  not mean they chose it. It usually came from necessity.
-                  Regulators need records. Customers need records. Quality teams
-                  need records. Finance and warranty teams need records. The next
-                  shift needs records. The next shop needs records. Nobody serious
-                  argues against documentation.
+                  Documentation is necessary. Regulators need records. Customers
+                  need records. Quality teams need records. The next shift needs
+                  records.
                 </p>
 
-                <p>The issue is where the burden lands.</p>
-
                 <p>
-                  Too often, it lands on the same people whose time is already the
-                  hardest to replace.
+                  The issue is where the burden lands. Too often, it lands on the
+                  people whose time is hardest to replace.
                 </p>
 
                 <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
@@ -172,57 +140,33 @@ export default function WorkAndRecordFieldNotePage() {
                 </h2>
 
                 <p>
-                  Context switching is not just an annoyance. It is a business
-                  problem. It turns certified attention into administrative
-                  motion. It stretches turnaround. It adds reviewer load. It
-                  increases the chance that a value gets written later, a photo
-                  gets attached without enough context, or a note has to be
-                  reconstructed after the job has already moved on.
+                  Context switching turns certified attention into administrative
+                  motion. It stretches turnaround. It adds reviewer load. It makes
+                  it more likely that a value is written later, a photo loses its
+                  context, or a note has to be reconstructed after the job moves
+                  on.
                 </p>
 
                 <p>
-                  And the more complex the work, the more expensive the switching
-                  becomes.
+                  The more complex the work, the more expensive the switch. A
+                  detailed inspection may need measurements, photos, manual
+                  references, condition notes, disposition logic, and quality
+                  review. The technician has to hold the job in their head while
+                  also remembering what the record will need later.
                 </p>
 
                 <p>
-                  A simple check may only need a signoff. A detailed inspection
-                  may require measurements, photos, manual references, condition
-                  notes, disposition logic, and quality review. The technician has
-                  to hold the job in their head while also remembering what the
-                  record will need later.
+                  MRO productivity starts by narrowing the distance between the
+                  work and the record. Not by removing human judgment. Not by
+                  turning maintenance into a software workflow. The mechanic just
+                  does the job. The glasses observe. The human reviews and signs.
                 </p>
 
                 <p>
-                  That is a lot to ask in an environment where interruptions are
-                  already part of the day.
-                </p>
-
-                <p>
-                  The next generation of MRO productivity will come from reducing
-                  the distance between the work and the record. Not by removing
-                  human judgment. Not by turning maintenance into a software
-                  workflow. The mechanic just does the job. The glasses observe.
-                  The human reviews and signs.
-                </p>
-
-                <p>
-                  But the record should not require the technician to keep leaving
-                  the work.
-                </p>
-
-                <p>
-                  The closer documentation gets to the point of work, the less the
-                  shop has to spend its most valuable resource on context
-                  switching. And in a labor-constrained market, those recovered
-                  minutes matter.
-                </p>
-
-                <p>Not because they look good in a spreadsheet.</p>
-
-                <p>
-                  Because they become capacity the shop already had, but could not
-                  fully use.
+                  The record should not require the technician to keep leaving the
+                  work. The closer documentation gets to the point of work, the
+                  less the shop spends its most valuable resource on context
+                  switching.
                 </p>
 
                 <p>

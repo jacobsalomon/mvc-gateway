@@ -55,33 +55,23 @@ export default function CheckMarkFieldNotePage() {
             <div className="max-w-3xl">
               <div className="space-y-7 text-[18px] leading-8 text-white/72">
                 <p className="text-2xl leading-9 text-white/84">
-                  A check mark can close a step.
+                  A check mark can close a step. It cannot always explain the
+                  step.
                 </p>
-
-                <p>It cannot always explain what happened.</p>
 
                 <p>
                   That is one of the hard truths of maintenance documentation. A
                   record can show that a task was completed, a step was
-                  acknowledged, or an inspection was signed. But months later, when
-                  someone asks what the technician actually saw, the check mark may
-                  not carry enough weight.
+                  acknowledged, or an inspection was signed. Months later, that may
+                  not be enough.
                 </p>
-
-                <p>Was the part clean?</p>
-
-                <p>Was the wear obvious or borderline?</p>
-
-                <p>Was the damage within limits?</p>
 
                 <p>
-                  Was there a scratch, nick, crack, stain, dent, burn mark,
-                  corrosion pattern, or unusual condition?
+                  Was the wear obvious or borderline? Was the damage within
+                  limits? Was there a scratch, nick, crack, stain, dent, burn
+                  mark, corrosion pattern, or unusual condition? Why did the part
+                  pass? Why did it fail?
                 </p>
-
-                <p>Why did the part pass?</p>
-
-                <p>Why did it fail?</p>
 
                 <p>
                   What did the inspector see that made the decision obvious at the
@@ -100,12 +90,11 @@ export default function CheckMarkFieldNotePage() {
 
                 <p>
                   That is understandable. Maintenance records cannot become novels.
-                  Technicians should not be forced to write long explanations for
-                  every routine observation. The point is not to create more
-                  paperwork.
+                  Technicians should not write long explanations for every routine
+                  observation.
                 </p>
 
-                <p>The point is that a check mark is thin evidence.</p>
+                <p>But a check mark is thin evidence.</p>
 
                 <p>
                   It can say, &quot;this was reviewed.&quot; It may not say,
@@ -113,12 +102,12 @@ export default function CheckMarkFieldNotePage() {
                 </p>
 
                 <p>
-                  For routine work, that may feel acceptable. The job moves
-                  forward. The form is complete. The aircraft or component is
-                  released. Everyone goes on to the next task.
+                  For routine work, that can feel fine. The job moves forward. The
+                  form is complete. The aircraft or component is released. Everyone
+                  moves on.
                 </p>
 
-                <p>The problem appears later.</p>
+                <p>The weakness shows up later.</p>
 
                 <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
                   The context gets scattered
@@ -127,89 +116,73 @@ export default function CheckMarkFieldNotePage() {
                 <p>
                   A customer asks why a part was rejected. A quality leader
                   reviews a recurring issue. A regulator asks how a decision was
-                  made. A buyer reviews maintenance history. A warranty discussion
-                  turns on what was visible at the time. A technician who worked
-                  the job is unavailable, has moved shifts, or simply cannot
-                  remember the exact condition from months ago.
+                  made. A warranty discussion turns on what was visible at the
+                  time. The technician who worked the job is on another shift or
+                  cannot remember the exact condition.
                 </p>
 
-                <p>Now the shop needs the context behind the check mark.</p>
+                <p>Now the shop needs the context behind the mark.</p>
 
                 <p>
-                  Sometimes that context exists in a photo. Sometimes it exists in
-                  a note. Sometimes it exists in the memory of the person who did
-                  the work. Sometimes it is scattered across a work order, a
-                  traveler, a folder of images, an email thread, and a conversation
-                  that no longer exists in any useful form.
+                  Sometimes it exists in a photo. Sometimes in a note. Sometimes
+                  only in the memory of the person who did the work. Sometimes it
+                  is scattered across a work order, a traveler, a folder of
+                  images, and a conversation that no longer exists in any useful
+                  form.
                 </p>
 
                 <p>That is not visibility. That is archaeology.</p>
 
                 <p>
                   This is especially painful in visual inspection. A measurement
-                  can at least be written as a number. A visual condition is
-                  harder. The technician sees something, compares it to the manual,
-                  applies experience, and makes a judgment. If the record only
-                  captures the final answer, the reasoning disappears.
+                  can be written as a number. A visual condition is harder. The
+                  technician sees something, compares it to the manual, applies
+                  experience, and makes a judgment. If the record only captures
+                  the final answer, the reasoning disappears.
                 </p>
 
-                <p>Pass.</p>
+                <p>Pass. Fail. Accept. Reject. Rework. Replace.</p>
 
-                <p>Fail.</p>
-
-                <p>Accept.</p>
-
-                <p>Reject.</p>
-
-                <p>Rework.</p>
-
-                <p>Replace.</p>
-
-                <p>Those outcomes matter, but they are not the whole story.</p>
+                <p>Those outcomes matter. They are not the whole story.</p>
 
                 <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
                   Evidence should not require more interruption
                 </h2>
 
                 <p>
-                  A high-quality maintenance record should preserve enough context
-                  for a competent reviewer to understand the decision later. Not
-                  second-guess every mechanic. Not slow every job down. But carry
-                  the visible evidence that made the answer reasonable at the time.
+                  A high-quality maintenance record preserves enough context for a
+                  competent reviewer to understand the decision later. Not to
+                  second-guess every mechanic. Not to slow every job down. To
+                  carry the evidence that made the answer reasonable at the time.
                 </p>
 
-                <p>That distinction matters.</p>
-
                 <p>
-                  MROs do not need more documentation for the sake of
-                  documentation. They need better evidence with less interruption.
-                  They need records that show the work without forcing technicians
-                  to become full-time narrators of their own day.
+                  MROs do not need more documentation for its own sake. They need
+                  better evidence with less interruption. Records should show the
+                  work without turning technicians into full-time narrators.
                 </p>
 
-                <p>Because the current tradeoff is bad.</p>
-
                 <p>
-                  If a shop asks for richer records manually, technicians lose
-                  more time writing, photographing, uploading, labeling, and
-                  explaining. If the shop keeps records thin, it may save time
-                  upfront but lose context later when a question comes back.
+                  The current tradeoff is bad. Ask for richer records manually and
+                  technicians lose more time writing, photographing, uploading,
+                  labeling, and explaining. Keep records thin and the shop may
+                  lose context later when a question comes back.
                 </p>
 
                 <p>Neither path is ideal.</p>
 
                 <p>
-                  The better path is to capture useful evidence as close to the
-                  work as possible. The mechanic just does the job. The glasses
-                  observe. The record keeps the visual and operational context
-                  that would otherwise vanish. The human reviews and signs.
+                  The better path is to capture useful evidence close to the work.
+                  The mechanic just does the job. The glasses observe. The record
+                  keeps the visual and operational context that would otherwise
+                  vanish. The human reviews and signs.
                 </p>
 
                 <p>That is how a check mark becomes more than a check mark.</p>
 
                 <p>
                   Not because the check mark goes away. In many cases, it should
-                  remain. It is simple. It is familiar. It maps to how maintenance
+                  stay. It is simple. It is familiar. It maps to how maintenance
                   has been controlled for decades.
                 </p>
 
@@ -218,21 +191,15 @@ export default function CheckMarkFieldNotePage() {
                   answer the next question.
                 </p>
 
-                <p>What was seen?</p>
-
-                <p>What was measured?</p>
-
-                <p>What was the condition?</p>
-
-                <p>Why did this pass?</p>
-
-                <p>Why did this fail?</p>
+                <p>
+                  What was seen? What was measured? What was the condition? Why
+                  did this pass? Why did this fail?
+                </p>
 
                 <p>
-                  When records can answer those questions, quality teams spend
-                  less time chasing context. Customers get clearer answers. Audits
-                  become less stressful. And the shop becomes less dependent on
-                  memory.
+                  When records answer those questions, quality teams spend less
+                  time chasing context. Customers get clearer answers. Audits get
+                  less painful. The shop becomes less dependent on memory.
                 </p>
 
                 <p>A check mark is useful.</p>
