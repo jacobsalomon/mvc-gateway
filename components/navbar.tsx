@@ -5,10 +5,11 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { label: "Opportunity", href: "#opportunity" },
-  { label: "Why Now", href: "#why-now" },
-  { label: "Approach", href: "#approach" },
-  { label: "Vision", href: "#vision" },
+  { label: "Opportunity", href: "/#opportunity" },
+  { label: "Why Now", href: "/#why-now" },
+  { label: "Approach", href: "/#approach" },
+  { label: "Vision", href: "/#vision" },
+  { label: "Field Notes", href: "/field-notes" },
 ];
 
 // Sticky navigation bar.
@@ -47,7 +48,7 @@ export default function Navbar() {
         {/* Desktop section links */}
         <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className={`text-sm font-medium transition-colors duration-300 hover:text-white ${
@@ -55,7 +56,7 @@ export default function Navbar() {
               }`}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -63,6 +64,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Link
             href="/aerovision/dashboard"
+            prefetch={false}
             className="hidden sm:inline-flex items-center rounded-sm bg-cream-200 px-5 py-2 text-sm font-medium text-dark-950 transition-all duration-300 hover:bg-cream-300"
           >
             See It in Action
@@ -84,17 +86,18 @@ export default function Navbar() {
         <div className="md:hidden bg-dark-950 border-t border-white/10">
           <div className="flex flex-col px-6 py-4 gap-4">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={handleLinkClick}
                 className="text-white/70 hover:text-white font-medium text-sm py-2 transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <Link
               href="/aerovision/dashboard"
+              prefetch={false}
               onClick={handleLinkClick}
               className="inline-flex items-center justify-center rounded-sm bg-cream-200 px-5 py-2.5 text-sm font-medium text-dark-950 hover:bg-cream-300 transition-colors"
             >
