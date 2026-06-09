@@ -41,10 +41,7 @@ export default function FieldNotesPage() {
           <h1 className="font-display text-5xl font-bold leading-[1.05] tracking-tight text-white md:text-7xl lg:text-8xl">
             Field Notes
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/62 md:text-xl">
-            Notes on the MRO labor bottleneck.
-          </p>
-          <div className="mt-12 grid w-full gap-4">
+          <div className="mt-10 grid w-full gap-4">
             {publishedNotes.map((note) => (
               <Link
                 key={note.href}
