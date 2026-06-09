@@ -10,12 +10,20 @@ export const metadata: Metadata = {
     "Field Notes from Mechanical Vision Corporation on aviation maintenance, MRO labor pressure, documentation, and work capture.",
 };
 
-const publishedNote = {
-  title: "The Aircraft Is Not Ready Until the Record Is Clean",
-  href: "/field-notes/the-aircraft-is-not-ready-until-the-record-is-clean",
-  dek: "Why the MRO labor shortage is becoming a capacity problem, and why scarce technician hours have to be protected at the point of work.",
-  meta: "Field Note 01",
-};
+const publishedNotes = [
+  {
+    title: "The Aircraft Is Not Ready Until the Record Is Clean",
+    href: "/field-notes/the-aircraft-is-not-ready-until-the-record-is-clean",
+    dek: "Why the MRO labor shortage is becoming a capacity problem, and why scarce technician hours have to be protected at the point of work.",
+    meta: "Field Note 01",
+  },
+  {
+    title: "The Juniority Effect in Aircraft Maintenance",
+    href: "/field-notes/the-juniority-effect-in-aircraft-maintenance",
+    dek: "Why replacing technician headcount does not immediately replace experienced maintenance capacity.",
+    meta: "Field Note 02",
+  },
+];
 
 export default function FieldNotesPage() {
   return (
@@ -34,26 +42,31 @@ export default function FieldNotesPage() {
             Field Notes
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/62 md:text-xl">
-            Our first note on the MRO labor bottleneck.
+            Notes on the MRO labor bottleneck.
           </p>
-          <Link
-            href={publishedNote.href}
-            className="group mt-12 w-full rounded-sm border border-white/10 bg-white/[0.035] p-7 text-left transition-colors hover:border-white/20 md:p-9"
-          >
-            <div className="text-xs font-medium uppercase tracking-[0.2em] text-white/40">
-              {publishedNote.meta}
-            </div>
-            <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-white md:text-5xl">
-              {publishedNote.title}
-            </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/58">
-              {publishedNote.dek}
-            </p>
-            <div className="mt-8 flex items-center gap-2 text-sm font-medium text-white/75">
-              Read the first Field Note{" "}
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-            </div>
-          </Link>
+          <div className="mt-12 grid w-full gap-4">
+            {publishedNotes.map((note) => (
+              <Link
+                key={note.href}
+                href={note.href}
+                className="group rounded-sm border border-white/10 bg-white/[0.035] p-7 text-left transition-colors hover:border-white/20 md:p-9"
+              >
+                <div className="text-xs font-medium uppercase tracking-[0.2em] text-white/40">
+                  {note.meta}
+                </div>
+                <h2 className="mt-4 font-display text-3xl font-bold leading-tight text-white md:text-5xl">
+                  {note.title}
+                </h2>
+                <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/58">
+                  {note.dek}
+                </p>
+                <div className="mt-8 flex items-center gap-2 text-sm font-medium text-white/75">
+                  Read Field Note{" "}
+                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </main>
