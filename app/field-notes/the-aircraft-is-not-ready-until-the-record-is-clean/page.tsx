@@ -45,7 +45,7 @@ function SourceLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="font-medium text-cream-200 underline decoration-amber-400/45 underline-offset-4 transition-colors hover:text-white"
+      className="font-medium text-white/80 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white"
     >
       {children}
     </a>
@@ -74,7 +74,7 @@ export default function MroLaborFieldNotePage() {
               Field Notes
             </Link>
 
-            <div className="text-sm font-medium uppercase tracking-[0.18em] text-amber-400">
+            <div className="text-sm font-medium uppercase tracking-[0.18em] text-white/42">
               Field Note 01 / MRO labor bottleneck
             </div>
             <h1 className="mt-5 font-display text-5xl font-bold leading-[1.04] tracking-tight text-white md:text-7xl">
@@ -368,7 +368,7 @@ export default function MroLaborFieldNotePage() {
                   we&apos;d like to{" "}
                   <a
                     href="mailto:jake@mechanicalvisioncorp.com"
-                    className="font-medium text-cream-200 underline decoration-amber-400/45 underline-offset-4 transition-colors hover:text-white"
+                    className="font-medium text-white/80 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white"
                   >
                     compare notes
                   </a>
@@ -379,7 +379,7 @@ export default function MroLaborFieldNotePage() {
 
             <aside className="lg:sticky lg:top-24 lg:self-start">
               <div className="rounded-sm border border-white/10 bg-white/[0.035] p-6">
-                <div className="text-sm font-medium uppercase tracking-[0.18em] text-amber-400">
+                <div className="text-sm font-medium uppercase tracking-[0.18em] text-white/42">
                   Sources
                 </div>
                 <div className="mt-5 space-y-4">
@@ -394,22 +394,11 @@ export default function MroLaborFieldNotePage() {
                       <span>{source.label}</span>
                       <ArrowUpRight
                         size={15}
-                        className="mt-1 shrink-0 text-white/35 transition-colors group-hover:text-amber-400"
+                        className="mt-1 shrink-0 text-white/35 transition-colors group-hover:text-white/70"
                       />
                     </a>
                   ))}
                 </div>
-              </div>
-
-              <div className="mt-5 rounded-sm border border-amber-400/20 bg-amber-400/10 p-5">
-                <div className="text-sm font-medium uppercase tracking-[0.18em] text-amber-400">
-                  Next note
-                </div>
-                <p className="mt-3 text-sm leading-relaxed text-white/66">
-                  The Juniority Effect in Aircraft Maintenance, what is lost when
-                  experienced technicians retire, and why replacing headcount does
-                  not immediately replace capacity.
-                </p>
               </div>
             </aside>
           </div>
