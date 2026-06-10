@@ -52,7 +52,7 @@ export default function Home() {
               See It in Action
             </Link>
             <a
-              href="https://calendar.app.google/DD3fVDEey8V7rCp8A"
+              href="https://calendar.app.google/ajT5d6E4c9cmU92R7"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 text-white/70 hover:text-white transition-colors text-base font-medium"

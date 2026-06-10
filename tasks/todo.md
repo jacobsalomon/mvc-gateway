@@ -56,7 +56,7 @@ Review notes
 
 Review notes
 - Old link removed: `https://calendly.com/jacobsalomon`
-- New link target: `https://calendar.app.google/DD3fVDEey8V7rCp8A`
+- New link target: `https://calendar.app.google/ajT5d6E4c9cmU92R7`
 - Validation passed: `/Users/jake/bin/mvc-doctor.sh`
 - Validation passed: `npm run lint`
 - PR opened: https://github.com/jacobsalomon/mvc-gateway/pull/26
