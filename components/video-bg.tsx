@@ -21,15 +21,31 @@ export default function VideoBg({
     const video = videoRef.current;
     if (!video) return;
 
-    // Keep this slow and atmospheric so the motion supports the section.
-    video.playbackRate = 0.72;
-
+    // Respect reduced motion: poster only, never download the video.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       video.pause();
       return;
     }
 
-    video.play().catch(() => {});
+    // Background videos are multi-megabyte files. With preload="none" the
+    // bytes only download when the section is about to scroll into view
+    // (play() triggers the fetch), and playback pauses again off-screen.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            // Keep this slow and atmospheric so the motion supports the section.
+            video.playbackRate = 0.72;
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        }
+      },
+      { rootMargin: "400px" },
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -42,7 +58,7 @@ export default function VideoBg({
       muted
       loop
       playsInline
-      preload="metadata"
+      preload="none"
       aria-hidden="true"
     />
   );

@@ -40,11 +40,14 @@ export default function RootLayout({
             strategy="beforeInteractive"
           />
         )}
+        {/* Analytics load during browser idle time (lazyOnload) so they
+            never compete with page content for bandwidth or main-thread
+            time. Page views are still recorded — just a moment later. */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-ENBE6GFB86"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script id="gtag-init" strategy="lazyOnload">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
@@ -56,7 +59,7 @@ gtag('config', 'G-ENBE6GFB86');`}
             src="https://r2.leadsy.ai/tag.js"
             data-pid="1xbHYxWAwZlrdU6bj"
             data-version="062024"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
         )}
       </head>
