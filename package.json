@@ -9,7 +9,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate:fast": "npm run lint",
+    "validate:release": "npm run lint && npm run build"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.50.0",
