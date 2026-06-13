@@ -60,10 +60,9 @@ export default function CheckMarkFieldNotePage() {
                 </p>
 
                 <p>
-                  That is one of the hard truths of maintenance documentation. A
-                  record can show that a task was completed, a step was
-                  acknowledged, or an inspection was signed. Months later, that may
-                  not be enough.
+                  A record can show that a task was completed, a step was
+                  acknowledged, or an inspection was signed. Months later, that
+                  may not be enough.
                 </p>
 
                 <p>
@@ -89,9 +88,8 @@ export default function CheckMarkFieldNotePage() {
                 </p>
 
                 <p>
-                  That is understandable. Maintenance records cannot become novels.
-                  Technicians should not write long explanations for every routine
-                  observation.
+                  Maintenance records cannot become novels, and technicians should
+                  not write essays for every routine observation.
                 </p>
 
                 <p>But a check mark is thin evidence.</p>
@@ -102,9 +100,8 @@ export default function CheckMarkFieldNotePage() {
                 </p>
 
                 <p>
-                  For routine work, that can feel fine. The job moves forward. The
-                  form is complete. The aircraft or component is released. Everyone
-                  moves on.
+                  For routine work, that feels fine. The form is complete, the
+                  aircraft or component is released, everyone moves on.
                 </p>
 
                 <p>The weakness shows up later.</p>
@@ -169,8 +166,6 @@ export default function CheckMarkFieldNotePage() {
                   lose context later when a question comes back.
                 </p>
 
-                <p>Neither path is ideal.</p>
-
                 <p>
                   The better path is to capture useful evidence close to the work.
                   The mechanic just does the job. The glasses observe. The record
@@ -181,9 +176,8 @@ export default function CheckMarkFieldNotePage() {
                 <p>That is how a check mark becomes more than a check mark.</p>
 
                 <p>
-                  Not because the check mark goes away. In many cases, it should
-                  stay. It is simple. It is familiar. It maps to how maintenance
-                  has been controlled for decades.
+                  The mark does not go away. It should stay: simple, familiar, and
+                  mapped to how maintenance has been controlled for decades.
                 </p>
 
                 <p>
@@ -202,11 +196,9 @@ export default function CheckMarkFieldNotePage() {
                   less painful. The shop becomes less dependent on memory.
                 </p>
 
-                <p>A check mark is useful.</p>
-
                 <p>
-                  It just should not be the only thing left standing when the
-                  question gets hard.
+                  A check mark is useful. It just should not be the only thing
+                  left standing when the question gets hard.
                 </p>
 
                 <p>

@@ -126,9 +126,8 @@ export default function MroLaborFieldNotePage() {
                   <SourceLink href="https://www.boeing.com/commercial/market/pilot-technician-outlook">
                     710,000 new maintenance technicians over the next 20 years
                   </SourceLink>
-                  . Even if training capacity improves, the direction is clear:
-                  aviation needs a lot of new technical people just to keep the
-                  system moving.
+                  . Even with better training throughput, that is a structural
+                  gap, not a cyclical dip.
                 </p>
 
                 <p>
@@ -158,12 +157,12 @@ export default function MroLaborFieldNotePage() {
                 </p>
 
                 <p>
-                  Those numbers matter. They still do not capture how the problem
-                  feels on the floor. The{" "}
+                  The numbers do not capture how the shortage feels on the
+                  floor. The{" "}
                   <SourceLink href="https://www.gao.gov/products/gao-23-105571">
                     Government Accountability Office
                   </SourceLink>{" "}
-                  has been careful on this point: the number of people newly
+                  is careful on this point: the number of people newly
                   certificated by the FAA{" "}
                   <SourceLink href="https://www.gao.gov/products/gao-23-105571">
                     grew from 2017 through 2022
@@ -175,8 +174,8 @@ export default function MroLaborFieldNotePage() {
                 </p>
 
                 <p>
-                  MRO leaders do not experience the shortage as a spreadsheet
-                  line. They experience it as a missing person on third shift, a
+                  MRO leaders do not feel the shortage as a spreadsheet line.
+                  They feel it as a missing person on third shift, a
                   narrow certification bottleneck, a lead who becomes the answer
                   desk, or a quality team that cannot release work because the
                   right context is trapped in someone&apos;s head.
@@ -210,11 +209,11 @@ export default function MroLaborFieldNotePage() {
                 </p>
 
                 <p>
-                  New technicians are not the problem. They are the future. But
-                  when experienced people leave, they take pattern recognition,
-                  judgment, and evidence habits with them. A new hire may fill a
-                  slot and still leave the shop short on independent capacity,
-                  review capacity, and memory.
+                  New technicians are not the problem. But when experienced
+                  people leave, they take pattern recognition, judgment, and
+                  evidence habits with them. A new hire can fill the slot and
+                  still leave the shop short on independent capacity, review
+                  capacity, and memory.
                 </p>
 
                 <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
@@ -257,9 +256,9 @@ export default function MroLaborFieldNotePage() {
 
                 <p>
                   MROs already run close to the edge. Aircraft availability,
-                  customer commitments, hangar slots, overtime, review queues:
-                  they all matter. When technical labor is scarce, avoidable drag
-                  becomes a business constraint.
+                  customer commitments, hangar slots, overtime, and review queues
+                  all compete for the same hours. When technical labor is scarce,
+                  avoidable drag becomes a business constraint.
                 </p>
 
                 <p>
@@ -286,7 +285,7 @@ export default function MroLaborFieldNotePage() {
                 </p>
 
                 <p>
-                  BLS data points in the same direction from the labor side. In the
+                  From the labor side, the BLS points the same way. In the
                   United States, aircraft and avionics equipment mechanics and
                   technicians represented{" "}
                   <SourceLink href="https://www.bls.gov/ooh/installation-maintenance-and-repair/aircraft-and-avionics-equipment-mechanics-and-technicians.htm">
