@@ -158,8 +158,8 @@ export default function RecordSurvivesQuestionFieldNotePage() {
                 </p>
 
                 <p>
-                  That does not mean recording everything forever in a careless
-                  way. It means preserving the important context: what was seen,
+                  That does not mean recording everything, forever. It means
+                  preserving the important context: what was seen,
                   what was measured, when it happened, what source controlled the
                   work, and who reviewed and signed.
                 </p>
