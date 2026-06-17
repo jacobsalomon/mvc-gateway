@@ -12,11 +12,12 @@ export const metadata: Metadata = {
 const pitchBasePath =
   process.env.NODE_ENV === "development" ? "http://localhost:3018/pitch" : "/pitch";
 
-const deckLinks = [
-  {
-    label: "Open core deck",
-    href: pitchBasePath,
-  },
+const coreDeckLink = {
+  label: "Core Deck",
+  href: pitchBasePath,
+};
+
+const coreDeckActions = [
   {
     label: "Download core deck as PDF",
     href: `${pitchBasePath}/api/pdf?scope=core`,
@@ -66,17 +67,28 @@ export default function ControlRoomPage() {
 
         <Section title="Decks">
           <ul className="list-disc pl-6">
-            {deckLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  prefetch={false}
-                  className="text-[#0645ad] underline underline-offset-2 visited:text-[#0b0080]"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+            <li>
+              <Link
+                href={coreDeckLink.href}
+                prefetch={false}
+                className="text-[#0645ad] underline underline-offset-2 visited:text-[#0b0080]"
+              >
+                {coreDeckLink.label}
+              </Link>
+              <ul className="mt-1 list-disc pl-6">
+                {coreDeckActions.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      prefetch={false}
+                      className="text-[#0645ad] underline underline-offset-2 visited:text-[#0b0080]"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
           </ul>
         </Section>
 
