@@ -12,6 +12,9 @@ export const metadata: Metadata = {
 const pitchBasePath =
   process.env.NODE_ENV === "development" ? "http://localhost:3018/pitch" : "/pitch";
 
+const linkClassName =
+  "text-[#0645ad] underline underline-offset-2 visited:text-[#0b0080]";
+
 const coreDeckLink = {
   label: "Core Deck",
   href: pitchBasePath,
@@ -56,6 +59,109 @@ const nextLinks = [
   "Robotics story one-pager, optional after deck is locked",
 ];
 
+const storyReminders = [
+  {
+    id: "labor-shortage",
+    body: (
+      <>
+        Start with scarce expert labor, not robots. Boeing projects 710,000 new
+        commercial aviation maintenance technicians needed worldwide by 2044.{" "}
+        <ExternalLink href="https://www.boeing.com/commercial/market/pilot-technician-outlook">
+          Boeing PTO
+        </ExternalLink>
+      </>
+    ),
+  },
+  {
+    id: "aviation-wedge",
+    body: (
+      <>
+        Aviation is the wedge. ATEC and Oliver Wyman say U.S. civil commercial
+        aviation maintenance already has more than 431,000 personnel, but commercial
+        air transport alone still faces a 2025 shortage in certificated mechanics.{" "}
+        <ExternalLink href="https://www.atec-amt.org/pipeline-report">
+          ATEC pipeline
+        </ExternalLink>
+      </>
+    ),
+  },
+  {
+    id: "mro-growth",
+    body: (
+      <>
+        Demand is moving the wrong way. Oliver Wyman puts global aviation MRO at
+        $119B in 2025 and $156B by 2035, driven by older aircraft and more flight
+        hours.{" "}
+        <ExternalLink href="https://www.oliverwyman.com/our-expertise/insights/2025/feb/global-fleet-and-mro-market-forecast-2025-2035.html">
+          Oliver Wyman
+        </ExternalLink>
+      </>
+    ),
+  },
+  {
+    id: "industrial-pattern",
+    body: (
+      <>
+        The broader industrial pattern is bigger. BLS counts 538,300 U.S.
+        industrial machinery mechanics, maintenance workers, and millwrights, with
+        13% growth and 54,200 openings per year projected through 2034.{" "}
+        <ExternalLink href="https://www.bls.gov/ooh/installation-maintenance-and-repair/industrial-machinery-mechanics-and-maintenance-workers-and-millwrights.htm">
+          BLS
+        </ExternalLink>
+      </>
+    ),
+  },
+  {
+    id: "documentation-wedge",
+    body: (
+      <>
+        The wedge gets paid today. McKinsey says one-fifth of aviation maintenance
+        technician jobs may go unfilled by 2033 and technicians can spend about 60%
+        of the day researching, troubleshooting, and preparing reports.{" "}
+        <ExternalLink href="https://www.mckinsey.com/industries/aerospace-and-defense/our-insights/the-generative-ai-opportunity-in-airline-maintenance">
+          McKinsey
+        </ExternalLink>
+      </>
+    ),
+  },
+  {
+    id: "robotics-bottleneck",
+    body: (
+      <>
+        Robots are arriving, but integration is the bottleneck. IFR counts 4.66M
+        industrial robots in operation, while adoption is still constrained by
+        vision, process design, and system integration expertise.{" "}
+        <ExternalLink href="https://ifr.org/img/worldrobotics/Executive_Summary_WR_2025_Industrial_Robots.pdf">
+          IFR
+        </ExternalLink>
+      </>
+    ),
+  },
+  {
+    id: "data-bridge",
+    body: (
+      <>
+        Data is the bridge from documentation to robots. EgoMimic shows egocentric
+        human video can scale imitation learning, and NVIDIA GR00T trains on
+        real-robot trajectories, human videos, and synthetic data.{" "}
+        <ExternalLink href="https://arxiv.org/abs/2410.24221">EgoMimic</ExternalLink>
+        {", "}
+        <ExternalLink href="https://arxiv.org/abs/2503.14734">GR00T</ExternalLink>
+      </>
+    ),
+  },
+  {
+    id: "mvc-story",
+    body: (
+      <>
+        MVC story: glasses observe, mechanic just does the job, human reviews and
+        signs. We solve the urgent documentation problem while collecting the
+        expert maintenance data robots will need.
+      </>
+    ),
+  },
+];
+
 export default function ControlRoomPage() {
   return (
     <main className="min-h-screen bg-white px-6 py-10 font-serif text-[17px] leading-[1.55] text-black">
@@ -71,7 +177,7 @@ export default function ControlRoomPage() {
               <Link
                 href={coreDeckLink.href}
                 prefetch={false}
-                className="text-[#0645ad] underline underline-offset-2 visited:text-[#0b0080]"
+                className={linkClassName}
               >
                 {coreDeckLink.label}
               </Link>
@@ -81,7 +187,7 @@ export default function ControlRoomPage() {
                     <Link
                       href={link.href}
                       prefetch={false}
-                      className="text-[#0645ad] underline underline-offset-2 visited:text-[#0b0080]"
+                      className={linkClassName}
                     >
                       {link.label}
                     </Link>
@@ -99,7 +205,7 @@ export default function ControlRoomPage() {
                 <Link
                   href={link.href}
                   prefetch={false}
-                  className="text-[#0645ad] underline underline-offset-2 visited:text-[#0b0080]"
+                  className={linkClassName}
                 >
                   {link.label}
                 </Link>
@@ -118,13 +224,27 @@ export default function ControlRoomPage() {
 
         <Section title="Story reminders">
           <ul className="list-disc pl-6">
-            <li>Glasses observe.</li>
-            <li>Mechanic just does the job.</li>
-            <li>Human reviews and signs.</li>
+            {storyReminders.map((item) => (
+              <li key={item.id}>{item.body}</li>
+            ))}
           </ul>
         </Section>
       </div>
     </main>
+  );
+}
+
+function ExternalLink({
+  href,
+  children,
+}: Readonly<{
+  href: string;
+  children: ReactNode;
+}>) {
+  return (
+    <a href={href} className={linkClassName} target="_blank" rel="noreferrer">
+      {children}
+    </a>
   );
 }
 
