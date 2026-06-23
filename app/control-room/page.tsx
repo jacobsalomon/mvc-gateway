@@ -23,38 +23,30 @@ const linkClassName =
 // "Download" reuses the deck's built-in print-to-PDF (?print=core|full), which
 // opens the browser's Save-as-PDF dialog on the deck itself. The deck is the
 // single home for download actions; its on-screen print buttons were removed.
-const deckLinks = [
-  {
-    label: "Core Deck (wedge-first)",
-    href: `${pitchOrigin}/pitch`,
+// Each deck links to its viewer plus one-click PDF downloads. "Download" reuses
+// the deck's built-in print-to-PDF (?print=core|full), which opens the browser's
+// Save-as-PDF dialog on the deck itself. All four decks (wedge/mission x
+// logos/no-logos) get the same actions.
+function deckEntry(label: string, path: string) {
+  return {
+    label,
+    href: `${pitchOrigin}${path}`,
     actions: [
-      { label: "Download core deck as PDF", href: `${pitchOrigin}/pitch?print=core` },
+      { label: "Download core deck as PDF", href: `${pitchOrigin}${path}?print=core` },
       {
         label: "Download deck + references as PDF",
-        href: `${pitchOrigin}/pitch?print=full`,
+        href: `${pitchOrigin}${path}?print=full`,
       },
     ],
-  },
-  {
-    label: "Mission-first deck",
-    href: `${pitchOrigin}/pitch/mission`,
-    actions: [
-      {
-        label: "Download core deck as PDF",
-        href: `${pitchOrigin}/pitch/mission?print=core`,
-      },
-      {
-        label: "Download deck + references as PDF",
-        href: `${pitchOrigin}/pitch/mission?print=full`,
-      },
-    ],
-  },
-];
+  };
+}
 
-const noLogoDeckLink = {
-  label: "No-logo Deck",
-  href: "https://mechanicalvisioncorp.com/pitch-no-logos",
-};
+const deckLinks = [
+  deckEntry("Core Deck (wedge-first)", "/pitch"),
+  deckEntry("Core Deck (wedge-first, no logos)", "/pitch/no-logos"),
+  deckEntry("Mission-first deck", "/pitch/mission"),
+  deckEntry("Mission-first deck (no logos)", "/pitch/mission/no-logos"),
+];
 
 const onePagerLinks = [
   {
@@ -224,16 +216,6 @@ export default function ControlRoomPage() {
                 </ul>
               </li>
             ))}
-            <li>
-              <a
-                href={noLogoDeckLink.href}
-                target="_blank"
-                rel="noreferrer"
-                className={linkClassName}
-              >
-                {noLogoDeckLink.label}
-              </a>
-            </li>
           </ul>
         </Section>
 
