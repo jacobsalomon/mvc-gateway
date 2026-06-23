@@ -10,6 +10,20 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Keep the standalone control-room deployment focused on the internal page
+      // without changing the public MVC homepage on mechanicalvisioncorp.com.
+      {
+        source: "/",
+        has: [{ type: "host", value: "jake-control-room.vercel.app" }],
+        destination: "/control-room",
+        permanent: false,
+      },
+      {
+        source: "/",
+        has: [{ type: "host", value: "control.jakesalomon.net" }],
+        destination: "/control-room",
+        permanent: false,
+      },
       // MVC vanity path for the no-logos investor deck variant.
       // This redirects instead of rewrites because that deck is built with /pitch as its basePath.
       {
