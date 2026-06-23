@@ -9,32 +9,52 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const pitchBasePath =
-  process.env.NODE_ENV === "development" ? "http://localhost:3018/pitch" : "/pitch";
+// Point deck links at the deck's own origin (not a relative /pitch path) so the
+// viewer's deck passcode cookie — which lives on mechanicalvisioncorp.com — is
+// reused. A relative link would hit the passcode gate again on this domain.
+const pitchOrigin =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3018"
+    : "https://mechanicalvisioncorp.com";
 
 const linkClassName =
   "text-[#0645ad] underline underline-offset-2 visited:text-[#0b0080]";
 
-const coreDeckLink = {
-  label: "Core Deck",
-  href: pitchBasePath,
-};
+// "Download" reuses the deck's built-in print-to-PDF (?print=core|full), which
+// opens the browser's Save-as-PDF dialog on the deck itself. The deck is the
+// single home for download actions; its on-screen print buttons were removed.
+const deckLinks = [
+  {
+    label: "Core Deck (wedge-first)",
+    href: `${pitchOrigin}/pitch`,
+    actions: [
+      { label: "Download core deck as PDF", href: `${pitchOrigin}/pitch?print=core` },
+      {
+        label: "Download deck + references as PDF",
+        href: `${pitchOrigin}/pitch?print=full`,
+      },
+    ],
+  },
+  {
+    label: "Mission-first deck",
+    href: `${pitchOrigin}/pitch/mission`,
+    actions: [
+      {
+        label: "Download core deck as PDF",
+        href: `${pitchOrigin}/pitch/mission?print=core`,
+      },
+      {
+        label: "Download deck + references as PDF",
+        href: `${pitchOrigin}/pitch/mission?print=full`,
+      },
+    ],
+  },
+];
 
 const noLogoDeckLink = {
   label: "No-logo Deck",
   href: "https://mechanicalvisioncorp.com/pitch-no-logos",
 };
-
-const coreDeckActions = [
-  {
-    label: "Download core deck as PDF",
-    href: `${pitchBasePath}/api/pdf?scope=core`,
-  },
-  {
-    label: "Download Deck + References as PDF",
-    href: `${pitchBasePath}/api/pdf?scope=full`,
-  },
-];
 
 const onePagerLinks = [
   {
@@ -178,30 +198,39 @@ export default function ControlRoomPage() {
 
         <Section title="Decks">
           <ul className="list-disc pl-6">
+            {deckLinks.map((deck) => (
+              <li key={deck.href}>
+                <a
+                  href={deck.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={linkClassName}
+                >
+                  {deck.label}
+                </a>
+                <ul className="mt-1 list-disc pl-6">
+                  {deck.actions.map((action) => (
+                    <li key={action.href}>
+                      <a
+                        href={action.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={linkClassName}
+                      >
+                        {action.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
             <li>
-              <Link
-                href={coreDeckLink.href}
-                prefetch={false}
+              <a
+                href={noLogoDeckLink.href}
+                target="_blank"
+                rel="noreferrer"
                 className={linkClassName}
               >
-                {coreDeckLink.label}
-              </Link>
-              <ul className="mt-1 list-disc pl-6">
-                {coreDeckActions.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      prefetch={false}
-                      className={linkClassName}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </li>
-            <li>
-              <a href={noLogoDeckLink.href} className={linkClassName}>
                 {noLogoDeckLink.label}
               </a>
             </li>
