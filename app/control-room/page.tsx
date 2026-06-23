@@ -253,6 +253,19 @@ export default function ControlRoomPage() {
           </ul>
         </Section>
 
+        <Section title="Architecture">
+          <ul className="list-disc pl-6">
+            <li>
+              <a
+                href="/control-room-architecture.html"
+                className={linkClassName}
+              >
+                AeroVision system architecture (end-to-end)
+              </a>
+            </li>
+          </ul>
+        </Section>
+
         <Section title="Next">
           <ul className="list-disc pl-6">
             {nextLinks.map((item) => (
