@@ -20,32 +20,35 @@ const pitchOrigin =
 const linkClassName =
   "text-[#0645ad] underline underline-offset-2 visited:text-[#0b0080]";
 
-// "Download" reuses the deck's built-in print-to-PDF (?print=core|full), which
-// opens the browser's Save-as-PDF dialog on the deck itself. The deck is the
-// single home for download actions; its on-screen print buttons were removed.
-// Each deck links to its viewer plus one-click PDF downloads. "Download" reuses
-// the deck's built-in print-to-PDF (?print=core|full), which opens the browser's
-// Save-as-PDF dialog on the deck itself. All four decks (wedge/mission x
-// logos/no-logos) get the same actions.
-function deckEntry(label: string, path: string) {
+// Core PDF downloads are static files generated from browser-rendered slide
+// screenshots. This avoids browser print-to-PDF differences in Apple Preview.
+function deckEntry(label: string, path: string, pdfPath: string) {
   return {
     label,
     href: `${pitchOrigin}${path}`,
     actions: [
-      { label: "Download core deck as PDF", href: `${pitchOrigin}${path}?print=core` },
       {
-        label: "Download deck + references as PDF",
-        href: `${pitchOrigin}${path}?print=full`,
+        label: "Download core deck as PDF",
+        href: pdfPath,
+        download: true,
       },
     ],
   };
 }
 
 const deckLinks = [
-  deckEntry("Core Deck (wedge-first)", "/pitch"),
-  deckEntry("Core Deck (wedge-first, no logos)", "/pitch/no-logos"),
-  deckEntry("Mission-first deck", "/pitch/mission"),
-  deckEntry("Mission-first deck (no logos)", "/pitch/mission/no-logos"),
+  deckEntry("Core Deck (wedge-first)", "/pitch", "/downloads/mvc-core-deck.pdf"),
+  deckEntry(
+    "Core Deck (wedge-first, no logos)",
+    "/pitch/no-logos",
+    "/downloads/mvc-core-deck-no-logos.pdf",
+  ),
+  deckEntry("Mission-first deck", "/pitch/mission", "/downloads/mvc-mission-deck.pdf"),
+  deckEntry(
+    "Mission-first deck (no logos)",
+    "/pitch/mission/no-logos",
+    "/downloads/mvc-mission-deck-no-logos.pdf",
+  ),
 ];
 
 const onePagerLinks = [
@@ -205,8 +208,9 @@ export default function ControlRoomPage() {
                     <li key={action.href}>
                       <a
                         href={action.href}
-                        target="_blank"
-                        rel="noreferrer"
+                        target={action.download ? undefined : "_blank"}
+                        rel={action.download ? undefined : "noreferrer"}
+                        download={action.download ? true : undefined}
                         className={linkClassName}
                       >
                         {action.label}
