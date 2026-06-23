@@ -124,8 +124,8 @@ export default function JuniorityFieldNotePage() {
                 </h2>
 
                 <p>
-                  There is good news in the technician pipeline. The 2025 Pipeline
-                  Report from ATEC and Oliver Wyman says the FAA issued{" "}
+                  The 2025 Pipeline Report from ATEC and Oliver Wyman says the FAA
+                  issued{" "}
                   <SourceLink href="https://www.atec-amt.org/pipeline-report">
                     slightly more than 9,000 new mechanic certificates in 2024
                   </SourceLink>
@@ -133,7 +133,7 @@ export default function JuniorityFieldNotePage() {
                   <SourceLink href="https://www.atec-amt.org/pipeline-report">
                     4% below the prior year&apos;s record
                   </SourceLink>
-                  . AMTS enrollment also{" "}
+                  . AMTS enrollment{" "}
                   <SourceLink href="https://www.atec-amt.org/pipeline-report">
                     rose 9%
                   </SourceLink>
@@ -141,9 +141,8 @@ export default function JuniorityFieldNotePage() {
                 </p>
 
                 <p>
-                  Those are encouraging signs. The industry needs them. But the
-                  same report says the U.S. civil commercial aviation maintenance
-                  workforce includes{" "}
+                  The same report, though, says the U.S. civil commercial
+                  aviation maintenance workforce includes{" "}
                   <SourceLink href="https://www.atec-amt.org/pipeline-report">
                     more than 431,000 people
                   </SourceLink>
@@ -160,7 +159,7 @@ export default function JuniorityFieldNotePage() {
                 </p>
 
                 <p>
-                  The Government Accountability Office adds an important caveat:
+                  The Government Accountability Office adds a caveat:
                   exact mechanic supply and demand are hard to measure because
                   less is known about how many mechanics{" "}
                   <SourceLink href="https://www.gao.gov/products/gao-23-105571">
@@ -209,10 +208,6 @@ export default function JuniorityFieldNotePage() {
                   confidence.
                 </p>
 
-                <p>
-                  This is how the juniority effect turns into delay.
-                </p>
-
                 <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
                   The bottleneck moves to supervision and review
                 </h2>
@@ -232,11 +227,10 @@ export default function JuniorityFieldNotePage() {
                 </p>
 
                 <p>
-                  In a high-trust maintenance environment, that matters. A new
-                  technician may complete a task correctly, but still need
-                  confirmation. A record may be mostly complete, but still lack
-                  reviewer context. A photo may show the part, but not why it was
-                  captured.
+                  Each handoff adds a verification step. A new technician may
+                  complete a task correctly but still need confirmation. A record
+                  may be mostly complete but still lack reviewer context. A photo
+                  may show the part but not why it was captured.
                 </p>
 
                 <p>
@@ -250,8 +244,8 @@ export default function JuniorityFieldNotePage() {
                 </h2>
 
                 <p>
-                  Every shop has tribal knowledge. Some of it is healthy. It is
-                  the practical wisdom that keeps operations moving.
+                  Every shop has tribal knowledge, and some of it is healthy: the
+                  practical wisdom that keeps operations moving.
                 </p>
 
                 <p>
@@ -311,8 +305,8 @@ export default function JuniorityFieldNotePage() {
                 </h2>
 
                 <p>
-                  The industry should recruit more technicians, train more
-                  technicians, and make the career more visible. The Bureau of
+                  The industry should recruit and train more technicians and
+                  make the career more visible. The Bureau of
                   Labor Statistics projects about{" "}
                   <SourceLink href="https://www.bls.gov/ooh/installation-maintenance-and-repair/aircraft-and-avionics-equipment-mechanics-and-technicians.htm">
                     13,100 aircraft and avionics technician openings each year

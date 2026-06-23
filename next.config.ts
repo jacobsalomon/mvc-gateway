@@ -10,6 +10,18 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // MVC vanity path for the no-logos investor deck variant.
+      // This redirects instead of rewrites because that deck is built with /pitch as its basePath.
+      {
+        source: "/pitch-no-logos",
+        destination: "https://aerovision-seed-deck-no-logos.vercel.app/pitch",
+        permanent: false,
+      },
+      {
+        source: "/pitch-no-logos/:path*",
+        destination: "https://aerovision-seed-deck-no-logos.vercel.app/pitch/:path*",
+        permanent: false,
+      },
       // Redirect mechavisioncorp.com → mechanicalvisioncorp.com
       {
         source: "/:path*",

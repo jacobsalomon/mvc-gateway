@@ -76,7 +76,7 @@ export default function WorkAndRecordFieldNotePage() {
                 </p>
 
                 <p>
-                  None of those steps is dumb. Together, they drain capacity.
+                  No one step is wasteful. Together they drain capacity.
                 </p>
 
                 <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
@@ -98,36 +98,30 @@ export default function WorkAndRecordFieldNotePage() {
                 </p>
 
                 <p>
-                  Digital tools do not automatically fix this. Sometimes they only
-                  move the record from paper to a screen. That can be an
-                  improvement. But the interruption remains if the mechanic still
-                  has to stop the physical job to feed the system.
+                  Digital tools do not automatically fix this. Often they just
+                  move the record from paper to a screen. The interruption remains
+                  if the mechanic still has to stop the physical job to feed the
+                  system.
                 </p>
 
                 <h2 className="pt-6 font-display text-3xl font-bold leading-tight text-white">
                   Digital is not the same as uninterrupted
                 </h2>
 
-                <p>The question is not, &quot;Is the workflow digital?&quot;</p>
-
                 <p>
-                  The better question is, &quot;Does the record form naturally while
-                  the work is happening, or does the technician have to leave the
-                  work to create it?&quot;
-                </p>
-
-                <p>Those are very different operating models.</p>
-
-                <p>
-                  In the first model, the record is a byproduct of the work. In
-                  the second, the record is a second job layered on top of the
-                  work.
+                  The question is not whether the workflow is digital. It is
+                  whether the record forms while the work happens, or the
+                  technician has to leave the work to create it.
                 </p>
 
                 <p>
-                  Documentation is necessary. Regulators need records. Customers
-                  need records. Quality teams need records. The next shift needs
-                  records.
+                  In the first case, the record is a byproduct of the work. In the
+                  second, it is a second job layered on top of the work.
+                </p>
+
+                <p>
+                  Documentation is necessary. Regulators, customers, quality
+                  teams, and the next shift all depend on the record.
                 </p>
 
                 <p>
