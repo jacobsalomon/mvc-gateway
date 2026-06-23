@@ -20,6 +20,11 @@ const coreDeckLink = {
   href: pitchBasePath,
 };
 
+const noLogoDeckLink = {
+  label: "No-logo Deck",
+  href: "https://mechanicalvisioncorp.com/pitch-no-logos",
+};
+
 const coreDeckActions = [
   {
     label: "Download core deck as PDF",
@@ -194,6 +199,11 @@ export default function ControlRoomPage() {
                   </li>
                 ))}
               </ul>
+            </li>
+            <li>
+              <a href={noLogoDeckLink.href} className={linkClassName}>
+                {noLogoDeckLink.label}
+              </a>
             </li>
           </ul>
         </Section>
