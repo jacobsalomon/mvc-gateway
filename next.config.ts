@@ -56,6 +56,24 @@ const nextConfig: NextConfig = {
       // ensuring /aerovision/* and /pitch/* are proxied to the sub-apps
       beforeFiles: [
         {
+          source: "/",
+          has: [{ type: "host", value: "console.mechanicalvisioncorp.com" }],
+          destination:
+            "https://aerovision-mvp.vercel.app/aerovision/reliability",
+        },
+        {
+          source: "/aerovision/:path*",
+          has: [{ type: "host", value: "console.mechanicalvisioncorp.com" }],
+          destination:
+            "https://aerovision-mvp.vercel.app/aerovision/:path*",
+        },
+        {
+          source: "/:path*",
+          has: [{ type: "host", value: "console.mechanicalvisioncorp.com" }],
+          destination:
+            "https://aerovision-mvp.vercel.app/aerovision/:path*",
+        },
+        {
           source: "/aerovision",
           destination:
             "https://aerovision-mvp.vercel.app/aerovision",
