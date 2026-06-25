@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>AeroVision — end-to-end architecture</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #000000;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.55;
+      padding: 40px 24px;
+    }
+    main { max-width: 1280px; margin: 0 auto; }
+    h1 { font-size: 28px; font-weight: 400; line-height: 1.2; margin: 0; }
+    p { margin: 12px 0 0; }
+    a { color: #0645ad; text-decoration: underline; text-underline-offset: 2px; }
+    a:visited { color: #0b0080; }
+    .back { font-size: 15px; }
+    .note { color: #444; font-size: 15px; }
+    #chart {
+      margin-top: 28px;
+      border: 1px solid #e6e6e6;
+      border-radius: 6px;
+      padding: 16px;
+      overflow-x: auto;
+    }
+    #chart svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+    #fallback { color: #777; font-style: italic; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="back"><a href="/">&larr; Control room</a></p>
+    <h1>AeroVision &mdash; end-to-end system architecture</h1>
+    <p class="note">How the platform works, capture to certified record. Tip: zoom your browser (Cmd/Ctrl&nbsp;+) for detail.</p>
+
+    <div id="chart"><span id="fallback">Rendering diagram&hellip;</span></div>
+  </main>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: false, theme: 'neutral', flowchart: { htmlLabels: true, curve: 'basis' } });
+
+    const def = `flowchart TD
+  TECH["Mechanic — wears the glasses"]:::ext
+  REVR["Supervisor / reviewer — browser"]:::ext
+  subgraph L1["1 · Capture edge — field devices observe the work"]
+    ARC["RealWear Arc3  (PRIMARY)<br/>Android · hands-free · CameraX video + WAV audio"]:::cap
+    META["Meta Ray-Ban + iPhone<br/>Swift · DAT SDK"]:::cap
+    IPAD["iPad console + bridge<br/>SwiftUI"]:::cap
+    TAB["Android tablet console<br/>Kotlin · Solos AirGo (BLE)"]:::cap
+    MEN["Mentra Live → bridge server<br/>Bun/TS · Railway · RTMP to ffmpeg"]:::cap
+    VUZ["Vuzix M4000<br/>experimental"]:::cap
+    DEVC["Shared device contract<br/>overlapping audio · no-delete guard · resume-on-restart<br/>durable offline queue · QR / code pairing · heartbeat"]:::note
+  end
+  subgraph L2["2 · Ingress and auth"]
+    GW["Multi-zone gateway<br/>mechanicalvisioncorp.com to /aerovision"]:::plat
+    MW["Edge middleware (proxy.ts)<br/>route gating · security headers"]:::plat
+    AUTH["Auth lanes<br/>NextAuth web · mobile JWT · device bearer · internal secret"]:::plat
+  end
+  subgraph L3["3 · Direct-to-storage upload"]
+    UP["Presigned PUT (3-step)<br/>token to PUT media to register metadata"]:::plat
+    LIVE["Live transcription lane<br/>ephemeral OpenAI realtime token"]:::plat
+  end
+  subgraph L4["4 · Web application — Vercel · Next.js 16 · React 19"]
+    DASH["Authenticated dashboard<br/>jobs · library · review/audit · components · settings"]:::plat
+    API["Server API (~35 route groups)<br/>sessions · inspect · documents · measurements · org · ..."]:::plat
+  end
+  subgraph L5["5 · AI orchestration — background"]
+    CRON["Cron (every 60s)<br/>process-sessions · lease model"]:::brain
+    INNG["Inngest (durable)<br/>CMM template processing"]:::brain
+    PIPE["Session pipeline — 5 stages<br/>analyze to draft to verify to package to render"]:::brain
+    CMMP["CMM ingest — 2-pass<br/>index to extract to validate to human approve"]:::brain
+    MEASP["Measurement fusion<br/>primary read + independent verifier to tolerance fusion"]:::brain
+  end
+  subgraph L6["6 · AI providers — ordered fallback chains"]
+    OAI["OpenAI<br/>GPT-5.5/5.4 · Whisper · Realtime"]:::ai
+    ANT["Anthropic<br/>Claude Opus 4.8"]:::ai
+    GOO["Google<br/>Gemini 3.1 Pro / 3 Flash / 2.5"]:::ai
+    ASM["AssemblyAI<br/>Universal-3 Pro (batch)"]:::ai
+    ORT["OpenRouter<br/>Qwen 3.5 + others"]:::ai
+  end
+  subgraph L7["7 · Media renderer — Fly.io (Python · OpenCV · ffmpeg)"]
+    PROOF["Proof-frame renderer<br/>annotate evidence frames"]:::plat
+    COH["Cohesive video renderer<br/>stream-copy chunks to 1 MP4"]:::plat
+  end
+  subgraph L8["8 · Data and storage"]
+    NEON["Neon Postgres · Prisma 7<br/>39 models · org-scoped · pgvector"]:::data
+    STORE["Object storage<br/>Vercel Blob / AWS S3 / Cloudflare R2"]:::data
+  end
+  subgraph L9["9 · Certify and output — human authority"]
+    REV["Human review + e-signature<br/>reviewer cockpit"]:::human
+    DOC["FAA / EASA documents<br/>8130-3 · 337 · 8010-4"]:::human
+    ART["Immutable sign-off artifact<br/>PDF + SHA-256 + JSON snapshot (14 CFR 145.219)"]:::human
+    EXP["Digital thread / export<br/>per-component trace"]:::human
+  end
+  subgraph X["Cross-cutting"]
+    SENTRY["Sentry — errors and crons"]:::note
+    RESEND["Resend — email"]:::note
+    VAN["Vercel Analytics"]:::note
+    BT["Braintrust — AI evals"]:::note
+  end
+  TECH --> ARC
+  REVR --> GW
+  ARC -->|"/api/glasses/*"| GW
+  META -->|"/api/mobile/*"| GW
+  IPAD --> GW
+  TAB --> GW
+  MEN -->|"/api/mentra/bridge/*"| GW
+  VUZ --> GW
+  GW -->|"basePath /aerovision"| MW
+  MW --> AUTH
+  AUTH --> UP
+  AUTH --> DASH
+  AUTH --> API
+  UP -->|"register evidence"| API
+  UP -->|"PUT media direct"| STORE
+  API -->|"realtime token"| LIVE
+  LIVE -.->|"mic stream"| OAI
+  DASH -->|"calls"| API
+  API -->|"enqueue job"| CRON
+  CRON -->|"lease + run"| PIPE
+  API -.->|"events"| INNG
+  INNG --> CMMP
+  PIPE --> MEASP
+  PIPE -->|"AI calls"| L6
+  CMMP -->|"AI calls"| L6
+  MEASP -->|"two-model read"| L6
+  PIPE -->|"render"| L7
+  MEASP -.->|"proof frame"| L7
+  PROOF -->|"presigned PUT"| STORE
+  COH -->|"presigned PUT"| STORE
+  STORE -.->|"signed GET (read)"| L7
+  PIPE -->|"draft + state"| NEON
+  API -->|"read / write"| NEON
+  CMMP -->|"approved template"| NEON
+  NEON -.->|"templates guide inspection"| API
+  NEON -->|"data"| DASH
+  DASH --> REV
+  REV -.->|"evidence"| NEON
+  REV --> DOC
+  DOC --> ART
+  ART -->|"record"| NEON
+  DOC -.-> STORE
+  ART --> EXP
+  API -.->|"errors"| SENTRY
+  API -.->|"email"| RESEND
+  DASH -.-> VAN
+  BT -.->|"gate models"| L6
+  classDef ext fill:#FFFFFF,stroke:#62685F,color:#1A1E1A,stroke-width:1px;
+  classDef cap fill:#E1F0EA,stroke:#5C7263,color:#16201B;
+  classDef plat fill:#EFEFEC,stroke:#7C7B74,color:#1A1E1A;
+  classDef brain fill:#F7ECD6,stroke:#8A6728,color:#3a2c10;
+  classDef ai fill:#E3F1EB,stroke:#5C7263,color:#16201B;
+  classDef data fill:#E7F0E0,stroke:#5B7160,color:#1b2a1f;
+  classDef human fill:#F6E2DD,stroke:#8F4337,color:#3d1c16;
+  classDef note fill:#FFFFFF,stroke:#9aa097,color:#3a3f39,stroke-dasharray:3 3;`;
+
+    try {
+      const { svg } = await mermaid.render('aerovision_arch', def);
+      document.getElementById('chart').innerHTML = svg;
+    } catch (e) {
+      document.getElementById('chart').innerHTML =
+        '<span id="fallback">Could not render the diagram in this browser. Error: ' +
+        (e && e.message ? e.message : String(e)) + '</span>';
+    }
+  </script>
+</body>
+</html>
