@@ -74,6 +74,17 @@ const onePagerLinks = [
   },
 ];
 
+const securityLinks = [
+  {
+    label: "AeroVision Pilot IT and Security Packet",
+    href: "https://app.notion.com/p/389e3aa3f83d81a08b16c20f8ee7334b",
+  },
+  {
+    label: "Security section in Notion",
+    href: "https://app.notion.com/p/389e3aa3f83d815e8250e88c7bfc9e57",
+  },
+];
+
 const nextLinks = [
   "Robotics/data deck, draft next",
   "Robotics story one-pager, optional after deck is locked",
@@ -249,6 +260,16 @@ export default function ControlRoomPage() {
                 AeroVision system architecture (end-to-end)
               </a>
             </li>
+          </ul>
+        </Section>
+
+        <Section title="Security">
+          <ul className="list-disc pl-6">
+            {securityLinks.map((link) => (
+              <li key={link.href}>
+                <ExternalLink href={link.href}>{link.label}</ExternalLink>
+              </li>
+            ))}
           </ul>
         </Section>
 
