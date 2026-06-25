@@ -153,11 +153,11 @@ export default function WhatIfScroll() {
   return (
     <section
       ref={containerRef}
-      className="relative bg-gradient-to-b from-dark-800 to-dark-950"
+      className="whatif-section relative bg-gradient-to-b from-dark-800 to-dark-950"
       style={{ height: `${slides.length * 100}vh` }}
     >
       {/* Sticky viewport — stays pinned while you scroll through the section */}
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div className="whatif-frame sticky top-0 h-screen overflow-hidden">
         {/* Subtle dot pattern for visual consistency */}
         <div
           className="absolute inset-0 opacity-[0.04]"
@@ -171,17 +171,9 @@ export default function WhatIfScroll() {
         {/* Progress dots — small indicator on the right edge */}
         <div className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-20">
           {slides.map((_, i) => (
-            <div
+            <span
               key={i}
-              className="rounded-full transition-all duration-500"
-              style={{
-                width: i === active ? "6px" : "4px",
-                height: i === active ? "6px" : "4px",
-                backgroundColor:
-                  i === active
-                    ? "rgba(255,255,255,0.5)"
-                    : "rgba(255,255,255,0.12)",
-              }}
+              className={`whatif-progress-dot ${i === active ? "is-active" : ""}`}
             />
           ))}
         </div>
@@ -198,14 +190,19 @@ export default function WhatIfScroll() {
           >
             {/* Background image — low opacity atmospheric layer */}
             <div
-              className="absolute inset-0 bg-cover bg-center transition-opacity duration-700"
+              className="whatif-bg absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: `url('${slide.bg}')`,
-                opacity: 0.08,
+                opacity: active === i ? 0.23 : 0.08,
+                transform:
+                  active === i
+                    ? `scale(${1.045 - fadeOpacity * 0.015}) translate3d(0, ${(1 - fadeOpacity) * 10}px, 0)`
+                    : "scale(1.045)",
               }}
             />
             {/* Dark gradient overlay to ensure text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-dark-950/60 via-transparent to-dark-950/60" />
+            <div className="absolute inset-0 bg-gradient-to-b from-dark-950/70 via-dark-950/20 to-dark-950/76" />
+            <div className="whatif-image-sheen absolute inset-0" aria-hidden="true" />
 
             {/* Text content — centered with subtle rise animation */}
             <div
@@ -214,7 +211,7 @@ export default function WhatIfScroll() {
                 transform: `translateY(${active === i ? (1 - fadeOpacity) * 24 : 24}px)`,
               }}
             >
-            <div className="relative z-10 max-w-3xl text-center">
+            <div className="whatif-copy relative z-10 max-w-3xl text-center">
               {slide.type === "intro" && (
                 <p className="font-display text-3xl md:text-5xl lg:text-6xl font-bold italic text-white/50">
                   {slide.text}
@@ -238,7 +235,7 @@ export default function WhatIfScroll() {
                   </p>
                   <Link
                     href="/aerovision/dashboard"
-                    className="inline-flex items-center gap-2 text-cream-200 hover:text-white text-lg font-medium transition-colors"
+                    className="whatif-link inline-flex items-center gap-2 text-cream-200 hover:text-white text-lg font-medium transition-colors"
                   >
                     See it in action <ArrowRight size={18} />
                   </Link>
