@@ -73,7 +73,7 @@ const nextConfig: NextConfig = {
           source: "/",
           has: [{ type: "host", value: "console.mechanicalvisioncorp.com" }],
           destination:
-            "https://aerovision-mvp.vercel.app/aerovision/reliability",
+            "https://aerovision-mvp.vercel.app/aerovision/console",
         },
         {
           source: "/aerovision/:path*",
