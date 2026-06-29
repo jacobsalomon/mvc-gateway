@@ -107,6 +107,16 @@ const nextConfig: NextConfig = {
           destination:
             "https://aerovision-seed-deck.vercel.app/pitch/:path*",
         },
+        {
+          source: "/specs",
+          destination:
+            "https://aerovision-specs-site.vercel.app/specs",
+        },
+        {
+          source: "/specs/:path*",
+          destination:
+            "https://aerovision-specs-site.vercel.app/specs/:path*",
+        },
       ],
       afterFiles: [],
       fallback: [],
