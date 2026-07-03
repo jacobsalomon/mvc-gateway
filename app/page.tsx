@@ -368,12 +368,6 @@ export default function Home() {
                 >
                   Details
                 </Link>
-                <Link
-                  href="/aerovision/glasses-demo"
-                  className="flex items-center gap-2 text-white/50 hover:text-white transition-colors text-base font-medium"
-                >
-                  Explore a Demo <ArrowRight size={16} />
-                </Link>
               </div>
             </div>
           </ScrollReveal>
