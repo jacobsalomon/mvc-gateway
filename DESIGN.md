@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: MVC Gateway
-description: Cinematic industrial landing and brief system for Mechanical Vision Corporation.
+description: Cinematic industrial landing and brief system for The Mechanical Vision Corporation.
 colors:
   primary: "#0C0C0C"
   secondary: "#E6E3E0"

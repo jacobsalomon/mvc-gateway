@@ -1,12 +1,12 @@
 ---
-title: Mechanical Vision Corporation Privacy Policy
+title: The Mechanical Vision Corporation Privacy Policy
 lastUpdated: May 27, 2026
-summary: How Mechanical Vision Corporation collects, uses, stores, and shares information for its products and services.
+summary: How The Mechanical Vision Corporation collects, uses, stores, and shares information for its products and services.
 ---
 
-# Mechanical Vision Corporation Privacy Policy
+# The Mechanical Vision Corporation Privacy Policy
 
-This Privacy Policy explains how Mechanical Vision Corporation, also called "MVC," "we," "us," or "our," collects, uses, stores, discloses, and protects information when you use our websites, hosted applications, mobile applications, smart glasses capture workflows, APIs, AI features, evaluations, and related products and services, together called the "Service."
+This Privacy Policy explains how The Mechanical Vision Corporation, also called "MVC," "we," "us," or "our," collects, uses, stores, discloses, and protects information when you use our websites, hosted applications, mobile applications, smart glasses capture workflows, APIs, AI features, evaluations, and related products and services, together called the "Service."
 
 This Privacy Policy is part of our Terms of Service. If your organization has a separate written agreement with MVC, that agreement may include additional privacy, security, retention, or data processing terms.
 
@@ -161,6 +161,6 @@ Your continued use of the Service after the updated Privacy Policy takes effect 
 
 ## 17. Contact
 
-Mechanical Vision Corporation is located in Austin, Texas, United States.
+The Mechanical Vision Corporation is located in Austin, Texas, United States.
 
 Questions about this Privacy Policy may be sent to jake@mechanicalvisioncorp.com.

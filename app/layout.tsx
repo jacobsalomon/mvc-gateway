@@ -21,7 +21,7 @@ const isVercelProduction = process.env.VERCEL_ENV === "production";
 export const metadata: Metadata = {
   title: "The Mechanical Vision Corporation",
   description:
-    "Mechanical Vision Corporation builds work-capture systems for aviation maintenance teams.",
+    "The Mechanical Vision Corporation builds work-capture systems for aviation maintenance teams.",
 };
 
 export default function RootLayout({

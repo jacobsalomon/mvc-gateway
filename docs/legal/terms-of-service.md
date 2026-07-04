@@ -1,12 +1,12 @@
 ---
-title: Mechanical Vision Corporation Terms of Service
+title: The Mechanical Vision Corporation Terms of Service
 lastUpdated: May 27, 2026
-summary: Terms for using Mechanical Vision Corporation products and services.
+summary: Terms for using The Mechanical Vision Corporation products and services.
 ---
 
-# Mechanical Vision Corporation Terms of Service
+# The Mechanical Vision Corporation Terms of Service
 
-These Terms of Service are a legal agreement between you and Mechanical Vision Corporation, also called "MVC," "we," "us," or "our," for your access to and use of our websites, hosted applications, mobile applications, smart glasses capture workflows, APIs, AI features, documentation tools, evaluations, and related products and services, together called the "Service."
+These Terms of Service are a legal agreement between you and The Mechanical Vision Corporation, also called "MVC," "we," "us," or "our," for your access to and use of our websites, hosted applications, mobile applications, smart glasses capture workflows, APIs, AI features, documentation tools, evaluations, and related products and services, together called the "Service."
 
 Please read these Terms carefully. By creating an account, accepting an order form, accepting an invitation, accessing the Service, or using the Service, you agree to these Terms. If you use the Service for a company or other organization, you represent that you have authority to bind that organization, and "you" includes that organization.
 
@@ -200,6 +200,6 @@ Your continued use of the Service after updated Terms take effect means you acce
 
 ## 20. Contact
 
-The Service is provided by Mechanical Vision Corporation in Austin, Texas, United States.
+The Service is provided by The Mechanical Vision Corporation in Austin, Texas, United States.
 
 Questions about these Terms may be sent to jake@mechanicalvisioncorp.com.

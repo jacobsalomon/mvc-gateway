@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Sales Control Room | Mechanical Vision Corporation",
+  title: "Sales Control Room | The Mechanical Vision Corporation",
   description:
     "Internal MVC control room for choosing the right deck, one-pager, or field note before a sales or investor conversation.",
   robots: { index: false, follow: false },

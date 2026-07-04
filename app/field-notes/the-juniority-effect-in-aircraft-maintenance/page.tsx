@@ -81,7 +81,7 @@ export default function JuniorityFieldNotePage() {
               experienced judgment.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-white/45">
-              <span>Mechanical Vision Corporation</span>
+              <span>The Mechanical Vision Corporation</span>
               <span aria-hidden="true">/</span>
               <span>June 2026</span>
             </div>
