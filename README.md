@@ -8,7 +8,7 @@ This is the front door for The Mechanical Vision Corporation's web presence. It 
 
 1. **Landing page** at `mechanicalvisioncorp.com` with the "Free the Hands That Build" hero section
 2. **Rewrites** traffic to the two other Next.js apps:
-   - `/aerovision/*` &rarr; AeroVision MVP (product app + API)
+   - `/aerovision/*` &rarr; MechaVision MVP (product app + API)
    - `/pitch/*` &rarr; Seed Deck (investor pitch)
 3. **Domain redirects** — consolidates all domain variants:
    - `mechavisioncorp.com` (+ www) &rarr; `mechanicalvisioncorp.com`
@@ -40,7 +40,7 @@ This gateway is part of a three-app setup on one domain:
 | App | Repo | basePath | Vercel Project |
 |-----|------|----------|---------------|
 | Gateway (this) | `jacobsalomon/mvc-gateway` | (none) | mvc-gateway |
-| AeroVision MVP | `jacobsalomon/aerovision-mvp` | `/aerovision` | aerovision-mvp |
+| MechaVision MVP | `jacobsalomon/aerovision-mvp` | `/aerovision` | aerovision-mvp |
 | Seed Deck | `jacobsalomon/aerovision-seed-deck` | `/pitch` | aerovision-seed-deck |
 
 Rewrites are defined in `next.config.ts` under `beforeFiles`. All three auto-deploy from `main` via GitHub.

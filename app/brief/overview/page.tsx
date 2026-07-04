@@ -72,7 +72,7 @@ export default function BriefOverviewPage() {
   return (
     <BriefPage>
       <BriefHero
-        image="/aerovision-brief-airplane-bw.jpg"
+        image="/mechavision-brief-airplane-bw.jpg"
         imageAlt="Aircraft at an airport gate"
         headline={<>The Mechanical Vision Corporation</>}
         subhead={

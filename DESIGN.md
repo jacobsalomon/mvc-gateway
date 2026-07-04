@@ -172,4 +172,4 @@ Do not use soft SaaS gradients, purple accents, or cheerful rounded cards.
 
 Do not overload the page with feature-grid clutter. This repo sells the mission and routes the visitor onward.
 
-Do not duplicate product UI patterns from AeroVision. The gateway is the invitation, not the working cockpit.
+Do not duplicate product UI patterns from MechaVision. The gateway is the invitation, not the working cockpit.
