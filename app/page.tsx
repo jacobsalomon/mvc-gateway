@@ -47,6 +47,7 @@ export default function Home() {
           <div className="animate-fade-in-delay-2 mt-4 flex flex-col sm:flex-row items-center gap-4">
             <Link
               href="/aerovision/dashboard"
+              prefetch={false}
               className="cta-glow flex h-14 items-center justify-center rounded-sm bg-cream-200 px-8 text-lg font-medium text-dark-950 transition-all hover:bg-cream-300 hover:scale-[1.02]"
             >
               See It in Action
@@ -358,6 +359,7 @@ export default function Home() {
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   href="/aerovision/dashboard"
+                  prefetch={false}
                   className="command-button cta-glow flex h-14 items-center justify-center rounded-sm bg-cream-200 px-10 text-lg font-medium text-dark-950 transition-all hover:scale-[1.02] hover:bg-white"
                 >
                   See It in Action
