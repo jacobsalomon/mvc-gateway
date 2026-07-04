@@ -107,6 +107,28 @@ const nextConfig: NextConfig = {
           destination:
             "https://aerovision-seed-deck.vercel.app/pitch/:path*",
         },
+        // Backward-compatible media paths for an earlier /specs page version
+        // whose video and poster URLs resolved relative to the root domain.
+        {
+          source: "/demo-v2.mp4",
+          destination:
+            "https://aerovision-specs-site.vercel.app/demo-v2.mp4",
+        },
+        {
+          source: "/demo-v3.mp4",
+          destination:
+            "https://aerovision-specs-site.vercel.app/demo-v3.mp4",
+        },
+        {
+          source: "/poster-v2.jpg",
+          destination:
+            "https://aerovision-specs-site.vercel.app/poster-v2.jpg",
+        },
+        {
+          source: "/poster-v3.jpg",
+          destination:
+            "https://aerovision-specs-site.vercel.app/specs/poster-v3.jpg",
+        },
         {
           source: "/specs",
           destination:
