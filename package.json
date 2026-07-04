@@ -10,8 +10,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "validate:fast": "npm run lint",
-    "validate:release": "npm run lint && npm run build"
+    "check:rebrand-preservation": "node scripts/check-rebrand-preservation.mjs",
+    "validate:fast": "npm run check:rebrand-preservation && npm run lint",
+    "validate:release": "npm run check:rebrand-preservation && npm run lint && npm run build"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.50.0",
