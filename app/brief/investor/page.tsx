@@ -14,7 +14,7 @@ import BriefPage from "@/components/brief/BriefPage";
 export const metadata: Metadata = {
   title: "MVC Investor One-Pager",
   description:
-    "Mechanical Vision Corporation investor one-pager for AI work capture in maintenance and inspection.",
+    "MVC investor one-pager for AI work capture in maintenance and inspection.",
   robots: { index: false, follow: false },
 };
 
@@ -143,7 +143,7 @@ export default function InvestorBriefPage() {
               className="font-display uppercase text-cream-200"
               style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.28em" }}
             >
-              Mechanical Vision Corporation
+              The Mechanical Vision Corporation
             </div>
           </div>
 

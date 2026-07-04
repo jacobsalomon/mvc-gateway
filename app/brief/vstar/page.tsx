@@ -69,7 +69,7 @@ export default function VStarBriefPage() {
   return (
     <BriefPage>
       <BriefHero
-        image="/aerovision-brief-airplane-bw.jpg"
+        image="/mechavision-brief-airplane-bw.jpg"
         imageAlt="Aircraft at an airport gate"
         headline={<>MVC for V-Star Powered Lift</>}
         subhead={

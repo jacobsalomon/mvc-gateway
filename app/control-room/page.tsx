@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Sales Control Room | Mechanical Vision Corporation",
+  title: "Sales Control Room | The Mechanical Vision Corporation",
   description:
     "Internal MVC control room for choosing the right deck, one-pager, or field note before a sales or investor conversation.",
   robots: { index: false, follow: false },
@@ -53,7 +53,7 @@ const deckLinks = [
 
 const onePagerLinks = [
   {
-    label: "AeroVision prospect one-pager",
+    label: "MechaVision prospect one-pager",
     href: "/brief/aerovision",
   },
   {
@@ -76,7 +76,7 @@ const onePagerLinks = [
 
 const securityLinks = [
   {
-    label: "AeroVision Pilot IT and Security Packet",
+    label: "MechaVision Pilot IT and Security Packet",
     href: "https://app.notion.com/p/389e3aa3f83d81a08b16c20f8ee7334b",
   },
   {
@@ -257,7 +257,7 @@ export default function ControlRoomPage() {
                 href="/control-room-architecture.html"
                 className={linkClassName}
               >
-                AeroVision system architecture (end-to-end)
+                MechaVision system architecture (end-to-end)
               </a>
             </li>
           </ul>

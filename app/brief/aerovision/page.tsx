@@ -56,7 +56,7 @@ export default function MVCBriefPage() {
   return (
     <BriefPage>
       <BriefHero
-        image="/aerovision-brief-airplane-bw.jpg"
+        image="/mechavision-brief-airplane-bw.jpg"
         imageAlt="A wide-body aircraft parked at an airport terminal"
         headline={
           <>

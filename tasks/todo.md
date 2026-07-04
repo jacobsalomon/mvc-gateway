@@ -93,10 +93,10 @@ Review notes
 - Validation passed: `npm run build`
 - PR opened: https://github.com/jacobsalomon/mvc-gateway/pull/13
 
-## AeroVision Prospect One-Pager
+## MechaVision Prospect One-Pager
 
 - [x] Find the existing public one-pager pattern in the Gateway brief routes.
-- [x] Create a new prospect-facing AeroVision one-pager with Fleetcraft lessons folded into MVC's own framing.
+- [x] Create a new prospect-facing MechaVision one-pager with Fleetcraft lessons folded into MVC's own framing.
 - [x] Run lint and build validation.
 - [x] Start the local dev server.
 - [x] Visually verify the one-pager in the browser with screenshots.
@@ -105,14 +105,14 @@ Review notes
 Review notes
 - Built the prospect one-pager at `/brief/aerovision` using the same `BriefPage`, `BriefHero`, `BriefSection`, `BriefStat`, and `BriefFooter` system as the existing Gateway one-pagers.
 - Core framing captured from Fleetcraft research: reduce TAT, remove documentation drag, produce review-ready records, keep humans in control, and fit existing MRO systems.
-- Preserved MVC's sharper wedge: AeroVision glasses observe the mechanic doing normal work. The mechanic just does the job. No extra steps.
+- Preserved MVC's sharper wedge: MechaVision glasses observe the mechanic doing normal work. The mechanic just does the job. No extra steps.
 - Validation passed: `npm run lint`
 - Validation passed: `/Users/jake/bin/mvc-doctor.sh`
 - Validation passed: `npm run build`
 - Visual screenshot saved: `/Users/jake/.codex/playwright-output/aerovision-one-pager-chrome-v2.png`
 - Local preview URL: `http://localhost:3000/brief/aerovision`
 
-## AeroVision Value Proposition Tightening
+## MechaVision Value Proposition Tightening
 
 - [x] Refresh from latest main so the live one-pager is present in this worktree.
 - [x] Update the one-pager to make the three value propositions explicit: reduced turnaround time, more team output per hour, and evidence-backed auditability.
@@ -122,17 +122,17 @@ Review notes
 
 Review notes
 - Added explicit prospect-facing value propositions: TAT reduction, reduced paperwork burden, and auditability through records plus video proof of work being done.
-- Tightened product language so the mechanic starts the job normally and AeroVision glasses observe without changing the flow.
+- Tightened product language so the mechanic starts the job normally and MechaVision glasses observe without changing the flow.
 - Validation passed: `npm run lint`
 - Validation passed: `/Users/jake/bin/mvc-doctor.sh` (same App Store Connect issuer warning as before)
 - Validation passed: `npm run build`
 - Visual screenshot saved: `/Users/jake/.codex/playwright-output/aerovision-one-pager-value-props-final-local-production.png`
 - Browser tool screenshot saved: `aerovision-one-pager-value-props-playwright.png`
 
-## AeroVision One-Pager UI Polish
+## MechaVision One-Pager UI Polish
 
 - [x] Inventory current brief one-pagers.
-- [x] Run an end-to-end visual review of the AeroVision one-pager.
+- [x] Run an end-to-end visual review of the MechaVision one-pager.
 - [x] Improve spacing, hierarchy, and value-prop presentation.
 - [x] Run lint/build validation.
 - [x] Visually verify the revised page with screenshots.
@@ -140,8 +140,8 @@ Review notes
 
 Review notes
 - Current one-pagers: `/brief/overview`, `/brief/how-it-works`, and `/brief/aerovision`.
-- Visual issue found: the AeroVision page fit on one sheet, but the top and bottom spacing felt cramped and the value proposition cards used mismatched display type.
-- Reworked the AeroVision page into a calmer editorial layout: taller hero, no value-prop cards, a cleaner buyer-outcomes section, and a shorter proof section with the footer visible.
+- Visual issue found: the MechaVision page fit on one sheet, but the top and bottom spacing felt cramped and the value proposition cards used mismatched display type.
+- Reworked the MechaVision page into a calmer editorial layout: taller hero, no value-prop cards, a cleaner buyer-outcomes section, and a shorter proof section with the footer visible.
 - Validation passed: `npm run lint`
 - Validation passed: `/Users/jake/bin/mvc-doctor.sh` (same App Store Connect issuer warning as before)
 - Validation passed: `npm run build`

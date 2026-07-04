@@ -16,12 +16,12 @@ This repo should stay thin. It is not the product backend. It is not the investo
 - The landing page at `/`
 - The print-first brief pages under `/brief`
 - Domain canonicalization redirects
-- Rewrites into AeroVision and the seed deck
+- Rewrites into MechaVision and the seed deck
 - Shared marketing shell concerns like fonts, analytics, and page-level atmosphere
 
 ## What This Repo Does Not Own
 
-- AeroVision authentication, dashboard, or APIs
+- MechaVision authentication, dashboard, or APIs
 - Seed deck application logic
 - Product data, AI pipelines, or database access
 
@@ -58,7 +58,7 @@ That means routing changes are infrastructure changes, even if they look like sm
 Visitor hits mechanicalvisioncorp.com
   -> host redirect check
   -> path check
-     -> /aerovision/* rewrites to deployed AeroVision app
+     -> /aerovision/* rewrites to deployed MechaVision app
      -> /pitch/* rewrites to deployed seed deck app
      -> everything else is served by the gateway itself
 ```
@@ -137,7 +137,7 @@ Because the gateway is thin, changes here should usually be low-risk. The except
 Keep these lines sharp:
 
 - Gateway owns public messaging and navigation into the system.
-- AeroVision owns the actual product experience.
+- MechaVision owns the actual product experience.
 - Seed deck owns investor storytelling.
 
 The gateway can point people into those experiences, but it should not start recreating them locally.
@@ -153,4 +153,4 @@ The gateway can point people into those experiences, but it should not start rec
 ## Related Docs
 
 - `DESIGN.md` is the visual system brief for future UI work in this repo.
-- The AeroVision and seed deck repos own their own internal architecture.
+- The MechaVision and seed deck repos own their own internal architecture.
