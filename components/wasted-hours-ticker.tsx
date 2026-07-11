@@ -9,26 +9,41 @@ export default function WastedHoursTicker() {
   const [hours, setHours] = useState(0);
   const containerRef = useRef<HTMLElement>(null);
   const frameRef = useRef(0);
+  const intervalRef = useRef(0);
   const accumulatedRef = useRef(0);
   const visibleSinceRef = useRef(0);
 
-  const tick = useCallback(() => {
+  const update = useCallback(() => {
     const elapsed = (performance.now() - visibleSinceRef.current) / 1000;
     setHours((accumulatedRef.current + elapsed) * HOURS_PER_SECOND);
-    frameRef.current = requestAnimationFrame(tick);
   }, []);
+
+  const tick = useCallback(() => {
+    update();
+    frameRef.current = requestAnimationFrame(tick);
+  }, [update]);
 
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           visibleSinceRef.current = performance.now();
-          frameRef.current = requestAnimationFrame(tick);
+          if (prefersReduced) {
+            update();
+            intervalRef.current = window.setInterval(update, 1000);
+          } else {
+            frameRef.current = requestAnimationFrame(tick);
+          }
         } else {
           cancelAnimationFrame(frameRef.current);
+          clearInterval(intervalRef.current);
           accumulatedRef.current +=
             (performance.now() - visibleSinceRef.current) / 1000;
         }
@@ -40,8 +55,9 @@ export default function WastedHoursTicker() {
     return () => {
       observer.disconnect();
       cancelAnimationFrame(frameRef.current);
+      clearInterval(intervalRef.current);
     };
-  }, [tick]);
+  }, [tick, update]);
 
   // Format with commas and no decimals
   const formatted = Math.floor(hours).toLocaleString("en-US");
@@ -70,11 +86,14 @@ export default function WastedHoursTicker() {
         {/* The big ticking number */}
         <div
           className="font-display text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-tight tabular-nums"
-          aria-live="polite"
-          aria-atomic="true"
+          aria-hidden="true"
         >
           {formatted}
         </div>
+        <p className="sr-only">
+          Live counter estimating hours of skilled labor lost to paperwork
+          across America since you opened this page.
+        </p>
 
         <p className="mt-6 text-xl md:text-2xl text-white/60 max-w-xl mx-auto leading-relaxed">
           hours of skilled labor lost to paperwork across America
