@@ -118,27 +118,17 @@ html {
 
 /* Hero staggered entrance animations — refined expo-out easing */
 .animate-fade-in {
-  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-.animate-fade-in-delay-1 {
-  opacity: 0;
-  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-fade-in-delay-2 {
   opacity: 0;
-  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
 }
 
 .animate-fade-in-delay-3 {
   opacity: 0;
-  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
-}
-
-.animate-fade-in-delay-4 {
-  opacity: 0;
-  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
 }
 
 /* Scroll-triggered animation classes (applied by ScrollReveal) */
@@ -147,22 +137,22 @@ html {
 }
 
 .scroll-fade-in-up {
-  animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .scroll-fade-in-left {
-  animation: fade-in-left 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fade-in-left 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .scroll-fade-in-right {
-  animation: fade-in-right 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fade-in-right 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Stagger delays for scroll-triggered groups — wider spacing for drama */
-.scroll-delay-1 { animation-delay: 0.15s; }
-.scroll-delay-2 { animation-delay: 0.3s; }
-.scroll-delay-3 { animation-delay: 0.45s; }
-.scroll-delay-4 { animation-delay: 0.65s; }
+/* Tighter stagger delays for scroll-triggered groups */
+.scroll-delay-1 { animation-delay: 0.07s; }
+.scroll-delay-2 { animation-delay: 0.14s; }
+.scroll-delay-3 { animation-delay: 0.21s; }
+.scroll-delay-4 { animation-delay: 0.28s; }
 
 /* Animated grid pulse classes */
 .animate-grid-pulse {
@@ -178,26 +168,31 @@ html {
   animation: bounce-slow 2s ease-in-out infinite;
 }
 
-/* Parallax background — image scrolls slower than content */
+/* Full-bleed section background image (scrolls with content) */
 .parallax-bg {
-  background-attachment: fixed;
   background-position: center;
   background-size: cover;
 }
 
-/* Disable parallax on mobile (background-attachment: fixed is buggy on iOS) */
-@media (max-width: 768px) {
-  .parallax-bg {
-    background-attachment: scroll;
-  }
-}
-
 /* CTA button glow on hover */
 .cta-glow {
-  transition: all 0.3s ease;
+  position: relative;
 }
-.cta-glow:hover {
+.cta-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
   box-shadow: 0 0 30px rgba(230, 227, 224, 0.25), 0 0 60px rgba(230, 227, 224, 0.1);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .cta-glow:hover::after {
+    opacity: 1;
+  }
 }
 
 /* Scoped visual polish for the three review-approved homepage sections. */
@@ -242,8 +237,10 @@ html {
   transition: border-color 0.25s ease;
 }
 
-.panel-corners:hover .corner {
-  border-color: rgba(255, 255, 255, 0.34);
+@media (hover: hover) and (pointer: fine) {
+  .panel-corners:hover .corner {
+    border-color: rgba(255, 255, 255, 0.34);
+  }
 }
 
 .corner-tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
@@ -251,22 +248,31 @@ html {
 .corner-bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
 .corner-br { right: 0; bottom: 0; border-width: 0 1px 1px 0; }
 
-.stat-card-glow {
-  animation: stat-border-pulse 4.8s ease-in-out infinite;
+.stat-card-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 42px rgba(255, 255, 255, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  opacity: 0;
+  animation: stat-glow-pulse 4.8s ease-in-out infinite;
+  animation-delay: var(--glow-delay, 0s);
 }
 
-@keyframes stat-border-pulse {
-  0%, 100% {
-    box-shadow:
-      inset 0 0 24px rgba(255,255,255,0),
-      inset 0 1px 0 rgba(255,255,255,0.08),
-      0 28px 90px rgba(0,0,0,0.36);
-  }
-  50% {
-    box-shadow:
-      inset 0 0 42px rgba(255,255,255,0.04),
-      inset 0 1px 0 rgba(255,255,255,0.12),
-      0 32px 100px rgba(0,0,0,0.44);
+@keyframes stat-glow-pulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+.mobile-menu {
+  transition: opacity 180ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  @starting-style {
+    opacity: 0;
+    transform: translateY(-4px);
   }
 }
 
@@ -312,6 +318,9 @@ html {
   transition:
     opacity 700ms ease,
     transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.whatif-slide.is-active .whatif-bg {
   will-change: transform, opacity;
 }
 
@@ -322,6 +331,11 @@ html {
     linear-gradient(100deg, transparent 18%, rgba(255,255,255,0.08), transparent 42%);
   mix-blend-mode: screen;
   animation: whatif-sheen-pass 7.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  animation-play-state: paused;
+}
+
+.whatif-slide.is-active .whatif-image-sheen {
+  animation-play-state: running;
 }
 
 .whatif-copy {
@@ -353,8 +367,10 @@ html {
   transition: transform 180ms cubic-bezier(0.2, 0, 0, 1);
 }
 
-.whatif-link:hover svg {
-  transform: translateX(3px);
+@media (hover: hover) and (pointer: fine) {
+  .whatif-link:hover svg {
+    transform: translateX(3px);
+  }
 }
 
 .section-hairline {
@@ -389,21 +405,24 @@ html {
 /* Respect user preference for reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in,
-  .animate-fade-in-delay-1,
   .animate-fade-in-delay-2,
   .animate-fade-in-delay-3,
-  .animate-fade-in-delay-4,
   .scroll-fade-in-up,
   .scroll-fade-in-left,
   .scroll-fade-in-right,
   .animate-bounce-slow,
   .animate-grid-pulse,
   .animate-grid-pulse-slow,
-  .stat-card-glow,
   .whatif-image-sheen {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  /* Decorative glow rests hidden (its pulse starts at opacity 0) */
+  .stat-card-glow::after {
+    animation: none !important;
+    opacity: 0 !important;
   }
 
   .whatif-image-sheen {
@@ -421,12 +440,12 @@ html {
     transform: none !important;
   }
 
-  .scroll-hidden {
-    opacity: 1;
+  .mobile-menu {
+    transition: none;
   }
 
-  .parallax-bg {
-    background-attachment: scroll !important;
+  .scroll-hidden {
+    opacity: 1;
   }
 
   html {

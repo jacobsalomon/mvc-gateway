@@ -41,6 +41,12 @@ const publishedNotes = [
     dek: "Why the record has to answer questions months later.",
     meta: "Field Note 05",
   },
+  {
+    title: "The Best Automation Knows Where to Stop",
+    href: "/field-notes/the-best-automation-knows-where-to-stop",
+    dek: "Technology should remove the burden around skilled work—not the skilled person at its center.",
+    meta: "Field Note 06",
+  },
 ];
 
 export default function FieldNotesPage() {

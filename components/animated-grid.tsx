@@ -182,10 +182,26 @@ export default function AnimatedGrid() {
       frameRef.current = requestAnimationFrame(animate);
     };
 
-    frameRef.current = requestAnimationFrame(animate);
+    let running = false;
+    const start = () => {
+      if (running) return;
+      running = true;
+      frameRef.current = requestAnimationFrame(animate);
+    };
+    const stop = () => {
+      running = false;
+      cancelAnimationFrame(frameRef.current);
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => (entry.isIntersecting ? start() : stop()),
+      { rootMargin: "100px" }
+    );
+    observer.observe(canvas);
 
     return () => {
-      cancelAnimationFrame(frameRef.current);
+      observer.disconnect();
+      stop();
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMove);
     };

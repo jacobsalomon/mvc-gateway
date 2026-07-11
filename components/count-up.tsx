@@ -88,7 +88,7 @@ export default function CountUp({
   }, [end, prefix, suffix, decimals, duration]);
 
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={`tabular-nums ${className}`}>
       {display}
     </span>
   );
