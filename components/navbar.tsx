@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color] duration-200 ${
         scrolled
           ? "bg-dark-950/95 backdrop-blur-sm border-b border-white/10"
           : "bg-transparent"
@@ -40,7 +40,7 @@ export default function Navbar() {
         {/* Company name / wordmark */}
         <Link
           href="/"
-          className="text-lg font-bold tracking-tight text-white transition-colors duration-300"
+          className="text-lg font-bold tracking-tight text-white"
         >
           MVC
         </Link>
@@ -51,7 +51,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium transition-colors duration-300 hover:text-white ${
+              className={`text-sm font-medium transition-colors duration-150 hover:text-white ${
                 scrolled ? "text-white/70" : "text-white/80"
               }`}
             >
@@ -65,7 +65,7 @@ export default function Navbar() {
           <Link
             href="/aerovision/dashboard"
             prefetch={false}
-            className="hidden sm:inline-flex items-center rounded-sm bg-cream-200 px-5 py-2 text-sm font-medium text-dark-950 transition-all duration-300 hover:bg-cream-300"
+            className="hidden sm:inline-flex items-center rounded-sm bg-cream-200 px-5 py-2 text-sm font-medium text-dark-950 transition-colors duration-150 hover:bg-cream-300"
           >
             See It in Action
           </Link>
@@ -73,7 +73,7 @@ export default function Navbar() {
           {/* Mobile hamburger toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden text-white transition-colors duration-300"
+            className="md:hidden text-white"
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
           >
             {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -83,7 +83,7 @@ export default function Navbar() {
 
       {/* Mobile slide-down menu — dark to match the page */}
       {mobileOpen && (
-        <div className="md:hidden bg-dark-950 border-t border-white/10">
+        <div className="mobile-menu md:hidden bg-dark-950 border-t border-white/10">
           <div className="flex flex-col px-6 py-4 gap-4">
             {NAV_LINKS.map((link) => (
               <Link
