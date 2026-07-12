@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 
 // Each "What If" statement becomes a full-viewport cinematic moment.
 // The section is tall (one viewport per slide), and a sticky frame
@@ -137,12 +135,6 @@ export default function WhatIfScroll() {
             <p className="text-white/50 text-lg">
               That&rsquo;s what we&rsquo;re building.
             </p>
-            <Link
-              href="/aerovision/dashboard"
-              className="inline-flex items-center gap-2 text-cream-200 hover:text-white text-lg font-medium transition-colors"
-            >
-              See it in action <ArrowRight size={18} />
-            </Link>
           </div>
         </div>
       </section>
@@ -233,12 +225,6 @@ export default function WhatIfScroll() {
                   <p className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-white/50 leading-tight">
                     {slide.text}
                   </p>
-                  <Link
-                    href="/aerovision/dashboard"
-                    className="whatif-link inline-flex items-center gap-2 text-cream-200 hover:text-white text-lg font-medium transition-colors"
-                  >
-                    See it in action <ArrowRight size={18} />
-                  </Link>
                 </div>
               )}
             </div>
