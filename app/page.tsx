@@ -48,9 +48,14 @@ export default function Home() {
             <Link
               href="/aerovision/dashboard"
               prefetch={false}
-              className="cta-glow flex h-14 items-center justify-center rounded-sm bg-cream-200 px-8 text-lg font-medium text-dark-950 transition-all hover:bg-cream-300 hover:scale-[1.02]"
+              className="cta-glow group flex h-14 items-center justify-center gap-2 rounded-sm bg-cream-200 px-8 text-lg font-medium text-dark-950 transition-all hover:scale-[1.02] hover:bg-cream-300 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cream-200"
             >
               See It in Action
+              <ArrowRight
+                size={17}
+                aria-hidden="true"
+                className="transition-transform duration-200 group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:transform-none"
+              />
             </Link>
             <a
               href="https://calendar.app.google/ajT5d6E4c9cmU92R7"
@@ -360,9 +365,14 @@ export default function Home() {
                 <Link
                   href="/aerovision/dashboard"
                   prefetch={false}
-                  className="command-button cta-glow flex h-14 items-center justify-center rounded-sm bg-cream-200 px-10 text-lg font-medium text-dark-950 transition-all hover:scale-[1.02] hover:bg-white"
+                  className="command-button cta-glow group flex h-14 items-center justify-center gap-2 rounded-sm bg-cream-200 px-10 text-lg font-medium text-dark-950 transition-all hover:scale-[1.02] hover:bg-white active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cream-200"
                 >
                   See It in Action
+                  <ArrowRight
+                    size={17}
+                    aria-hidden="true"
+                    className="transition-transform duration-200 group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:transform-none"
+                  />
                 </Link>
                 <Link
                   href="/pitch"
