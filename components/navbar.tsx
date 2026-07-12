@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { useCurtainTransition } from "@/components/curtain-transition";
 
 const NAV_LINKS = [
   { label: "Opportunity", href: "/#opportunity" },
@@ -18,6 +19,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { navigateWithCurtain, transitioning } = useCurtainTransition();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -27,6 +29,17 @@ export default function Navbar() {
 
   // Close mobile menu on anchor link click
   const handleLinkClick = () => setMobileOpen(false);
+
+  const handleNavClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    setMobileOpen(false);
+    if (
+      href !== "/field-notes" || event.button !== 0 || event.metaKey ||
+      event.ctrlKey || event.shiftKey || event.altKey
+    ) return;
+
+    event.preventDefault();
+    navigateWithCurtain(href);
+  };
 
   return (
     <nav
@@ -51,6 +64,8 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
+              onClick={(event) => handleNavClick(event, link.href)}
+              aria-disabled={link.href === "/field-notes" && transitioning}
               className={`text-sm font-medium transition-colors duration-300 hover:text-white ${
                 scrolled ? "text-white/70" : "text-white/80"
               }`}
@@ -89,7 +104,8 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                onClick={handleLinkClick}
+                onClick={(event) => handleNavClick(event, link.href)}
+                aria-disabled={link.href === "/field-notes" && transitioning}
                 className="text-white/70 hover:text-white font-medium text-sm py-2 transition-colors"
               >
                 {link.label}
