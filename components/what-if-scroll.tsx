@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 // Each "What If" statement becomes a full-viewport cinematic moment.
 // The section is tall (one viewport per slide), and a sticky frame
@@ -156,10 +158,16 @@ export default function WhatIfScroll() {
               <span className="text-cream-200">build?</span>
             </p>
           </div>
-          <div className="mt-16">
+          <div className="mt-16 flex flex-col sm:flex-row items-start gap-4">
             <p className="text-white/50 text-lg">
               That&rsquo;s what we&rsquo;re building.
             </p>
+            <Link
+              href="/aerovision/dashboard"
+              className="inline-flex items-center gap-2 text-cream-200 hover:text-white text-lg font-medium transition-colors"
+            >
+              See it in action <ArrowRight size={18} />
+            </Link>
           </div>
         </div>
       </section>
@@ -247,10 +255,16 @@ export default function WhatIfScroll() {
                 </p>
               )}
               {slide.type === "cta" && (
-                <div>
+                <div className="flex flex-col items-center gap-8">
                   <p className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-white/50 leading-tight">
                     {slide.text}
                   </p>
+                  <Link
+                    href="/aerovision/dashboard"
+                    className="whatif-link inline-flex items-center gap-2 text-cream-200 hover:text-white text-lg font-medium transition-colors"
+                  >
+                    See it in action <ArrowRight size={18} />
+                  </Link>
                 </div>
               )}
             </div>
