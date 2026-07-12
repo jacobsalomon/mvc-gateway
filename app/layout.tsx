@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { AnalyticsHealthCheck } from "@/components/analytics-health-check";
+import { CurtainTransitionProvider } from "@/components/curtain-transition";
 import "./globals.css";
 
 const inter = Inter({
@@ -64,7 +65,7 @@ gtag('config', 'G-ENBE6GFB86');`}
         )}
       </head>
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
-        {children}
+        <CurtainTransitionProvider>{children}</CurtainTransitionProvider>
         <Analytics />
         <AnalyticsHealthCheck />
       </body>

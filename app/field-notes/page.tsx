@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import AnimatedGrid from "@/components/animated-grid";
+import CurtainLink from "@/components/curtain-link";
 import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
@@ -61,7 +61,7 @@ export default function FieldNotesPage() {
           </h1>
           <div className="mt-10 grid w-full gap-4">
             {publishedNotes.map((note) => (
-              <Link
+              <CurtainLink
                 key={note.href}
                 href={note.href}
                 className="group rounded-sm border border-white/10 bg-white/[0.035] p-7 text-left transition-colors hover:border-white/20 md:p-9"
@@ -79,7 +79,7 @@ export default function FieldNotesPage() {
                   Read Field Note{" "}
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </div>
-              </Link>
+              </CurtainLink>
             ))}
           </div>
         </div>
