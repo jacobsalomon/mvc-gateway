@@ -1,6 +1,6 @@
 ---
 title: The Mechanical Vision Corporation Terms of Service
-lastUpdated: July 11, 2026
+lastUpdated: May 27, 2026
 summary: Terms for using The Mechanical Vision Corporation products and services.
 ---
 
@@ -203,11 +203,3 @@ Your continued use of the Service after updated Terms take effect means you acce
 The Service is provided by The Mechanical Vision Corporation in Austin, Texas, United States.
 
 Questions about these Terms may be sent to jake@mechanicalvisioncorp.com.
-
-## 21. SMS Messaging
-
-You may consent to receive low-volume conversational and transactional text messages from MVC by texting START to our published SMS number. Messages may include requested assistant replies, briefings, reminders, account notifications, and support responses. Message frequency varies. Message and data rates may apply. Consent is not a condition of purchase.
-
-You may opt out at any time by replying STOP. Reply HELP for assistance. After opting out, you may reply START to opt in again. Wireless carriers are not liable for delayed or undelivered messages.
-
-MVC text messaging is not an emergency service and must not be used for urgent medical, safety, or emergency needs. See our [SMS Messaging and Opt-In Terms](/legal/sms) and [Privacy Policy](/legal/privacy) for more information.

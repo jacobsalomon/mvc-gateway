@@ -1,6 +1,6 @@
 ---
 title: The Mechanical Vision Corporation Privacy Policy
-lastUpdated: July 11, 2026
+lastUpdated: May 27, 2026
 summary: How The Mechanical Vision Corporation collects, uses, stores, and shares information for its products and services.
 ---
 
@@ -164,11 +164,3 @@ Your continued use of the Service after the updated Privacy Policy takes effect 
 The Mechanical Vision Corporation is located in Austin, Texas, United States.
 
 Questions about this Privacy Policy may be sent to jake@mechanicalvisioncorp.com.
-
-## 18. SMS Privacy
-
-If you opt in to MVC text messages, we use your mobile number, consent record, message content, and delivery data to provide the conversational and transactional messages you request, operate the service, respond to support requests, and comply with law.
-
-MVC does not sell SMS opt-in data or share it with third parties for their marketing. We may disclose it only to service providers that help deliver or support the messaging service, or when required by law. SMS opt-in consent and phone numbers are not shared with third parties or affiliates for marketing or promotional purposes.
-
-You may opt out at any time by replying STOP. Reply HELP for assistance. Additional details are available in our [SMS Messaging and Opt-In Terms](/legal/sms).

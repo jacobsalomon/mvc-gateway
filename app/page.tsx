@@ -386,9 +386,6 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <span>Jake Salomon</span>
               <span>jake@mechanicalvisioncorp.com</span>
-              <Link href="/legal/sms" className="transition-colors hover:text-white">
-                SMS
-              </Link>
               <Link href="/legal/terms" className="transition-colors hover:text-white">
                 Terms
               </Link>
