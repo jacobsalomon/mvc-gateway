@@ -1,10 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-export type LegalDocumentSlug =
-  | "terms-of-service"
-  | "privacy-policy"
-  | "sms-messaging";
+export type LegalDocumentSlug = "terms-of-service" | "privacy-policy";
 
 export type LegalDocument = {
   body: string;

@@ -167,9 +167,6 @@ export default function LegalDocumentPage({
             MVC
           </Link>
           <nav className="flex items-center gap-4 text-sm text-white/70">
-            <Link href="/legal/sms" className="transition-colors hover:text-white">
-              SMS
-            </Link>
             <Link href="/legal/terms" className="transition-colors hover:text-white">
               Terms
             </Link>
