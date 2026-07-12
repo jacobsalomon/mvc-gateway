@@ -48,7 +48,7 @@ export default function Home() {
             <Link
               href="/aerovision/dashboard"
               prefetch={false}
-              className="cta-glow flex h-14 items-center justify-center rounded-sm bg-cream-200 px-8 text-lg font-medium text-dark-950 transition-[transform,background-color] duration-200 hover:bg-cream-300 hover:scale-[1.02]"
+              className="cta-glow flex h-14 items-center justify-center rounded-sm bg-cream-200 px-8 text-lg font-medium text-dark-950 transition-all hover:bg-cream-300 hover:scale-[1.02]"
             >
               See It in Action
             </Link>
@@ -118,7 +118,7 @@ export default function Home() {
           <ScrollReveal>
             <PanelCorners
               className="control-panel stat-card-glow rounded-sm p-8 text-center"
-              style={{ "--glow-delay": "1.2s" } as React.CSSProperties}
+              style={{ animationDelay: "1.2s" }}
             >
               <div className="font-display text-6xl font-bold text-white md:text-7xl">
                 <CountUp end={1.9} suffix="M" decimals={1} />
@@ -136,7 +136,7 @@ export default function Home() {
           <ScrollReveal>
             <PanelCorners
               className="control-panel stat-card-glow rounded-sm p-8 text-center"
-              style={{ "--glow-delay": "2.4s" } as React.CSSProperties}
+              style={{ animationDelay: "2.4s" }}
             >
               <div className="font-display text-6xl font-bold text-white md:text-7xl">
                 <CountUp end={2} prefix="$" suffix="T+" />
@@ -360,13 +360,13 @@ export default function Home() {
                 <Link
                   href="/aerovision/dashboard"
                   prefetch={false}
-                  className="command-button cta-glow flex h-14 items-center justify-center rounded-sm bg-cream-200 px-10 text-lg font-medium text-dark-950 transition-[transform,background-color] duration-200 hover:scale-[1.02] hover:bg-white"
+                  className="command-button cta-glow flex h-14 items-center justify-center rounded-sm bg-cream-200 px-10 text-lg font-medium text-dark-950 transition-all hover:scale-[1.02] hover:bg-white"
                 >
                   See It in Action
                 </Link>
                 <Link
                   href="/pitch"
-                  className="secondary-command flex h-14 items-center justify-center rounded-sm border border-white/20 px-8 text-lg font-medium text-white/70 transition-colors duration-200 hover:border-white/40 hover:bg-white/[0.05]"
+                  className="secondary-command flex h-14 items-center justify-center rounded-sm border border-white/20 px-8 text-lg font-medium text-white/70 transition-all hover:border-white/40 hover:bg-white/[0.05]"
                 >
                   Details
                 </Link>

@@ -41,11 +41,8 @@ const slides = [
 
 export default function WhatIfScroll() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const bgRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const copyRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const lastActiveRef = useRef(0);
   const [active, setActive] = useState(0);
+  const [fadeOpacity, setFadeOpacity] = useState(1);
   // Start in static mode (safe for SSR + reduced motion).
   // Upgrades to scroll-driven on mount if no reduced-motion preference.
   const [isScrollDriven, setIsScrollDriven] = useState(false);
@@ -55,32 +52,6 @@ export default function WhatIfScroll() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     setIsScrollDriven(true);
-
-    const updateSlides = (idx: number, o: number) => {
-      for (let i = 0; i < slides.length; i++) {
-        const isActive = i === idx;
-        const slideElement = slideRefs.current[i];
-        const bgElement = bgRefs.current[i];
-        const copyElement = copyRefs.current[i];
-        if (slideElement) {
-          slideElement.style.opacity = isActive ? String(o) : "0";
-        }
-        if (bgElement) {
-          bgElement.style.opacity = isActive ? "0.23" : "0.08";
-          bgElement.style.transform = isActive
-            ? `scale(${1.045 - o * 0.015}) translate3d(0, ${(1 - o) * 10}px, 0)`
-            : "scale(1.045)";
-        }
-        if (copyElement) {
-          copyElement.style.transform = `translateY(${isActive ? (1 - o) * 24 : 24}px)`;
-        }
-      }
-
-      if (idx !== lastActiveRef.current) {
-        lastActiveRef.current = idx;
-        setActive(idx);
-      }
-    };
 
     const onScroll = () => {
       const el = containerRef.current;
@@ -92,13 +63,15 @@ export default function WhatIfScroll() {
 
       // Before the section: show first slide
       if (scrolled <= 0) {
-        updateSlides(0, 1);
+        setActive(0);
+        setFadeOpacity(1);
         return;
       }
 
       // Past the section: show last slide
       if (scrolled >= total) {
-        updateSlides(slides.length - 1, 1);
+        setActive(slides.length - 1);
+        setFadeOpacity(1);
         return;
       }
 
@@ -107,6 +80,8 @@ export default function WhatIfScroll() {
       const expanded = progress * slides.length;
       const idx = Math.min(Math.floor(expanded), slides.length - 1);
       const within = expanded - idx; // 0 → 1 within this slide's zone
+
+      setActive(idx);
 
       // Crossfade: fade-in over first 20%, hold, fade-out over last 20%.
       // First slide skips fade-in (visible immediately).
@@ -117,7 +92,7 @@ export default function WhatIfScroll() {
       } else if (within > 0.8 && idx < slides.length - 1) {
         o = (1 - within) / 0.2;
       }
-      updateSlides(idx, Math.max(0, Math.min(1, o)));
+      setFadeOpacity(Math.max(0, Math.min(1, o)));
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -207,22 +182,22 @@ export default function WhatIfScroll() {
         {slides.map((slide, i) => (
           <div
             key={i}
-            ref={(element) => {
-              slideRefs.current[i] = element;
+            className="absolute inset-0"
+            style={{
+              opacity: active === i ? fadeOpacity : 0,
+              pointerEvents: active === i ? "auto" : "none",
             }}
-            className={`whatif-slide absolute inset-0 ${i === active ? "is-active" : "pointer-events-none"}`}
-            style={{ opacity: i === 0 ? 1 : 0 }}
           >
             {/* Background image — low opacity atmospheric layer */}
             <div
-              ref={(element) => {
-                bgRefs.current[i] = element;
-              }}
               className="whatif-bg absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: `url('${slide.bg}')`,
-                opacity: i === 0 ? 0.23 : 0.08,
-                transform: "scale(1.045)",
+                opacity: active === i ? 0.23 : 0.08,
+                transform:
+                  active === i
+                    ? `scale(${1.045 - fadeOpacity * 0.015}) translate3d(0, ${(1 - fadeOpacity) * 10}px, 0)`
+                    : "scale(1.045)",
               }}
             />
             {/* Dark gradient overlay to ensure text readability */}
@@ -231,11 +206,10 @@ export default function WhatIfScroll() {
 
             {/* Text content — centered with subtle rise animation */}
             <div
-              ref={(element) => {
-                copyRefs.current[i] = element;
-              }}
               className="absolute inset-0 flex items-center justify-center px-8 md:px-20"
-              style={{ transform: i === 0 ? "translateY(0px)" : "translateY(24px)" }}
+              style={{
+                transform: `translateY(${active === i ? (1 - fadeOpacity) * 24 : 24}px)`,
+              }}
             >
             <div className="whatif-copy relative z-10 max-w-3xl text-center">
               {slide.type === "intro" && (
