@@ -148,3 +148,14 @@ Review notes
 - Baseline screenshot saved: `/Users/jake/.codex/playwright-output/aerovision-one-pager-ui-baseline.png`
 - Final local production screenshot saved: `/Users/jake/.codex/playwright-output/aerovision-one-pager-ui-polish-final-local-production.png`
 - Browser tool screenshot saved: `aerovision-one-pager-ui-polish-playwright.png`
+## Correct wedge core deck PDFs
+
+- [x] Regenerate the wedge and no-logos core PDFs from the 14-slide core route.
+- [x] Verify page count and visually inspect representative pages.
+- [x] Run Gateway validation.
+- [ ] Open a pull request and merge after required checks pass.
+
+Review notes
+- The deck source already defines 14 wedge core slides. The shared export helper incorrectly assumed 15 and captured the first appendix slide.
+- Both replacement PDFs contain exactly 14 pages, and representative pages 1, 2, 6, 9, and 14 passed visual inspection.
+- Validation passed: `npm run validate:fast`, `/Users/jake/bin/mvc-doctor.sh`, and `npm run build`.
