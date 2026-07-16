@@ -20,35 +20,21 @@ const pitchOrigin =
 const linkClassName =
   "text-[#0645ad] underline underline-offset-2 visited:text-[#0b0080]";
 
-// Core PDF downloads are static files generated from browser-rendered slide
-// screenshots. This avoids browser print-to-PDF differences in Apple Preview.
-function deckEntry(label: string, path: string, pdfPath: string) {
+// HARD RULE: the gateway never stores or serves investor-deck PDFs. The live
+// Seed Deck route is the source of truth, and recipient PDFs must be exported
+// from that route immediately before they are sent.
+function deckEntry(label: string, path: string) {
   return {
     label,
     href: `${pitchOrigin}${path}`,
-    actions: [
-      {
-        label: "Download core deck as PDF",
-        href: pdfPath,
-        download: true,
-      },
-    ],
   };
 }
 
 const deckLinks = [
-  deckEntry("Core Deck (wedge-first)", "/pitch", "/downloads/mvc-core-deck.pdf"),
-  deckEntry(
-    "Core Deck (wedge-first, no logos)",
-    "/pitch/no-logos",
-    "/downloads/mvc-core-deck-no-logos.pdf",
-  ),
-  deckEntry("Mission-first deck", "/pitch/mission", "/downloads/mvc-mission-deck.pdf"),
-  deckEntry(
-    "Mission-first deck (no logos)",
-    "/pitch/mission/no-logos",
-    "/downloads/mvc-mission-deck-no-logos.pdf",
-  ),
+  deckEntry("Core Deck (wedge-first)", "/pitch"),
+  deckEntry("Core Deck (wedge-first, no logos)", "/pitch/no-logos"),
+  deckEntry("Mission-first deck", "/pitch/mission"),
+  deckEntry("Mission-first deck (no logos)", "/pitch/mission/no-logos"),
 ];
 
 const onePagerLinks = [
@@ -203,6 +189,14 @@ export default function ControlRoomPage() {
         </p>
 
         <Section title="Decks">
+          <p
+            className="mb-3 border-l-4 border-[#b3261e] pl-3"
+            data-deck-source-of-truth="live-route-only"
+          >
+            These live routes are the only source of truth. Never reuse a cached
+            deck PDF. Export a fresh recipient PDF from the chosen route immediately
+            before sending it.
+          </p>
           <ul className="list-disc pl-6">
             {deckLinks.map((deck) => (
               <li key={deck.href}>
@@ -214,21 +208,6 @@ export default function ControlRoomPage() {
                 >
                   {deck.label}
                 </a>
-                <ul className="mt-1 list-disc pl-6">
-                  {deck.actions.map((action) => (
-                    <li key={action.href}>
-                      <a
-                        href={action.href}
-                        target={action.download ? undefined : "_blank"}
-                        rel={action.download ? undefined : "noreferrer"}
-                        download={action.download ? true : undefined}
-                        className={linkClassName}
-                      >
-                        {action.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
               </li>
             ))}
           </ul>

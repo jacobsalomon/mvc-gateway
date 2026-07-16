@@ -23,6 +23,7 @@ This repo should stay thin. It is not the product backend. It is not the investo
 
 - MechaVision authentication, dashboard, or APIs
 - Seed deck application logic
+- Investor-deck PDF binaries or cached deck exports
 - Product data, AI pipelines, or database access
 
 If a change starts to look like business logic, it is probably in the wrong repo.
@@ -141,6 +142,15 @@ Keep these lines sharp:
 - Seed deck owns investor storytelling.
 
 The gateway can point people into those experiences, but it should not start recreating them locally.
+
+### Deck export freshness
+
+The live Seed Deck routes under `/pitch` are the only source of truth for
+investor materials. The gateway must never store or serve a deck PDF because a
+binary export can silently outlive changes to the deck's claims, ask, or slide
+order. A recipient PDF must be freshly rendered from the selected live route
+immediately before it is sent. `npm run check:deck-source-of-truth` blocks
+cached deck PDFs and stale control-room download links from being reintroduced.
 
 ## Change Guardrails
 

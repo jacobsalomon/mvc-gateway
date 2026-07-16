@@ -7,13 +7,13 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run check:deck-source-of-truth && next build",
     "start": "next start",
     "lint": "eslint",
-    "check:deck-pdfs": "node scripts/check-deck-pdf-page-counts.mjs",
     "check:rebrand-preservation": "node scripts/check-rebrand-preservation.mjs",
-    "validate:fast": "npm run check:rebrand-preservation && npm run check:deck-pdfs && npm run lint",
-    "validate:release": "npm run check:rebrand-preservation && npm run check:deck-pdfs && npm run lint && npm run build"
+    "check:deck-source-of-truth": "node scripts/check-deck-source-of-truth.mjs",
+    "validate:fast": "npm run check:rebrand-preservation && npm run check:deck-source-of-truth && npm run lint",
+    "validate:release": "npm run check:rebrand-preservation && npm run check:deck-source-of-truth && npm run lint && npm run build"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.50.0",
