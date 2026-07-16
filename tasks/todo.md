@@ -148,6 +148,7 @@ Review notes
 - Baseline screenshot saved: `/Users/jake/.codex/playwright-output/aerovision-one-pager-ui-baseline.png`
 - Final local production screenshot saved: `/Users/jake/.codex/playwright-output/aerovision-one-pager-ui-polish-final-local-production.png`
 - Browser tool screenshot saved: `aerovision-one-pager-ui-polish-playwright.png`
+
 ## Correct wedge core deck PDFs
 
 - [x] Regenerate the wedge and no-logos core PDFs from the 14-slide core route.
@@ -159,3 +160,21 @@ Review notes
 - The deck source already defines 14 wedge core slides. The shared export helper incorrectly assumed 15 and captured the first appendix slide.
 - Both replacement PDFs contain exactly 14 pages, and representative pages 1, 2, 6, 9, and 14 passed visual inspection.
 - Validation passed: `npm run validate:fast`, `/Users/jake/bin/mvc-doctor.sh`, and `npm run build`.
+
+# Deck Download Freshness Guard
+
+- [x] Make the live `/pitch` routes the only deck source of truth in the control room.
+- [x] Remove cached investor-deck PDF links from the gateway UI.
+- [x] Add a validation guard that rejects static deck PDFs and cached PDF links.
+- [x] Delete the four cached deck PDF binaries from the gateway.
+- [x] Run focused validation and prove the guard fails when a stale PDF is present.
+- [ ] Open and merge a focused PR, then verify the production control room.
+
+Review notes
+- The gateway no longer offers a cached deck download. Recipient PDFs must be freshly exported from the selected live route immediately before sending.
+- The build now fails if a deck PDF is stored anywhere under `public/`, if a cached deck PDF link appears in the control room, or if the canonical live routes/freshness warning are removed.
+- Failure-path proof passed: the new guard rejected all four previously stored deck PDFs before they were deleted.
+- Validation passed: `/Users/jake/bin/mvc-doctor.sh`
+- Validation passed: `npm run validate:fast`
+- Validation passed: `npm run build`
+- Production-build smoke passed: the control room renders the live-route-only warning and the retired cached PDF URLs return `404`.

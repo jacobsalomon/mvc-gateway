@@ -9,6 +9,7 @@ Landing page and routing gateway for `mechanicalvisioncorp.com`. Owns the Vercel
 - **Next.js 15 only.** v16 breaks the multi-zone rewrites. Blast radius is bigger than this repo: a bad deploy here takes down routing for the product app and the pitch deck too.
 - **Never push directly to `main`.** It auto-deploys to production via Vercel. Use PRs.
 - **Run `/Users/jake/bin/mvc-doctor.sh`** before any build, deploy, or merge work.
+- **Never store or serve investor-deck PDFs from this repo.** Cached deck binaries can silently drift from the Seed Deck app. The canonical `/pitch` routes are the only source of truth, and every recipient PDF must be freshly exported from the selected live route. `npm run check:deck-source-of-truth` enforces this rule.
 - **Marketing copy follows the product language:** glasses observe, mechanic just does the job — never "narrates". Writing style rules apply (no em dashes, no semicolons, no buzzwords — see `~/AGENTS.md` → Writing Style Rules).
 - **iCloud guardrail:** canonical root is `/Users/jake/dev/Primary_OIR/MVC/mvc-gateway`. If the path resolves under `~/Desktop` or `~/Documents`, run `/Users/jake/bin/repo-preflight-icloud.sh <repo-path>` first.
 
