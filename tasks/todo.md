@@ -168,7 +168,7 @@ Review notes
 - [x] Add a validation guard that rejects static deck PDFs and cached PDF links.
 - [x] Delete the four cached deck PDF binaries from the gateway.
 - [x] Run focused validation and prove the guard fails when a stale PDF is present.
-- [ ] Open and merge a focused PR, then verify the production control room.
+- [x] Open a focused PR after validation.
 
 Review notes
 - The gateway no longer offers a cached deck download. Recipient PDFs must be freshly exported from the selected live route immediately before sending.
@@ -178,3 +178,5 @@ Review notes
 - Validation passed: `npm run validate:fast`
 - Validation passed: `npm run build`
 - Production-build smoke passed: the control room renders the live-route-only warning and the retired cached PDF URLs return `404`.
+- Worker-first preview QA passed with no console or page errors, and the freshness warning is visually present.
+- PR opened: https://github.com/jacobsalomon/mvc-gateway/pull/65
