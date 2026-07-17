@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { ArrowRight } from "lucide-react";
 
 // Each "What If" statement becomes a full-viewport cinematic moment.
 // The section is tall (one viewport per slide), and a sticky frame
@@ -131,10 +132,18 @@ export default function WhatIfScroll() {
               <span className="text-cream-200">build?</span>
             </p>
           </div>
-          <div className="mt-16 flex flex-col sm:flex-row items-start gap-4">
-            <p className="text-white/50 text-lg">
+          <div className="mt-16 flex flex-col items-start gap-6">
+            <p className="text-cream-200 text-lg">
               That&rsquo;s what we&rsquo;re building.
             </p>
+            <a
+              href="https://calendar.app.google/ajT5d6E4c9cmU92R7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whatif-link flex items-center gap-2 text-base lg:text-lg text-white/70 hover:text-white transition-colors"
+            >
+              Get in Touch <ArrowRight size={16} aria-hidden="true" />
+            </a>
           </div>
         </div>
       </section>
@@ -222,9 +231,17 @@ export default function WhatIfScroll() {
               )}
               {slide.type === "cta" && (
                 <div className="flex flex-col items-center gap-8">
-                  <p className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-white/50 leading-tight">
+                  <p className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-cream-200 leading-tight">
                     {slide.text}
                   </p>
+                  <a
+                    href="https://calendar.app.google/ajT5d6E4c9cmU92R7"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="whatif-link flex items-center gap-2 text-base lg:text-lg text-white/70 hover:text-white transition-colors"
+                  >
+                    Get in Touch <ArrowRight size={16} aria-hidden="true" />
+                  </a>
                 </div>
               )}
             </div>

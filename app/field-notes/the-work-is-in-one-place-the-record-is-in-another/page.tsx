@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "The Work Is in One Place. The Record Is in Another. | Field Notes",
   description:
     "A founder-led Field Note from MVC on why context switching between physical maintenance work and digital records drains MRO capacity.",
+  openGraph: {
+    title: "The Work Is in One Place. The Record Is in Another. | Field Notes",
+    description:
+      "A founder-led Field Note from MVC on why context switching between physical maintenance work and digital records drains MRO capacity.",
+  },
 };
 
 export default function WorkAndRecordFieldNotePage() {

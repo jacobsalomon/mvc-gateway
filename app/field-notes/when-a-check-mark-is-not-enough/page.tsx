@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "When a Check Mark Is Not Enough | Field Notes",
   description:
     "A founder-led Field Note from MVC on why completed maintenance steps do not always preserve enough evidence to explain the decision later.",
+  openGraph: {
+    title: "When a Check Mark Is Not Enough | Field Notes",
+    description:
+      "A founder-led Field Note from MVC on why completed maintenance steps do not always preserve enough evidence to explain the decision later.",
+  },
 };
 
 export default function CheckMarkFieldNotePage() {
