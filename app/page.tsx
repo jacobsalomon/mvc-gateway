@@ -273,6 +273,7 @@ export default function Home() {
           <h2 className="text-center font-display text-4xl md:text-6xl font-bold text-white tracking-tight">
             We Believe the Work
             <br className="hidden md:block" />
+            {" "}
             Should Document Itself
           </h2>
         </ScrollReveal>

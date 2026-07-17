@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "The Juniority Effect in Aircraft Maintenance | Field Notes",
   description:
     "A founder-led Field Note from MVC on why replacing technician headcount does not immediately replace experienced maintenance capacity.",
+  openGraph: {
+    title: "The Juniority Effect in Aircraft Maintenance | Field Notes",
+    description:
+      "A founder-led Field Note from MVC on why replacing technician headcount does not immediately replace experienced maintenance capacity.",
+  },
 };
 
 const sources = [

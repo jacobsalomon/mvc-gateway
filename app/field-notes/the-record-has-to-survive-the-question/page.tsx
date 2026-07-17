@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "The Record Has to Survive the Question | Field Notes",
   description:
     "A founder-led Field Note from MVC on why MRO auditability depends on records that can answer questions months after the job closes.",
+  openGraph: {
+    title: "The Record Has to Survive the Question | Field Notes",
+    description:
+      "A founder-led Field Note from MVC on why MRO auditability depends on records that can answer questions months after the job closes.",
+  },
 };
 
 export default function RecordSurvivesQuestionFieldNotePage() {

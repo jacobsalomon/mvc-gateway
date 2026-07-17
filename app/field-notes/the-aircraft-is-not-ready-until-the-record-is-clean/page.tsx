@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "The Aircraft Is Not Ready Until the Record Is Clean | Field Notes",
   description:
     "A founder-led Field Note from MVC on why MRO labor pressure is becoming a capacity problem, not just a hiring problem.",
+  openGraph: {
+    title: "The Aircraft Is Not Ready Until the Record Is Clean | Field Notes",
+    description:
+      "A founder-led Field Note from MVC on why MRO labor pressure is becoming a capacity problem, not just a hiring problem.",
+  },
 };
 
 const sources = [
