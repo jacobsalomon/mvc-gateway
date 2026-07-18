@@ -37,6 +37,24 @@ function deckEntry(label: string, path: string, pdfPath: string) {
 }
 
 const deckLinks = [
+  // Customer-facing deck (generic, reusable across MRO prospects). No PDF
+  // download yet — the reused cost slide lacks a print fallback, so keep it a
+  // view-only link until that's fixed.
+  {
+    label: "Customer deck (generic)",
+    href: `${pitchOrigin}/pitch/customer`,
+    actions: [] as { label: string; href: string; download?: boolean }[],
+  },
+  {
+    label: "Customer deck — American Airlines",
+    href: `${pitchOrigin}/pitch/american`,
+    actions: [] as { label: string; href: string; download?: boolean }[],
+  },
+  {
+    label: "Customer deck — United",
+    href: `${pitchOrigin}/pitch/united`,
+    actions: [] as { label: string; href: string; download?: boolean }[],
+  },
   deckEntry("Core Deck (wedge-first)", "/pitch", "/downloads/mvc-core-deck.pdf"),
   deckEntry(
     "Core Deck (wedge-first, no logos)",
