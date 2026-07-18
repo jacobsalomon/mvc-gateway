@@ -229,6 +229,16 @@ export default function ControlRoomPage() {
           </ul>
         </Section>
 
+        <Section title="Operations">
+          <ul className="list-disc pl-6">
+            <li>
+              <ExternalLink href="https://mechanicalvisioncorp.com/aerovision/console">
+                MVC Employee Console
+              </ExternalLink>
+            </li>
+          </ul>
+        </Section>
+
         <Section title="Architecture">
           <ul className="list-disc pl-6">
             <li>
