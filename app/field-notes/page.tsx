@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import AnimatedGrid from "@/components/animated-grid";
-import CurtainLink from "@/components/curtain-link";
 import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
   title: "Field Notes | The Mechanical Vision Corporation",
   description:
     "Field Notes from The Mechanical Vision Corporation on aviation maintenance, MRO labor pressure, documentation, and work capture.",
-  openGraph: {
-    title: "Field Notes | The Mechanical Vision Corporation",
-    description:
-      "Field Notes from The Mechanical Vision Corporation on aviation maintenance, MRO labor pressure, documentation, and work capture.",
-  },
 };
 
 const publishedNotes = [
@@ -46,6 +41,12 @@ const publishedNotes = [
     dek: "Why the record has to answer questions months later.",
     meta: "Field Note 05",
   },
+  {
+    title: "The Best Automation Knows Where to Stop",
+    href: "/field-notes/the-best-automation-knows-where-to-stop",
+    dek: "Technology should remove the burden around skilled work—not the skilled person at its center.",
+    meta: "Field Note 06",
+  },
 ];
 
 export default function FieldNotesPage() {
@@ -66,7 +67,7 @@ export default function FieldNotesPage() {
           </h1>
           <div className="mt-10 grid w-full gap-4">
             {publishedNotes.map((note) => (
-              <CurtainLink
+              <Link
                 key={note.href}
                 href={note.href}
                 className="group rounded-sm border border-white/10 bg-white/[0.035] p-7 text-left transition-colors hover:border-white/20 md:p-9"
@@ -84,7 +85,7 @@ export default function FieldNotesPage() {
                   Read Field Note{" "}
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </div>
-              </CurtainLink>
+              </Link>
             ))}
           </div>
         </div>
