@@ -87,6 +87,32 @@ const nextConfig: NextConfig = {
           destination:
             "https://aerovision-mvp.vercel.app/aerovision/:path*",
         },
+        // Hosted dev must never proxy to Production. These rules intentionally
+        // precede the unscoped Production rewrites below.
+        {
+          source: "/aerovision",
+          has: [{ type: "host", value: "dev.mechanicalvisioncorp.com" }],
+          destination:
+            "https://aerovision-mvp-env-dev-mechavision.vercel.app/aerovision",
+        },
+        {
+          source: "/aerovision/:path*",
+          has: [{ type: "host", value: "dev.mechanicalvisioncorp.com" }],
+          destination:
+            "https://aerovision-mvp-env-dev-mechavision.vercel.app/aerovision/:path*",
+        },
+        {
+          source: "/pitch",
+          has: [{ type: "host", value: "dev.mechanicalvisioncorp.com" }],
+          destination:
+            "https://aerovision-seed-deck-env-dev-mechavision.vercel.app/pitch",
+        },
+        {
+          source: "/pitch/:path*",
+          has: [{ type: "host", value: "dev.mechanicalvisioncorp.com" }],
+          destination:
+            "https://aerovision-seed-deck-env-dev-mechavision.vercel.app/pitch/:path*",
+        },
         {
           source: "/aerovision",
           destination:
