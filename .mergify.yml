@@ -1,0 +1,42 @@
+# Serial, label-controlled merge queue. Main deploys to Production, so apply
+# merge-when-ready only after the gateway has been reviewed and built.
+merge_queue:
+  mode: serial
+  max_parallel_checks: 1
+  queued_label: merge-queued
+  dequeued_label: merge-blocked
+  status_comments: outcomes
+
+merge_protections_settings:
+  reporting_method: check-runs
+  post_comment: true
+  auto_merge_conditions:
+    - label = merge-when-ready
+    - -mergify-configuration-changed
+
+merge_protections:
+  - name: Pull request is approved and mergeable
+    if:
+      - base = main
+    success_conditions:
+      - label = merge-when-ready
+      - -draft
+      - -conflict
+
+pull_request_rules:
+  - name: queue ready pull requests
+    conditions:
+      - base = main
+      - label = merge-when-ready
+      - -mergify-configuration-changed
+      - -draft
+      - -conflict
+    actions:
+      queue:
+
+queue_rules:
+  - name: main-serial
+    queue_conditions:
+      - base = main
+    batch_size: 1
+    merge_method: squash
