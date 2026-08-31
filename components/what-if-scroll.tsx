@@ -42,6 +42,9 @@ export default function WhatIfScroll() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const [fadeOpacity, setFadeOpacity] = useState(1);
+  const activeRef = useRef(0);
+  const fadeOpacityRef = useRef(1);
+  const scrollFrameRef = useRef(0);
   // Start in static mode (safe for SSR + reduced motion).
   // Upgrades to scroll-driven on mount if no reduced-motion preference.
   const [isScrollDriven, setIsScrollDriven] = useState(false);
@@ -52,7 +55,8 @@ export default function WhatIfScroll() {
 
     setIsScrollDriven(true);
 
-    const onScroll = () => {
+    const updateFromScroll = () => {
+      scrollFrameRef.current = 0;
       const el = containerRef.current;
       if (!el) return;
 
@@ -62,15 +66,15 @@ export default function WhatIfScroll() {
 
       // Before the section: show first slide
       if (scrolled <= 0) {
-        setActive(0);
-        setFadeOpacity(1);
+        updateActive(0);
+        updateFadeOpacity(1);
         return;
       }
 
       // Past the section: show last slide
       if (scrolled >= total) {
-        setActive(slides.length - 1);
-        setFadeOpacity(1);
+        updateActive(slides.length - 1);
+        updateFadeOpacity(1);
         return;
       }
 
@@ -80,7 +84,7 @@ export default function WhatIfScroll() {
       const idx = Math.min(Math.floor(expanded), slides.length - 1);
       const within = expanded - idx; // 0 → 1 within this slide's zone
 
-      setActive(idx);
+      updateActive(idx);
 
       // Crossfade: fade-in over first 20%, hold, fade-out over last 20%.
       // First slide skips fade-in (visible immediately).
@@ -91,12 +95,36 @@ export default function WhatIfScroll() {
       } else if (within > 0.8 && idx < slides.length - 1) {
         o = (1 - within) / 0.2;
       }
-      setFadeOpacity(Math.max(0, Math.min(1, o)));
+      updateFadeOpacity(Math.max(0, Math.min(1, o)));
+    };
+
+    const updateActive = (nextActive: number) => {
+      if (activeRef.current === nextActive) return;
+      activeRef.current = nextActive;
+      setActive(nextActive);
+    };
+
+    const updateFadeOpacity = (nextOpacity: number) => {
+      if (fadeOpacityRef.current === nextOpacity) return;
+      fadeOpacityRef.current = nextOpacity;
+      setFadeOpacity(nextOpacity);
+    };
+
+    const onScroll = () => {
+      if (scrollFrameRef.current === 0) {
+        scrollFrameRef.current = requestAnimationFrame(updateFromScroll);
+      }
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+    updateFromScroll();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (scrollFrameRef.current !== 0) {
+        cancelAnimationFrame(scrollFrameRef.current);
+        scrollFrameRef.current = 0;
+      }
+    };
   }, []);
 
   // ── Reduced-motion fallback: stacked paragraphs (matches original layout) ──
@@ -180,74 +208,80 @@ export default function WhatIfScroll() {
         </div>
 
         {/* Slides — stacked via absolute positioning, crossfade on scroll */}
-        {slides.map((slide, i) => (
-          <div
-            key={i}
-            className="absolute inset-0"
-            style={{
-              opacity: active === i ? fadeOpacity : 0,
-              pointerEvents: active === i ? "auto" : "none",
-            }}
-          >
-            {/* Background image — low opacity atmospheric layer */}
-            <div
-              className="whatif-bg absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url('${slide.bg}')`,
-                opacity: active === i ? 0.23 : 0.08,
-                transform:
-                  active === i
-                    ? `scale(${1.045 - fadeOpacity * 0.015}) translate3d(0, ${(1 - fadeOpacity) * 10}px, 0)`
-                    : "scale(1.045)",
-              }}
-            />
-            {/* Dark gradient overlay to ensure text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-dark-950/70 via-dark-950/20 to-dark-950/76" />
-            <div className="whatif-image-sheen absolute inset-0" aria-hidden="true" />
+        {slides.map((slide, i) => {
+          const shouldMountBackground = Math.abs(active - i) <= 1;
 
-            {/* Text content — centered with subtle rise animation */}
+          return (
             <div
-              className="absolute inset-0 flex items-center justify-center px-8 md:px-20"
+              key={i}
+              className="absolute inset-0"
               style={{
-                transform: `translateY(${active === i ? (1 - fadeOpacity) * 24 : 24}px)`,
+                opacity: active === i ? fadeOpacity : 0,
+                pointerEvents: active === i ? "auto" : "none",
               }}
             >
-            <div className="whatif-copy relative z-10 max-w-3xl text-center">
-              {slide.type === "intro" && (
-                <p className="font-display text-3xl md:text-5xl lg:text-6xl font-bold italic text-white/50">
-                  {slide.text}
-                </p>
+              {/* Background image — low opacity atmospheric layer */}
+              {shouldMountBackground && (
+                <div
+                  className="whatif-bg absolute inset-0 bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url('${slide.bg}')`,
+                    opacity: active === i ? 0.23 : 0.08,
+                    transform:
+                      active === i
+                        ? `scale(${1.045 - fadeOpacity * 0.015}) translate3d(0, ${(1 - fadeOpacity) * 10}px, 0)`
+                        : "scale(1.045)",
+                  }}
+                />
               )}
-              {slide.type === "statement" && (
-                <p className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                  {slide.text}
-                </p>
-              )}
-              {slide.type === "final" && (
-                <p className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-white/90 leading-tight">
-                  {slide.text}
-                  <span className="text-cream-200">{slide.highlight}</span>
-                </p>
-              )}
-              {slide.type === "cta" && (
-                <div className="flex flex-col items-center gap-8">
-                  <p className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-cream-200 leading-tight">
-                    {slide.text}
-                  </p>
-                  <a
-                    href="https://calendar.app.google/ajT5d6E4c9cmU92R7"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="whatif-link flex items-center gap-2 text-base lg:text-lg text-white/70 hover:text-white transition-colors"
-                  >
-                    Get in Touch <ArrowRight size={16} aria-hidden="true" />
-                  </a>
+              {/* Dark gradient overlay to ensure text readability */}
+              <div className="absolute inset-0 bg-gradient-to-b from-dark-950/70 via-dark-950/20 to-dark-950/76" />
+              <div className="whatif-image-sheen absolute inset-0" aria-hidden="true" />
+
+              {/* Text content — centered with subtle rise animation */}
+              <div
+                className="absolute inset-0 flex items-center justify-center px-8 md:px-20"
+                style={{
+                  transform: `translateY(${active === i ? (1 - fadeOpacity) * 24 : 24}px)`,
+                }}
+              >
+                <div className="whatif-copy relative z-10 max-w-3xl text-center">
+                  {slide.type === "intro" && (
+                    <p className="font-display text-3xl md:text-5xl lg:text-6xl font-bold italic text-white/50">
+                      {slide.text}
+                    </p>
+                  )}
+                  {slide.type === "statement" && (
+                    <p className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                      {slide.text}
+                    </p>
+                  )}
+                  {slide.type === "final" && (
+                    <p className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-white/90 leading-tight">
+                      {slide.text}
+                      <span className="text-cream-200">{slide.highlight}</span>
+                    </p>
+                  )}
+                  {slide.type === "cta" && (
+                    <div className="flex flex-col items-center gap-8">
+                      <p className="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-cream-200 leading-tight">
+                        {slide.text}
+                      </p>
+                      <a
+                        href="https://calendar.app.google/ajT5d6E4c9cmU92R7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="whatif-link flex items-center gap-2 text-base lg:text-lg text-white/70 hover:text-white transition-colors"
+                      >
+                        Get in Touch <ArrowRight size={16} aria-hidden="true" />
+                      </a>
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
             </div>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

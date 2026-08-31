@@ -37,15 +37,15 @@ This is the front door for The Mechanical Vision Corporation's web presence. It 
 
 This gateway is part of a three-app setup on one domain:
 
-| App | Repo | basePath | Vercel Project |
-|-----|------|----------|---------------|
-| Gateway (this) | `jacobsalomon/mvc-gateway` | (none) | mvc-gateway |
-| MechaVision MVP | `jacobsalomon/aerovision-mvp` | `/aerovision` | aerovision-mvp |
-| Seed Deck | `jacobsalomon/aerovision-seed-deck` | `/pitch` | aerovision-seed-deck |
+| App | Repo | Next.js | basePath | Vercel Project |
+|-----|------|---------|----------|---------------|
+| Gateway (this) | `jacobsalomon/mvc-gateway` | 15 | (none) | mvc-gateway |
+| MechaVision MVP | `jacobsalomon/aerovision-mvp` | 16 | `/aerovision` | aerovision-mvp |
+| Seed Deck | `jacobsalomon/aerovision-seed-deck` | 15 | `/pitch` | aerovision-seed-deck |
 
 Rewrites are defined in `next.config.ts` under `beforeFiles`. All three auto-deploy from `main` via GitHub.
 
-**All three MVC projects must stay on Next.js 15.** Version 16 causes rewrite loops in this multi-zone setup.
+The gateway and Seed Deck remain on Next.js 15; the MechaVision MVP runs Next.js 16. Routing behavior is protected by executable host/path contract tests in this repository.
 
 ## Development
 
