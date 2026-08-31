@@ -41,6 +41,9 @@ export default function AnimatedGrid() {
     // Dots stored as a flat array: [baseX, baseY] pairs
     let cols = 0;
     let rows = 0;
+    let positions = new Float32Array(0);
+    let isIntersecting = false;
+    let isDocumentVisible = document.visibilityState === "visible";
 
     // Resize canvas to match its CSS size at the device pixel ratio
     const resize = () => {
@@ -52,6 +55,7 @@ export default function AnimatedGrid() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       cols = Math.ceil(width / SPACING) + 1;
       rows = Math.ceil(height / SPACING) + 1;
+      positions = new Float32Array(cols * rows * 2);
     };
     resize();
     window.addEventListener("resize", resize);
@@ -70,16 +74,47 @@ export default function AnimatedGrid() {
     };
     window.addEventListener("mousemove", onMove);
 
+    const drawConnection = (
+      fromIndex: number,
+      toIndex: number,
+      mouseX: number,
+      mouseY: number
+    ) => {
+      const x1 = positions[fromIndex];
+      const y1 = positions[fromIndex + 1];
+      const x2 = positions[toIndex];
+      const y2 = positions[toIndex + 1];
+      const lineX = x2 - x1;
+      const lineY = y2 - y1;
+      const lineDistance = Math.sqrt(lineX * lineX + lineY * lineY);
+
+      if (lineDistance >= LINE_DIST) return;
+
+      let opacity = 0.06 * (1 - lineDistance / LINE_DIST);
+      const midX = (x1 + x2) / 2;
+      const midY = (y1 + y2) / 2;
+      const mouseDistance = Math.sqrt(
+        (midX - mouseX) * (midX - mouseX) +
+          (midY - mouseY) * (midY - mouseY)
+      );
+      if (mouseDistance < MOUSE_RADIUS) {
+        opacity += 0.1 * (1 - mouseDistance / MOUSE_RADIUS);
+      }
+
+      ctx.strokeStyle = `rgba(255,255,255,${opacity})`;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+    };
+
     // ── Animation loop ────────────────────────────────────
     const animate = (time: number) => {
+      frameRef.current = 0;
       ctx.clearRect(0, 0, width, height);
 
       const mx = mouseRef.current.x;
       const my = mouseRef.current.y;
-
-      // Pre-compute displaced dot positions into a flat array
-      // Index = row * cols + col, each entry = { x, y }
-      const positions = new Float32Array(cols * rows * 2);
 
       for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
@@ -111,47 +146,17 @@ export default function AnimatedGrid() {
 
       // ── Draw lines between neighboring dots ──────────
       ctx.lineWidth = 0.5;
-      const neighbors: number[] = [];
       for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
           const idx = (row * cols + col) * 2;
-          const x1 = positions[idx];
-          const y1 = positions[idx + 1];
-
-          neighbors.length = 0;
-          if (col < cols - 1) neighbors.push((row * cols + col + 1) * 2);
-          if (row < rows - 1) neighbors.push(((row + 1) * cols + col) * 2);
-          // Diagonal (bottom-right) for richer connections
-          if (col < cols - 1 && row < rows - 1)
-            neighbors.push(((row + 1) * cols + col + 1) * 2);
-
-          for (const nIdx of neighbors) {
-            const x2 = positions[nIdx];
-            const y2 = positions[nIdx + 1];
-            const ldx = x2 - x1;
-            const ldy = y2 - y1;
-            const lineDist = Math.sqrt(ldx * ldx + ldy * ldy);
-
-            if (lineDist < LINE_DIST) {
-              // Base opacity fades with distance between dots
-              let opacity = 0.06 * (1 - lineDist / LINE_DIST);
-
-              // Boost opacity near the mouse
-              const midX = (x1 + x2) / 2;
-              const midY = (y1 + y2) / 2;
-              const mDist = Math.sqrt(
-                (midX - mx) * (midX - mx) + (midY - my) * (midY - my)
-              );
-              if (mDist < MOUSE_RADIUS) {
-                opacity += 0.1 * (1 - mDist / MOUSE_RADIUS);
-              }
-
-              ctx.strokeStyle = `rgba(255,255,255,${opacity})`;
-              ctx.beginPath();
-              ctx.moveTo(x1, y1);
-              ctx.lineTo(x2, y2);
-              ctx.stroke();
-            }
+          if (col < cols - 1) {
+            drawConnection(idx, (row * cols + col + 1) * 2, mx, my);
+          }
+          if (row < rows - 1) {
+            drawConnection(idx, ((row + 1) * cols + col) * 2, mx, my);
+          }
+          if (col < cols - 1 && row < rows - 1) {
+            drawConnection(idx, ((row + 1) * cols + col + 1) * 2, mx, my);
           }
         }
       }
@@ -179,13 +184,47 @@ export default function AnimatedGrid() {
         }
       }
 
-      frameRef.current = requestAnimationFrame(animate);
+      if (isIntersecting && isDocumentVisible) {
+        frameRef.current = requestAnimationFrame(animate);
+      }
     };
 
-    frameRef.current = requestAnimationFrame(animate);
+    const stopAnimation = () => {
+      if (frameRef.current !== 0) {
+        cancelAnimationFrame(frameRef.current);
+        frameRef.current = 0;
+      }
+    };
+
+    const syncAnimation = () => {
+      if (isIntersecting && isDocumentVisible) {
+        if (frameRef.current === 0) {
+          frameRef.current = requestAnimationFrame(animate);
+        }
+      } else {
+        stopAnimation();
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isIntersecting = entry.isIntersecting;
+        syncAnimation();
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(canvas);
+
+    const onVisibilityChange = () => {
+      isDocumentVisible = document.visibilityState === "visible";
+      syncAnimation();
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
 
     return () => {
-      cancelAnimationFrame(frameRef.current);
+      stopAnimation();
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", onVisibilityChange);
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMove);
     };

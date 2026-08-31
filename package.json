@@ -2,6 +2,7 @@
   "name": "mvc-gateway",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "engines": {
     "node": ">=20 <25"
   },
@@ -13,8 +14,10 @@
     "check:rebrand-preservation": "node scripts/check-rebrand-preservation.mjs",
     "check:deck-source-of-truth": "node scripts/check-deck-source-of-truth.mjs",
     "check:rewrite-ordering": "node scripts/check-rewrite-ordering.mjs",
-    "validate:fast": "npm run check:rebrand-preservation && npm run check:deck-source-of-truth && npm run check:rewrite-ordering && npm run lint",
-    "validate:release": "npm run check:rebrand-preservation && npm run check:deck-source-of-truth && npm run check:rewrite-ordering && npm run lint && npm run build"
+    "test": "node --test tests/*.test.mjs",
+    "test:routing": "node --test tests/routing-contracts.test.mjs",
+    "validate:fast": "npm run check:rebrand-preservation && npm run check:deck-source-of-truth && npm run check:rewrite-ordering && npm test && npm run lint",
+    "validate:release": "npm run validate:fast && npm run build"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.50.0",
